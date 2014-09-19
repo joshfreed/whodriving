@@ -14,6 +14,8 @@
 		53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53098A7D19CBE60E00274FEE /* Images.xcassets */; };
 		53098A8119CBE60E00274FEE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53098A7F19CBE60E00274FEE /* LaunchScreen.xib */; };
 		53098A8D19CBE60E00274FEE /* whodrivingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A8C19CBE60E00274FEE /* whodrivingTests.m */; };
+		53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9719CBF57200274FEE /* AddDriverViewController.m */; };
+		53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		53098A8619CBE60E00274FEE /* whodrivingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whodrivingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53098A8B19CBE60E00274FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53098A8C19CBE60E00274FEE /* whodrivingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whodrivingTests.m; sourceTree = "<group>"; };
+		53098A9619CBF57200274FEE /* AddDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDriverViewController.h; sourceTree = "<group>"; };
+		53098A9719CBF57200274FEE /* AddDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDriverViewController.m; sourceTree = "<group>"; };
+		53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDriversTableViewController.h; sourceTree = "<group>"; };
+		53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDriversTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,10 @@
 				53098A7D19CBE60E00274FEE /* Images.xcassets */,
 				53098A7F19CBE60E00274FEE /* LaunchScreen.xib */,
 				53098A7019CBE60E00274FEE /* Supporting Files */,
+				53098A9619CBF57200274FEE /* AddDriverViewController.h */,
+				53098A9719CBF57200274FEE /* AddDriverViewController.m */,
+				53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */,
+				53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -219,8 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */,
 				53098A7919CBE60E00274FEE /* ViewController.m in Sources */,
 				53098A7619CBE60E00274FEE /* AppDelegate.m in Sources */,
+				53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */,
 				53098A7319CBE60E00274FEE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
