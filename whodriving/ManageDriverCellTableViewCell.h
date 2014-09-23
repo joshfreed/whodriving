@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Driver.h"
 
 @interface ManageDriverCellTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *driverName;
 @property (nonatomic, weak) IBOutlet UILabel *numPassengers;
 @property (nonatomic, weak) IBOutlet UIStepper *passengerStepper;
+@property Driver *driver;
 
 @end

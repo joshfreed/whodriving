@@ -29,7 +29,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.drivers = [[NSMutableArray alloc] init];
-    
     Driver *driver1 = [[Driver alloc] init];
     driver1.driverName = @"Fred";
     [self.drivers addObject:driver1];
@@ -67,9 +66,12 @@
     ManageDriverCellTableViewCell *cell = (ManageDriverCellTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
     Driver *driver = [self.drivers objectAtIndex:indexPath.row];
-    cell.driverName.text = driver.driverName;
-    cell.numPassengers.text = (NSString*)driver.numberOfPassengers;
-    cell.passengerStepper.value = driver.numberOfPassengers.doubleValue;
+    if (cell.driver == nil) {
+        cell.driver = driver;
+        cell.driverName.text = driver.driverName;
+        cell.numPassengers.text = (NSString*)driver.numberOfPassengers;
+        cell.passengerStepper.value = driver.numberOfPassengers.doubleValue;
+    }
     return cell;
 }
 

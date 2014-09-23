@@ -23,6 +23,7 @@
 - (IBAction)valueChanged:(UIStepper *)sender
 {
     numPassengers.text = [NSString stringWithFormat:@"%g", sender.value];
+    [self.driver setNumPassengers:sender.value];
 }
 
 @synthesize driverName, numPassengers, passengerStepper;

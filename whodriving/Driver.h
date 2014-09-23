@@ -14,4 +14,6 @@
 @property NSNumber *numberOfPassengers;
 @property BOOL enabled;
 
+- (void)setNumPassengers:(double)numPassengers;
+
 @end

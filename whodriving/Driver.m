@@ -10,4 +10,9 @@
 
 @implementation Driver
 
+- (void)setNumPassengers:(double)numPassengers {
+    NSNumber *theNum = [NSNumber numberWithDouble:numPassengers];
+    self.numberOfPassengers = theNum;
+}
+
 @end
