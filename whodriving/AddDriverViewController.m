@@ -10,6 +10,10 @@
 
 @interface AddDriverViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *driverName;
+@property (weak, nonatomic) IBOutlet UITextField *numPassengers;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+
 @end
 
 @implementation AddDriverViewController
@@ -23,6 +27,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (sender != self.doneButton) return;
+    
+    self.driver = [[Driver alloc] init];
+    self.driver.driverName = self.driverName.text;
+    self.driver.numberOfPassengers = (NSNumber*)self.numPassengers.text;
+}
+
 
 /*
 #pragma mark - Navigation

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Driver.h"
 
 @interface AddDriverViewController : UIViewController
+
+@property Driver *driver;
 
 @end

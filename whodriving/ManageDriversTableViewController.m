@@ -7,8 +7,13 @@
 //
 
 #import "ManageDriversTableViewController.h"
+#import "Driver.h"
+#import "ManageDriverCellTableViewCell.h"
+#import "AddDriverViewController.h"
 
 @interface ManageDriversTableViewController ()
+
+@property NSMutableArray *drivers;
 
 @end
 
@@ -22,6 +27,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.drivers = [[NSMutableArray alloc] init];
+    
+    Driver *driver1 = [[Driver alloc] init];
+    driver1.driverName = @"Fred";
+    [self.drivers addObject:driver1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,38 +40,38 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue
+{
+    AddDriverViewController *source = [segue sourceViewController];
+    Driver *driver = source.driver;
+    if (driver != nil) {
+        [self.drivers addObject:driver];
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.drivers count];
 }
 
-
-
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"hello am I here??");
-}
-
-
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    ManageDriverCellTableViewCell *cell = (ManageDriverCellTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    Driver *driver = [self.drivers objectAtIndex:indexPath.row];
+    cell.driverName.text = driver.driverName;
+    cell.numPassengers.text = (NSString*)driver.numberOfPassengers;
+    cell.passengerStepper.value = driver.numberOfPassengers.doubleValue;
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
