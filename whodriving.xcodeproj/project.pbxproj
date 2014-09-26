@@ -17,7 +17,8 @@
 		53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9719CBF57200274FEE /* AddDriverViewController.m */; };
 		53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */; };
 		536B740419CE082B000F86D5 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 536B740319CE082B000F86D5 /* Driver.m */; };
-		53E43C6C19D0F61700EE28D0 /* ManageDriverCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E43C6B19D0F61700EE28D0 /* ManageDriverCellTableViewCell.m */; };
+		5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */; };
+		53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E43C6B19D0F61700EE28D0 /* DriverCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +51,9 @@
 		53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDriversTableViewController.m; sourceTree = "<group>"; };
 		536B740219CE082B000F86D5 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
 		536B740319CE082B000F86D5 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
-		53E43C6A19D0F61700EE28D0 /* ManageDriverCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDriverCellTableViewCell.h; sourceTree = "<group>"; };
-		53E43C6B19D0F61700EE28D0 /* ManageDriverCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDriverCellTableViewCell.m; sourceTree = "<group>"; };
+		5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverModel.xcdatamodel; sourceTree = "<group>"; };
+		53E43C6A19D0F61700EE28D0 /* DriverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverCell.h; sourceTree = "<group>"; };
+		53E43C6B19D0F61700EE28D0 /* DriverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +109,9 @@
 				53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */,
 				536B740219CE082B000F86D5 /* Driver.h */,
 				536B740319CE082B000F86D5 /* Driver.m */,
-				53E43C6A19D0F61700EE28D0 /* ManageDriverCellTableViewCell.h */,
-				53E43C6B19D0F61700EE28D0 /* ManageDriverCellTableViewCell.m */,
+				53E43C6A19D0F61700EE28D0 /* DriverCell.h */,
+				53E43C6B19D0F61700EE28D0 /* DriverCell.m */,
+				5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -239,11 +242,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53E43C6C19D0F61700EE28D0 /* ManageDriverCellTableViewCell.m in Sources */,
+				53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */,
 				53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */,
 				536B740419CE082B000F86D5 /* Driver.m in Sources */,
 				53098A7919CBE60E00274FEE /* ViewController.m in Sources */,
 				53098A7619CBE60E00274FEE /* AppDelegate.m in Sources */,
+				5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */,
 				53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */,
 				53098A7319CBE60E00274FEE /* main.m in Sources */,
 			);
@@ -448,6 +452,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */,
+			);
+			currentVersion = 5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */;
+			path = DriverModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 53098A6519CBE60E00274FEE /* Project object */;
 }

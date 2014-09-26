@@ -10,9 +10,12 @@
 
 @implementation Driver
 
-- (void)setNumPassengers:(double)numPassengers {
+@dynamic driverName;
+@dynamic numPassengers;
+
+- (void)setPassengerCount:(double)numPassengers {
     NSNumber *theNum = [NSNumber numberWithDouble:numPassengers];
-    self.numberOfPassengers = theNum;
+    self.numPassengers = theNum;
 }
 
 @end

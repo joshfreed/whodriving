@@ -10,6 +10,8 @@
 
 @interface ManageDriversTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
 @end

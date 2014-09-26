@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Driver.h"
+#import <CoreData/CoreData.h>
 
 @interface AddDriverViewController : UIViewController
 
-@property Driver *driver;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

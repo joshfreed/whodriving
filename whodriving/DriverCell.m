@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Josh Freed. All rights reserved.
 //
 
-#import "ManageDriverCellTableViewCell.h"
+#import "DriverCell.h"
 
-@implementation ManageDriverCellTableViewCell
+@implementation DriverCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -23,7 +23,7 @@
 - (IBAction)valueChanged:(UIStepper *)sender
 {
     numPassengers.text = [NSString stringWithFormat:@"%g", sender.value];
-    [self.driver setNumPassengers:sender.value];
+    [self.driver setPassengerCount:sender.value];
 }
 
 @synthesize driverName, numPassengers, passengerStepper;

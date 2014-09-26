@@ -8,12 +8,13 @@
 
 #import "ManageDriversTableViewController.h"
 #import "Driver.h"
-#import "ManageDriverCellTableViewCell.h"
+#import "DriverCell.h"
 #import "AddDriverViewController.h"
+#import "AppDelegate.h"
 
-@interface ManageDriversTableViewController ()
+@interface ManageDriversTableViewController () <NSFetchedResultsControllerDelegate>
 
-@property NSMutableArray *drivers;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -28,10 +29,27 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.drivers = [[NSMutableArray alloc] init];
-    Driver *driver1 = [[Driver alloc] init];
-    driver1.driverName = @"Fred";
-    [self.drivers addObject:driver1];
+    // Initialize Fetch Request
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Driver"];
+    
+    // Add Sort Descriptors
+    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"driverName" ascending:YES]]];
+    
+    // Initialize Fetched Results Controller
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    // Configure Fetched Results Controller
+    [self.fetchedResultsController setDelegate:self];
+    
+    // Perform Fetch
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    
+    if (error) {
+        NSLog(@"Unable to perform fetch.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,38 +59,51 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
-    AddDriverViewController *source = [segue sourceViewController];
-    Driver *driver = source.driver;
-    if (driver != nil) {
-        [self.drivers addObject:driver];
-        [self.tableView reloadData];
+
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{    
+    if ([[segue identifier] isEqualToString:@"addDriverViewController"]) {
+        UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
+        AddDriverViewController *viewController = (AddDriverViewController*)[navigationController topViewController];
+        viewController.managedObjectContext = self.managedObjectContext;
     }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [self.drivers count];
+    NSArray *sections = [self.fetchedResultsController sections];
+    id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
+    
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ManageDriverCellTableViewCell *cell = (ManageDriverCellTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
+    DriverCell *cell = (DriverCell*)[tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
-    Driver *driver = [self.drivers objectAtIndex:indexPath.row];
-    if (cell.driver == nil) {
-        cell.driver = driver;
-        cell.driverName.text = driver.driverName;
-        cell.numPassengers.text = (NSString*)driver.numberOfPassengers;
-        cell.passengerStepper.value = driver.numberOfPassengers.doubleValue;
-    }
+    [self configureCell:cell atIndexPath:indexPath];
+
     return cell;
+}
+
+- (void)configureCell:(DriverCell*)cell atIndexPath:(NSIndexPath*)indexPath
+{
+    Driver *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    if (cell.driver != record) {
+        cell.driver = record;
+    }
+    
+    [cell.driverName setText:record.driverName];
+    [cell.numPassengers setText:[record.numPassengers stringValue]];
+    [cell.passengerStepper setValue:record.numPassengers.doubleValue];
 }
 
 /*
@@ -87,11 +118,11 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        ManageDriverCellTableViewCell *cell = (ManageDriverCellTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+        DriverCell *cell = (DriverCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.driver = nil;
-        [self.drivers removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        Driver *driver = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.fetchedResultsController.managedObjectContext deleteObject:driver];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -121,5 +152,37 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - NSFetchedResultsController delegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    switch (type) {
+        case NSFetchedResultsChangeInsert: {
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+        case NSFetchedResultsChangeDelete: {
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+        case NSFetchedResultsChangeUpdate: {
+            [self configureCell:(DriverCell *)[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+        }
+        case NSFetchedResultsChangeMove: {
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+    }
+}
 
 @end

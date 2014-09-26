@@ -7,6 +7,7 @@
 //
 
 #import "AddDriverViewController.h"
+#import "Driver.h"
 
 @interface AddDriverViewController ()
 
@@ -28,13 +29,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+// change to save button
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if (sender != self.doneButton) return;
+    if (sender != self.doneButton) {
+        return;
+    }
     
-    self.driver = [[Driver alloc] init];
-    self.driver.driverName = self.driverName.text;
-    self.driver.numberOfPassengers = (NSNumber*)self.numPassengers.text;
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    NSNumber * numPassengers = [f numberFromString:self.numPassengers.text];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Driver" inManagedObjectContext:self.managedObjectContext];
+    Driver *driver = [[Driver alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
+    driver.driverName = self.driverName.text;
+    driver.numPassengers = numPassengers;
+//
+//    NSError *error = nil;
+//    if (![self.managedObjectContext save:&error]) {
+//        if (error) {
+//            NSLog(@"Unable to save record.");
+//            NSLog(@"%@, %@", error, error.localizedDescription);
+//        }
+//        
+//        // Show Alert View
+//        [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your to-do could not be saved." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+//    }
 }
 
 
