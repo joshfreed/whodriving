@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *numPeopleLabel;
+
 @end
 
 @implementation ViewController
@@ -32,6 +34,16 @@
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)[navigationController topViewController];
         viewController.managedObjectContext = self.managedObjectContext;
     }
+}
+
+- (IBAction)findMeDrivers:(UIButton *)sender
+{
+    
+}
+
+- (IBAction)numPeopleChanged:(UIStepper *)sender
+{
+    _numPeopleLabel.text = [NSString stringWithFormat:@"%g", sender.value];
 }
 
 @end
