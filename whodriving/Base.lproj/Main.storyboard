@@ -88,11 +88,12 @@
                     <navigationItem key="navigationItem" title="Who's Driving?!" id="CAs-6V-lmf">
                         <barButtonItem key="rightBarButtonItem" title="Drivers" id="zcJ-8h-YwM">
                             <connections>
-                                <segue destination="zqi-9O-xtL" kind="show" identifier="ManageDrivers" id="Cq8-p7-pow"/>
+                                <segue destination="Wga-Xw-Hn1" kind="show" identifier="ManageDrivers" id="yar-zA-glA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="actionButton" destination="G6L-4h-GJy" id="Vnw-NL-rlZ"/>
                         <outlet property="numPeopleLabel" destination="xcd-YB-UFh" id="Vau-NL-ECv"/>
                     </connections>
                 </viewController>
@@ -207,7 +208,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-Iv-FBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2483" y="135"/>
+            <point key="canvasLocation" x="1685" y="136"/>
         </scene>
         <!--Add Driver-->
         <scene sceneID="Ocf-w6-9kh">
@@ -287,7 +288,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vg2-jO-UH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6xv-4B-C96" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3915" y="129"/>
+            <point key="canvasLocation" x="3201" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QPR-Bm-h74">
@@ -305,25 +306,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fM2-aJ-FLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="-557"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="700-Ls-J49">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zqi-9O-xtL" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YLg-H5-Sqy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Wga-Xw-Hn1" kind="relationship" relationship="rootViewController" id="ijC-DN-X6t"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1vb-nt-Hsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1671" y="136"/>
+            <point key="canvasLocation" x="211" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BlJ-Qi-zht">
@@ -341,43 +324,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OR-Dm-Zj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3213" y="129"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="gCk-OK-5au">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="teZ-GD-mNI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bGp-Lv-T3Q"/>
-                        <viewControllerLayoutGuide type="bottom" id="YZF-QE-Ak1"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8AX-oS-t4S">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tu7-y1-z4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="3l7-T2-kxn">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RcN-Po-ff6" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QYK-uQ-P3k"/>
-                        <viewControllerLayoutGuide type="bottom" id="w5n-k3-ySV"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hEb-cD-qoU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ebn-kc-eXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
+            <point key="canvasLocation" x="2421" y="136"/>
         </scene>
     </scenes>
 </document>

@@ -43,17 +43,17 @@
     Driver *driver = [[Driver alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
     driver.driverName = self.driverName.text;
     driver.numPassengers = numPassengers;
-//
-//    NSError *error = nil;
-//    if (![self.managedObjectContext save:&error]) {
-//        if (error) {
-//            NSLog(@"Unable to save record.");
-//            NSLog(@"%@, %@", error, error.localizedDescription);
-//        }
-//        
+
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        if (error) {
+            NSLog(@"Unable to save record.");
+            NSLog(@"%@, %@", error, error.localizedDescription);
+        }
+        
 //        // Show Alert View
 //        [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your to-do could not be saved." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-//    }
+    }
 }
 
 
