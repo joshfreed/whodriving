@@ -9,12 +9,17 @@
 #import "ViewController.h"
 #import "ManageDriversTableViewController.h"
 #import "Driver.h"
+#import "TripSpecification.h"
+#import "TripService.h"
+#import "TripCollectionViewController.h"
 
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *numPeopleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *actionButton;
+@property (weak, nonatomic) IBOutlet UIStepper *passengerStepper;
 @property NSArray *drivers;
+@property NSArray *tripResult;
 
 @end
 
@@ -32,6 +37,17 @@
 - (void)prepareMainView
 {
     [self refreshDriversArray];
+    
+//    NSSet *set = [self.actionButton allTargets];
+//    for (NSObject* target in set) {
+//        NSLog(target);
+//    }
+//    
+//    NSArray *actions = [self.actionButton actionsForTarget:self forControlEvent:UIControlEventTouchUpInside];
+//    for (NSString *str in actions) {
+//        NSLog(str);
+//    }
+
 
     
     if (self.drivers.count == 0) {
@@ -67,15 +83,23 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
-//        UINavigationController *navigationController = (UINavigationController *);
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"FindMyDrivers"]) {
+        TripCollectionViewController *vc = (TripCollectionViewController*)segue.destinationViewController;
+        vc.drivers = self.tripResult;
     }
 }
 
 - (IBAction)findMeDrivers:(UIButton *)sender
 {
-
+    NSNumber *passengerCount = [NSNumber numberWithDouble:self.passengerStepper.value];
+    TripSpecification *tripSpec = [[TripSpecification alloc] init:passengerCount possibleDrivers:self.drivers];
+    TripService *tripService = [[TripService alloc] init];
+    self.tripResult = [tripService buildTrip:tripSpec];
+    [self performSegueWithIdentifier:@"FindMyDrivers" sender:self];
 }
 
 - (IBAction)numPeopleChanged:(UIStepper *)sender

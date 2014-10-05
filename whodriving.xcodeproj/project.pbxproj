@@ -16,6 +16,11 @@
 		53098A8D19CBE60E00274FEE /* whodrivingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A8C19CBE60E00274FEE /* whodrivingTests.m */; };
 		53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9719CBF57200274FEE /* AddDriverViewController.m */; };
 		53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */; };
+		5344218119E07CC0001A179E /* TripService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218019E07CC0001A179E /* TripService.m */; };
+		5344218519E07D52001A179E /* TripSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218419E07D52001A179E /* TripSpecification.m */; };
+		5344218A19E08C24001A179E /* TripCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218919E08C24001A179E /* TripCollectionViewController.m */; };
+		5344219019E1C9D6001A179E /* DriverResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218F19E1C9D6001A179E /* DriverResultCollectionViewCell.m */; };
+		5344219319E1CAD3001A179E /* DriverResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344219219E1CAD3001A179E /* DriverResult.m */; };
 		536B740419CE082B000F86D5 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 536B740319CE082B000F86D5 /* Driver.m */; };
 		5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */; };
 		53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E43C6B19D0F61700EE28D0 /* DriverCell.m */; };
@@ -49,6 +54,16 @@
 		53098A9719CBF57200274FEE /* AddDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDriverViewController.m; sourceTree = "<group>"; };
 		53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDriversTableViewController.h; sourceTree = "<group>"; };
 		53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDriversTableViewController.m; sourceTree = "<group>"; };
+		5344217F19E07CC0001A179E /* TripService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripService.h; sourceTree = "<group>"; };
+		5344218019E07CC0001A179E /* TripService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripService.m; sourceTree = "<group>"; };
+		5344218319E07D52001A179E /* TripSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripSpecification.h; sourceTree = "<group>"; };
+		5344218419E07D52001A179E /* TripSpecification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripSpecification.m; sourceTree = "<group>"; };
+		5344218819E08C24001A179E /* TripCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripCollectionViewController.h; sourceTree = "<group>"; };
+		5344218919E08C24001A179E /* TripCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripCollectionViewController.m; sourceTree = "<group>"; };
+		5344218E19E1C9D6001A179E /* DriverResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverResultCollectionViewCell.h; sourceTree = "<group>"; };
+		5344218F19E1C9D6001A179E /* DriverResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverResultCollectionViewCell.m; sourceTree = "<group>"; };
+		5344219119E1CAD3001A179E /* DriverResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverResult.h; sourceTree = "<group>"; };
+		5344219219E1CAD3001A179E /* DriverResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverResult.m; sourceTree = "<group>"; };
 		536B740219CE082B000F86D5 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
 		536B740319CE082B000F86D5 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
 		5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverModel.xcdatamodel; sourceTree = "<group>"; };
@@ -95,6 +110,7 @@
 		53098A6F19CBE60E00274FEE /* whodriving */ = {
 			isa = PBXGroup;
 			children = (
+				5344218219E07CC9001A179E /* Model */,
 				53098A7419CBE60E00274FEE /* AppDelegate.h */,
 				53098A7519CBE60E00274FEE /* AppDelegate.m */,
 				53098A7719CBE60E00274FEE /* ViewController.h */,
@@ -107,11 +123,13 @@
 				53098A9719CBF57200274FEE /* AddDriverViewController.m */,
 				53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */,
 				53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */,
-				536B740219CE082B000F86D5 /* Driver.h */,
-				536B740319CE082B000F86D5 /* Driver.m */,
 				53E43C6A19D0F61700EE28D0 /* DriverCell.h */,
 				53E43C6B19D0F61700EE28D0 /* DriverCell.m */,
 				5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */,
+				5344218819E08C24001A179E /* TripCollectionViewController.h */,
+				5344218919E08C24001A179E /* TripCollectionViewController.m */,
+				5344218E19E1C9D6001A179E /* DriverResultCollectionViewCell.h */,
+				5344218F19E1C9D6001A179E /* DriverResultCollectionViewCell.m */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -140,6 +158,21 @@
 				53098A8B19CBE60E00274FEE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5344218219E07CC9001A179E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				536B740219CE082B000F86D5 /* Driver.h */,
+				536B740319CE082B000F86D5 /* Driver.m */,
+				5344217F19E07CC0001A179E /* TripService.h */,
+				5344218019E07CC0001A179E /* TripService.m */,
+				5344218319E07D52001A179E /* TripSpecification.h */,
+				5344218419E07D52001A179E /* TripSpecification.m */,
+				5344219119E1CAD3001A179E /* DriverResult.h */,
+				5344219219E1CAD3001A179E /* DriverResult.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,12 +278,17 @@
 			files = (
 				53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */,
 				53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */,
+				5344218519E07D52001A179E /* TripSpecification.m in Sources */,
 				536B740419CE082B000F86D5 /* Driver.m in Sources */,
 				53098A7919CBE60E00274FEE /* ViewController.m in Sources */,
 				53098A7619CBE60E00274FEE /* AppDelegate.m in Sources */,
 				5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */,
 				53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */,
+				5344218A19E08C24001A179E /* TripCollectionViewController.m in Sources */,
 				53098A7319CBE60E00274FEE /* main.m in Sources */,
+				5344219019E1C9D6001A179E /* DriverResultCollectionViewCell.m in Sources */,
+				5344219319E1CAD3001A179E /* DriverResult.m in Sources */,
+				5344218119E07CC0001A179E /* TripService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
