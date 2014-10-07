@@ -69,6 +69,7 @@
 		5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverModel.xcdatamodel; sourceTree = "<group>"; };
 		53E43C6A19D0F61700EE28D0 /* DriverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverCell.h; sourceTree = "<group>"; };
 		53E43C6B19D0F61700EE28D0 /* DriverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverCell.m; sourceTree = "<group>"; };
+		53FFC62419E44BBA00780E7D /* DriverModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DriverModel 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -496,9 +497,10 @@
 		5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				53FFC62419E44BBA00780E7D /* DriverModel 2.xcdatamodel */,
 				5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */,
 			);
-			currentVersion = 5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */;
+			currentVersion = 53FFC62419E44BBA00780E7D /* DriverModel 2.xcdatamodel */;
 			path = DriverModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

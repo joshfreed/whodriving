@@ -115,7 +115,7 @@
     
     [cell.driverName setText:record.driverName];
     [cell.numPassengers setText:[record.numPassengers stringValue]];
-    [cell.passengerStepper setValue:record.numPassengers.doubleValue];
+    [cell.enabledSwitch setOn:record.isEnabled];
 }
 
 /*

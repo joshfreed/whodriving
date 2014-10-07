@@ -13,7 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *driverName;
 @property (nonatomic, weak) IBOutlet UILabel *numPassengers;
-@property (nonatomic, weak) IBOutlet UIStepper *passengerStepper;
+@property (weak, nonatomic) IBOutlet UISwitch *enabledSwitch;
 @property Driver *driver;
 
 @end

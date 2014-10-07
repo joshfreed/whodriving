@@ -12,10 +12,22 @@
 
 @dynamic driverName;
 @dynamic numPassengers;
+@dynamic isEnabled;
+@dynamic createdOn;
 
 - (void)setPassengerCount:(double)numPassengers {
     NSNumber *theNum = [NSNumber numberWithDouble:numPassengers];
     self.numPassengers = theNum;
+}
+
+- (void)enable
+{
+    self.isEnabled = true;
+}
+
+- (void)disable
+{
+    self.isEnabled = false;
 }
 
 @end

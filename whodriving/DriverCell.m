@@ -20,12 +20,31 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)valueChanged:(UIStepper *)sender
+- (IBAction)increasedPassengerCount:(UIButton *)sender
 {
-    numPassengers.text = [NSString stringWithFormat:@"%g", sender.value];
-    [self.driver setPassengerCount:sender.value];
+    NSInteger passengerCount = [numPassengers.text integerValue];
+    passengerCount++;
+    [numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
+    [self.driver setPassengerCount:passengerCount];
 }
 
-@synthesize driverName, numPassengers, passengerStepper;
+- (IBAction)decreasedPassengerCount:(UIButton *)sender
+{
+    NSInteger passengerCount = [numPassengers.text integerValue];
+    passengerCount--;
+    [numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
+    [self.driver setPassengerCount:passengerCount];
+}
+
+- (IBAction)toggleDriver:(UISwitch *)sender
+{
+    if ([sender isOn]) {
+        [self.driver enable];
+    } else {
+        [self.driver disable];
+    }
+}
+
+@synthesize driverName, numPassengers;
 
 @end

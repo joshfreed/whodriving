@@ -41,8 +41,10 @@
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Driver" inManagedObjectContext:self.managedObjectContext];
     Driver *driver = [[Driver alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
+    [driver enable];
     driver.driverName = self.driverName.text;
     driver.numPassengers = numPassengers;
+    driver.createdOn = [NSDate date];
 
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {

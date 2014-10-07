@@ -24,6 +24,10 @@
     NSMutableArray *results = [NSMutableArray array];
     int satisfiedPassengers = 0;
     for (Driver *driver in sortedDrivers) {
+        if (!driver.isEnabled) {
+            continue;
+        }
+        
         DriverResult *result = [[DriverResult alloc] init];
         result.driver = driver;
         result.passengerCount = driver.numPassengers;
