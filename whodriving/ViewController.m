@@ -37,19 +37,7 @@
 - (void)prepareMainView
 {
     [self refreshDriversArray];
-    
-//    NSSet *set = [self.actionButton allTargets];
-//    for (NSObject* target in set) {
-//        NSLog(target);
-//    }
-//    
-//    NSArray *actions = [self.actionButton actionsForTarget:self forControlEvent:UIControlEventTouchUpInside];
-//    for (NSString *str in actions) {
-//        NSLog(str);
-//    }
 
-
-    
     if (self.drivers.count == 0) {
         [self.actionButton setTitle:@"Add Drivers" forState:UIControlStateNormal];
         [self.actionButton removeTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];

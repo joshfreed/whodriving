@@ -12,7 +12,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ne8-3D-GSJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.8814174107142857" green="0.8814174107142857" blue="0.8814174107142857" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6OY-uq-3bm">
                             <size key="itemSize" width="320" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,6 +54,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="driverNameLabel" destination="5dj-ZR-ZHA" id="n7g-bQ-Ksw"/>
                                     <outlet property="passengerCountLabel" destination="360-RV-Fcp" id="OUB-xB-eKM"/>
