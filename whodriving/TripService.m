@@ -14,12 +14,25 @@
 
 -(NSArray*)buildTrip:(TripSpecification*)tripSpec
 {
+    NSArray *sortedDrivers = [tripSpec.possibleDrivers sortedArrayUsingComparator:^(id obj1, id obj2) {
+        if (rand() % 2 == 0) {
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedDescending;
+        }
+    }];
     NSMutableArray *results = [NSMutableArray array];
-    for (Driver *driver in tripSpec.possibleDrivers) {
+    int satisfiedPassengers = 0;
+    for (Driver *driver in sortedDrivers) {
         DriverResult *result = [[DriverResult alloc] init];
         result.driver = driver;
         result.passengerCount = driver.numPassengers;
         [results addObject:result];
+        
+        satisfiedPassengers += [driver.numPassengers intValue];
+        if (satisfiedPassengers >= [tripSpec.passengerCount intValue]) {
+            break;
+        }
     }
     return results;
 }
