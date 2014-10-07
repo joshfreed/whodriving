@@ -129,7 +129,6 @@
                                     <constraint firstAttribute="width" constant="194" id="456-BS-xpn"/>
                                     <constraint firstAttribute="height" constant="53" id="QBf-cK-Cr9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Find My Drivers"/>
                                 <connections>
                                     <action selector="findMeDrivers:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kpt-cx-FwH"/>
@@ -313,12 +312,12 @@
                                     <constraint firstAttribute="width" constant="97" id="W7M-Vz-GNY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNv-4f-sL4">
                                 <rect key="frame" x="16" y="100" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
