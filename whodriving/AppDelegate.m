@@ -29,9 +29,15 @@
     if ([viewController isKindOfClass:[ViewController class]]) {
         [viewController setManagedObjectContext:self.managedObjectContext];
     }
-    
+
     // Configure Window
     [self.window setRootViewController:rootNavigationController];
+    
+//    ViewController *viewController = (ViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"rootViewController"];
+//    if ([viewController isKindOfClass:[ViewController class]]) {
+//        [viewController setManagedObjectContext:self.managedObjectContext];
+//        [self.window setRootViewController:viewController];
+//    }
  
 //    [self flushDatabase];
     

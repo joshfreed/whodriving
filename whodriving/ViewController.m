@@ -17,7 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *numPeopleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *actionButton;
-@property (weak, nonatomic) IBOutlet UIStepper *passengerStepper;
 @property NSArray *drivers;
 @property NSArray *tripResult;
 
@@ -37,16 +36,18 @@
 - (void)prepareMainView
 {
     [self refreshDriversArray];
+    
+    [self.navigationController setNavigationBarHidden:true];
 
-    if (self.drivers.count == 0) {
-        [self.actionButton setTitle:@"Add Drivers" forState:UIControlStateNormal];
-        [self.actionButton removeTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];
-        [self.actionButton addTarget:self action:@selector(showManageDriversScreen:) forControlEvents:UIControlEventTouchUpInside];
-    } else {
-        [self.actionButton setTitle:@"Find My Drivers" forState:UIControlStateNormal];
-        [self.actionButton removeTarget:self action:@selector(showManageDriversScreen:) forControlEvents:UIControlEventTouchUpInside];
-        [self.actionButton addTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];
-    }
+//    if (self.drivers.count == 0) {
+//        [self.actionButton setTitle:@"Add Drivers" forState:UIControlStateNormal];
+//        [self.actionButton removeTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.actionButton addTarget:self action:@selector(showManageDriversScreen:) forControlEvents:UIControlEventTouchUpInside];
+//    } else {
+//        [self.actionButton setTitle:@"Find My Drivers" forState:UIControlStateNormal];
+//        [self.actionButton removeTarget:self action:@selector(showManageDriversScreen:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.actionButton addTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];
+//    }
 }
 
 - (void)refreshDriversArray
@@ -68,8 +69,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)increasePersonCount:(UIButton *)sender
+{
+    NSInteger personCount = [self.numPeopleLabel.text integerValue];
+    
+    personCount++;
+    if (personCount > 99) {
+        personCount = 99;
+    }
+    
+    [self.numPeopleLabel setText:[NSString stringWithFormat:@"%d", personCount]];
+}
+
+- (IBAction)decreasePersonCount:(UIButton *)sender
+{
+    NSInteger personCount = [self.numPeopleLabel.text integerValue];
+    
+    personCount--;
+    if (personCount < 1) {
+        personCount = 1;
+    }
+    
+    [self.numPeopleLabel setText:[NSString stringWithFormat:@"%d", personCount]];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [self.navigationController setNavigationBarHidden:false];
+    
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
@@ -83,21 +110,17 @@
 
 - (IBAction)findMeDrivers:(UIButton *)sender
 {
-    NSNumber *passengerCount = [NSNumber numberWithDouble:self.passengerStepper.value];
+    NSInteger personCount = [self.numPeopleLabel.text integerValue];
+    NSNumber *passengerCount = [NSNumber numberWithInteger:personCount];
     TripSpecification *tripSpec = [[TripSpecification alloc] init:passengerCount possibleDrivers:self.drivers];
     TripService *tripService = [[TripService alloc] init];
     self.tripResult = [tripService buildTrip:tripSpec];
     [self performSegueWithIdentifier:@"FindMyDrivers" sender:self];
 }
-
-- (IBAction)numPeopleChanged:(UIStepper *)sender
-{
-    _numPeopleLabel.text = [NSString stringWithFormat:@"%g", sender.value];
-}
-
-- (IBAction)showManageDriversScreen:(UIButton *)sender
-{
-    [self performSegueWithIdentifier:@"ManageDrivers" sender:self];
-}
+//
+//- (IBAction)showManageDriversScreen:(UIButton *)sender
+//{
+//    [self performSegueWithIdentifier:@"ManageDrivers" sender:self];
+//}
 
 @end
