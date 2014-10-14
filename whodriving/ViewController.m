@@ -11,7 +11,7 @@
 #import "Driver.h"
 #import "TripSpecification.h"
 #import "TripService.h"
-#import "TripCollectionViewController.h"
+#import "TripResultsViewController.h"
 
 @interface ViewController ()
 
@@ -95,15 +95,14 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self.navigationController setNavigationBarHidden:false];
-    
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
+        [self.navigationController setNavigationBarHidden:false];
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"FindMyDrivers"]) {
-        TripCollectionViewController *vc = (TripCollectionViewController*)segue.destinationViewController;
+        TripResultsViewController *vc = (TripResultsViewController*)segue.destinationViewController;
         vc.drivers = self.tripResult;
     }
 }
@@ -116,11 +115,20 @@
     TripService *tripService = [[TripService alloc] init];
     self.tripResult = [tripService buildTrip:tripSpec];
     [self performSegueWithIdentifier:@"FindMyDrivers" sender:self];
+    
+//    [UIView animateWithDuration:1.0 animations:^{
+//        [self.view viewWithTag:1].alpha = 0.0f;
+//    }];
 }
 //
 //- (IBAction)showManageDriversScreen:(UIButton *)sender
 //{
 //    [self performSegueWithIdentifier:@"ManageDrivers" sender:self];
 //}
+
+- (IBAction)unwindToMainMenu:(UIStoryboardSegue *)segue
+{
+    [self.view viewWithTag:1].alpha = 1.0f;
+}
 
 @end
