@@ -32,7 +32,7 @@
                                         </state>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pgr-c6-7dC">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
+                                        <rect key="frame" x="0.0" y="64" width="600" height="488"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yzp-LK-a2F">
                                             <size key="itemSize" width="320" height="120"/>
@@ -75,6 +75,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="driverNameLabel" destination="5dj-ZR-ZHA" id="0ps-Mz-uwn"/>
                                                     <outlet property="passengerCountLabel" destination="360-RV-Fcp" id="g4W-oz-pOZ"/>
@@ -86,15 +87,6 @@
                                             <outlet property="delegate" destination="IjH-zl-CS2" id="J5y-5M-zEu"/>
                                         </connections>
                                     </collectionView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibo-oc-PkG">
-                                        <rect key="frame" x="8" y="8" width="52" height="30"/>
-                                        <state key="normal" title="&lt; Back">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="qPO-UY-OYu" kind="unwind" unwindAction="unwindToMainMenu:" id="McB-u3-4Qx"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -104,7 +96,7 @@
                                     <constraint firstItem="epm-L8-DDR" firstAttribute="top" secondItem="Pgr-c6-7dC" secondAttribute="bottom" id="cUk-4g-om4"/>
                                     <constraint firstAttribute="trailing" secondItem="epm-L8-DDR" secondAttribute="trailing" id="cbm-0s-Id0"/>
                                     <constraint firstAttribute="bottom" secondItem="epm-L8-DDR" secondAttribute="bottom" id="hdf-Ht-ups"/>
-                                    <constraint firstItem="Pgr-c6-7dC" firstAttribute="top" secondItem="AEU-vo-94v" secondAttribute="top" id="qKM-LE-cq7"/>
+                                    <constraint firstItem="Pgr-c6-7dC" firstAttribute="top" secondItem="AEU-vo-94v" secondAttribute="top" constant="64" id="qKM-LE-cq7"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -113,15 +105,21 @@
                             <constraint firstItem="pEb-4i-jx8" firstAttribute="top" secondItem="AEU-vo-94v" secondAttribute="bottom" id="3gb-gS-gBe"/>
                             <constraint firstItem="AEU-vo-94v" firstAttribute="leading" secondItem="AKk-hv-rpn" secondAttribute="leadingMargin" constant="-16" id="6zw-27-Bbg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AEU-vo-94v" secondAttribute="trailing" constant="-16" id="JCF-Zo-xlW"/>
-                            <constraint firstItem="AEU-vo-94v" firstAttribute="top" secondItem="Wb8-7Y-FQz" secondAttribute="bottom" constant="-20" id="XIp-ih-vfo"/>
+                            <constraint firstItem="AEU-vo-94v" firstAttribute="top" secondItem="Wb8-7Y-FQz" secondAttribute="bottom" constant="-64" id="XIp-ih-vfo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fzg-WW-dik">
+                        <barButtonItem key="rightBarButtonItem" title="Manage Drivers" id="3pr-lC-Ber">
+                            <connections>
+                                <segue destination="1Ar-jo-SS6" kind="presentation" identifier="ManageDrivers" id="k6a-nY-ADN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Pgr-c6-7dC" id="ev5-lE-V7V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byQ-O9-OGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="qPO-UY-OYu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1685" y="-582"/>
         </scene>
@@ -204,6 +202,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Manage Drivers" id="5L6-DU-MXA">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="VUc-R5-euE">
+                            <connections>
+                                <segue destination="JNT-AG-iaY" kind="unwind" unwindAction="unwindToMainView:" id="kaJ-Ha-fzQ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9G6-aj-5hv">
                             <connections>
                                 <segue destination="PTz-Ce-ven" kind="popoverPresentation" identifier="addDriverViewController" popoverAnchorBarButtonItem="9G6-aj-5hv" id="nxH-ye-UHC">
@@ -214,8 +217,9 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-Iv-FBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JNT-AG-iaY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1685" y="136"/>
+            <point key="canvasLocation" x="2497" y="136"/>
         </scene>
         <!--Add Driver-->
         <scene sceneID="Ocf-w6-9kh">
@@ -295,7 +299,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vg2-jO-UH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6xv-4B-C96" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3201" y="136"/>
+            <point key="canvasLocation" x="4013" y="136"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="SNm-1a-9fh">
@@ -440,7 +444,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <segue destination="Wga-Xw-Hn1" kind="show" identifier="ManageDrivers" id="Z8b-9p-aU4"/>
+                                            <segue destination="1Ar-jo-SS6" kind="presentation" identifier="ManageDrivers" id="Z8b-9p-aU4"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need transportation for" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4N-7U-V5f">
@@ -639,7 +643,7 @@
                     <connections>
                         <outlet property="actionButton" destination="Eyy-wK-kfN" id="eda-gb-GmX"/>
                         <outlet property="numPeopleLabel" destination="bSW-iG-KMj" id="10S-F9-b2J"/>
-                        <segue destination="IjH-zl-CS2" kind="custom" identifier="FindMyDrivers" customClass="PushFadeSegue" id="2rl-Ff-txU"/>
+                        <segue destination="IjH-zl-CS2" kind="show" identifier="FindMyDrivers" id="2rl-Ff-txU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upy-VJ-QvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -662,12 +666,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OR-Dm-Zj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="136"/>
+            <point key="canvasLocation" x="3233" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mw7-g9-DsN">
             <objects>
-                <navigationController storyboardIdentifier="rootNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="y9T-uW-PCf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="rootNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="y9T-uW-PCf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pi1-7u-hw7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -682,10 +686,31 @@
             </objects>
             <point key="canvasLocation" x="160" y="136"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eci-0Z-ZgK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Ar-jo-SS6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ao-sR-A3e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wga-Xw-Hn1" kind="relationship" relationship="rootViewController" id="bFi-ws-GzU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eM3-Ba-7Ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685" y="136"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Minus" width="84" height="84"/>
         <image name="Plus" width="84" height="84"/>
         <image name="WhoDrivingTitle" width="84" height="84"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="k6a-nY-ADN"/>
+    </inferredMetricsTieBreakers>
 </document>

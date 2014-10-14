@@ -19,6 +19,8 @@
         [((UIViewController*)[self sourceViewController]).navigationController pushViewController:[self destinationViewController] animated:NO];
         [UIView animateWithDuration:0.25 animations:^{
             [((UIViewController*)[self destinationViewController]).view viewWithTag:1].alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            [((UIViewController*)[self sourceViewController]).view viewWithTag:1].alpha = 1.0f;
         }];
     }];
 }

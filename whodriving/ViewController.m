@@ -36,8 +36,6 @@
 - (void)prepareMainView
 {
     [self refreshDriversArray];
-    
-    [self.navigationController setNavigationBarHidden:true];
 
 //    if (self.drivers.count == 0) {
 //        [self.actionButton setTitle:@"Add Drivers" forState:UIControlStateNormal];
@@ -96,14 +94,14 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
-        [self.navigationController setNavigationBarHidden:false];
-        ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
+        ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)[segue.destinationViewController topViewController];
         viewController.managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"FindMyDrivers"]) {
         TripResultsViewController *vc = (TripResultsViewController*)segue.destinationViewController;
         vc.drivers = self.tripResult;
+        vc.managedObjectContext = self.managedObjectContext;
     }
 }
 
@@ -115,10 +113,6 @@
     TripService *tripService = [[TripService alloc] init];
     self.tripResult = [tripService buildTrip:tripSpec];
     [self performSegueWithIdentifier:@"FindMyDrivers" sender:self];
-    
-//    [UIView animateWithDuration:1.0 animations:^{
-//        [self.view viewWithTag:1].alpha = 0.0f;
-//    }];
 }
 //
 //- (IBAction)showManageDriversScreen:(UIButton *)sender
@@ -126,9 +120,9 @@
 //    [self performSegueWithIdentifier:@"ManageDrivers" sender:self];
 //}
 
-- (IBAction)unwindToMainMenu:(UIStoryboardSegue *)segue
+- (IBAction)unwindToMainView:(UIStoryboardSegue *)segue
 {
-    [self.view viewWithTag:1].alpha = 1.0f;
+    
 }
 
 @end

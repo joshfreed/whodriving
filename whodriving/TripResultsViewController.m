@@ -8,6 +8,7 @@
 
 #import "TripResultsViewController.h"
 #import "DriverResultCollectionViewCell.h"
+#import "ManageDriversTableViewController.h"
 
 @interface TripResultsViewController ()
 
@@ -40,11 +41,22 @@ static NSString * const reuseIdentifier = @"Cell";
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
+        ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)[segue.destinationViewController topViewController];
+        viewController.managedObjectContext = self.managedObjectContext;
+    }
+    
 //    if ([[segue identifier] isEqualToString:@"ShowResultCollection"]) {
 //        TripCollectionViewController *vc = (TripCollectionViewController*)segue.destinationViewController;
 //        vc.drivers = self.drivers;
 //    }
 }
+
+- (IBAction)unwindToTripResults:(UIStoryboardSegue *)segue
+{
+    
+}
+
 
 #pragma mark <UICollectionViewDataSource>
 

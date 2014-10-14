@@ -12,6 +12,7 @@
 
 @interface TripResultsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property NSArray *drivers;
 
 @end
