@@ -26,6 +26,7 @@
 		536B740419CE082B000F86D5 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 536B740319CE082B000F86D5 /* Driver.m */; };
 		5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */; };
 		53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E43C6B19D0F61700EE28D0 /* DriverCell.m */; };
+		53EBE76019F5871800A9C65B /* DrawerSlideSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverModel.xcdatamodel; sourceTree = "<group>"; };
 		53E43C6A19D0F61700EE28D0 /* DriverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverCell.h; sourceTree = "<group>"; };
 		53E43C6B19D0F61700EE28D0 /* DriverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverCell.m; sourceTree = "<group>"; };
+		53EBE75E19F5871800A9C65B /* DrawerSlideSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerSlideSegue.h; sourceTree = "<group>"; };
+		53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerSlideSegue.m; sourceTree = "<group>"; };
 		53FFC62419E44BBA00780E7D /* DriverModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DriverModel 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +144,8 @@
 				5343EBBD19EDD592000E1E2D /* PopFadeSegue.h */,
 				5343EBBE19EDD592000E1E2D /* PopFadeSegue.m */,
 				5343EBBB19EDC53D000E1E2D /* PushFadeSegue.m */,
+				53EBE75E19F5871800A9C65B /* DrawerSlideSegue.h */,
+				53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */,
 				53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */,
 				53098A7319CBE60E00274FEE /* main.m in Sources */,
+				53EBE76019F5871800A9C65B /* DrawerSlideSegue.m in Sources */,
 				5344219019E1C9D6001A179E /* DriverResultCollectionViewCell.m in Sources */,
 				5344219319E1CAD3001A179E /* DriverResult.m in Sources */,
 				5344218119E07CC0001A179E /* TripService.m in Sources */,
@@ -423,9 +429,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = whodriving/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -433,9 +442,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = whodriving/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

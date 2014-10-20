@@ -9,6 +9,7 @@
 #import "TripResultsViewController.h"
 #import "DriverResultCollectionViewCell.h"
 #import "ManageDriversTableViewController.h"
+#import "TripService.h"
 
 @interface TripResultsViewController ()
 
@@ -33,6 +34,24 @@ static NSString * const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)findDifferentDrivers:(UIButton *)sender
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Driver" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *drivers = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (drivers == nil) {
+        // Handle the error.
+        NSLog(@"Drivers array is nil!?");
+    }
+    
+    TripSpecification *tripSpec = [[TripSpecification alloc] init:self.tripSpec.passengerCount possibleDrivers:drivers];
+    TripService *tripService = [[TripService alloc] init];
+    self.drivers = [tripService buildTrip:tripSpec];
+    [self.collectionView reloadData];
+}
 
 #pragma mark - Navigation
 
@@ -42,7 +61,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // Pass the selected object to the new view controller.
     
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
-        ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)[segue.destinationViewController topViewController];
+        ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
     }
     
@@ -50,11 +69,6 @@ static NSString * const reuseIdentifier = @"Cell";
 //        TripCollectionViewController *vc = (TripCollectionViewController*)segue.destinationViewController;
 //        vc.drivers = self.drivers;
 //    }
-}
-
-- (IBAction)unwindToTripResults:(UIStoryboardSegue *)segue
-{
-    
 }
 
 

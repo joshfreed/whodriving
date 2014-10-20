@@ -15,8 +15,10 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *findMyDriversButton;
+@property (weak, nonatomic) IBOutlet UIButton *manageDriversButton;
 @property (weak, nonatomic) IBOutlet UILabel *numPeopleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *actionButton;
+
 @property NSArray *drivers;
 @property NSArray *tripResult;
 
@@ -37,15 +39,19 @@
 {
     [self refreshDriversArray];
 
-//    if (self.drivers.count == 0) {
+    if (self.drivers.count == 0) {
+        [self.findMyDriversButton setHidden:YES];
+        [self.manageDriversButton setHidden:NO];
 //        [self.actionButton setTitle:@"Add Drivers" forState:UIControlStateNormal];
 //        [self.actionButton removeTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];
 //        [self.actionButton addTarget:self action:@selector(showManageDriversScreen:) forControlEvents:UIControlEventTouchUpInside];
-//    } else {
+    } else {
+        [self.findMyDriversButton setHidden:NO];
+        [self.manageDriversButton setHidden:YES];
 //        [self.actionButton setTitle:@"Find My Drivers" forState:UIControlStateNormal];
 //        [self.actionButton removeTarget:self action:@selector(showManageDriversScreen:) forControlEvents:UIControlEventTouchUpInside];
 //        [self.actionButton addTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];
-//    }
+    }
 }
 
 - (void)refreshDriversArray
@@ -94,12 +100,17 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
-        ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)[segue.destinationViewController topViewController];
+        ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"FindMyDrivers"]) {
+        NSInteger personCount = [self.numPeopleLabel.text integerValue];
+        NSNumber *passengerCount = [NSNumber numberWithInteger:personCount];
+        TripSpecification *tripSpec = [[TripSpecification alloc] init:passengerCount possibleDrivers:self.drivers];
+        
         TripResultsViewController *vc = (TripResultsViewController*)segue.destinationViewController;
+        vc.tripSpec = tripSpec;
         vc.drivers = self.tripResult;
         vc.managedObjectContext = self.managedObjectContext;
     }
@@ -119,10 +130,5 @@
 //{
 //    [self performSegueWithIdentifier:@"ManageDrivers" sender:self];
 //}
-
-- (IBAction)unwindToMainView:(UIStoryboardSegue *)segue
-{
-    
-}
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TripSpecification.h"
 
 @class UICollectionViewLayout;
 
 @interface TripResultsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property TripSpecification *tripSpec;
 @property NSArray *drivers;
 
 @end
