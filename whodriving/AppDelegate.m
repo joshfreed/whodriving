@@ -41,6 +41,20 @@
  
 //    [self flushDatabase];
     
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
+    shadow.shadowColor = [UIColor whiteColor];
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor blackColor],
+       NSShadowAttributeName:shadow,
+       NSFontAttributeName:[UIFont boldSystemFontOfSize:12.0]
+       }
+     forState:UIControlStateNormal];
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    
     return YES;
 }
 
