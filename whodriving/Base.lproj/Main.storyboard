@@ -235,7 +235,7 @@
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbg-ED-RJK">
                                 <rect key="frame" x="100" y="82" width="400" height="436"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhoDrivingTitle" translatesAutoresizingMaskIntoConstraints="NO" id="knL-rd-w6w">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhoDrivingTitle" translatesAutoresizingMaskIntoConstraints="NO" id="knL-rd-w6w">
                                         <rect key="frame" x="72" y="0.0" width="256" height="256"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="256" id="OKm-8q-aZS"/>
@@ -501,16 +501,16 @@
                                         <exclude reference="YjJ-Pr-riQ"/>
                                         <exclude reference="iTN-4O-lP5"/>
                                         <exclude reference="tED-M6-GK7"/>
-                                        <exclude reference="JM1-Lz-qmN"/>
-                                        <exclude reference="Pyf-bW-Py9"/>
                                         <exclude reference="En2-W3-pYQ"/>
                                         <exclude reference="tU9-Ic-jP8"/>
+                                        <exclude reference="8Qc-zG-VFR"/>
+                                        <exclude reference="H0n-ZY-Vso"/>
+                                        <exclude reference="JM1-Lz-qmN"/>
+                                        <exclude reference="Pyf-bW-Py9"/>
                                         <exclude reference="17c-cF-GQ6"/>
                                         <exclude reference="ivc-jb-1SP"/>
                                         <exclude reference="cin-gE-FGT"/>
                                         <exclude reference="vGR-93-7MW"/>
-                                        <exclude reference="8Qc-zG-VFR"/>
-                                        <exclude reference="H0n-ZY-Vso"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -523,14 +523,18 @@
                                         <include reference="iTN-4O-lP5"/>
                                         <exclude reference="jdK-98-u6R"/>
                                         <include reference="tED-M6-GK7"/>
-                                        <include reference="JM1-Lz-qmN"/>
-                                        <exclude reference="JUQ-i0-i46"/>
-                                        <include reference="Pyf-bW-Py9"/>
-                                        <exclude reference="eLS-ZP-HgL"/>
                                         <include reference="En2-W3-pYQ"/>
                                         <exclude reference="LqF-LB-005"/>
                                         <exclude reference="PzJ-0R-FHh"/>
                                         <include reference="tU9-Ic-jP8"/>
+                                        <include reference="8Qc-zG-VFR"/>
+                                        <include reference="H0n-ZY-Vso"/>
+                                        <exclude reference="R1h-LC-Kew"/>
+                                        <exclude reference="xRN-5x-Ofx"/>
+                                        <include reference="JM1-Lz-qmN"/>
+                                        <exclude reference="JUQ-i0-i46"/>
+                                        <include reference="Pyf-bW-Py9"/>
+                                        <exclude reference="eLS-ZP-HgL"/>
                                         <include reference="17c-cF-GQ6"/>
                                         <exclude reference="Nfk-k1-GvI"/>
                                         <include reference="ivc-jb-1SP"/>
@@ -539,10 +543,6 @@
                                         <include reference="cin-gE-FGT"/>
                                         <exclude reference="jbY-pA-735"/>
                                         <include reference="vGR-93-7MW"/>
-                                        <include reference="8Qc-zG-VFR"/>
-                                        <include reference="H0n-ZY-Vso"/>
-                                        <exclude reference="R1h-LC-Kew"/>
-                                        <exclude reference="xRN-5x-Ofx"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -734,7 +734,7 @@
     <resources>
         <image name="Minus" width="84" height="84"/>
         <image name="Plus" width="84" height="84"/>
-        <image name="WhoDrivingTitle" width="84" height="84"/>
+        <image name="WhoDrivingTitle" width="85" height="85"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EOq-Zk-DR5"/>
