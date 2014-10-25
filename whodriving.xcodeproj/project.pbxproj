@@ -25,6 +25,25 @@
 		5344219319E1CAD3001A179E /* DriverResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344219219E1CAD3001A179E /* DriverResult.m */; };
 		536B740419CE082B000F86D5 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 536B740319CE082B000F86D5 /* Driver.m */; };
 		5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */; };
+		53D3BB7519F8296A00BF17A2 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */; };
+		53D3BB7619F8296A00BF17A2 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */; };
+		53D3BB7719F8296A00BF17A2 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6519F8296A00BF17A2 /* Lato-Bold.ttf */; };
+		53D3BB7819F8296A00BF17A2 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6619F8296A00BF17A2 /* Lato-BoldItalic.ttf */; };
+		53D3BB7919F8296A00BF17A2 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6719F8296A00BF17A2 /* Lato-Hairline.ttf */; };
+		53D3BB7A19F8296A00BF17A2 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6819F8296A00BF17A2 /* Lato-HairlineItalic.ttf */; };
+		53D3BB7B19F8296A00BF17A2 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6919F8296A00BF17A2 /* Lato-Heavy.ttf */; };
+		53D3BB7C19F8296A00BF17A2 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6A19F8296A00BF17A2 /* Lato-HeavyItalic.ttf */; };
+		53D3BB7D19F8296A00BF17A2 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6B19F8296A00BF17A2 /* Lato-Italic.ttf */; };
+		53D3BB7E19F8296A00BF17A2 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6C19F8296A00BF17A2 /* Lato-Light.ttf */; };
+		53D3BB7F19F8296A00BF17A2 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6D19F8296A00BF17A2 /* Lato-LightItalic.ttf */; };
+		53D3BB8019F8296A00BF17A2 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6E19F8296A00BF17A2 /* Lato-Medium.ttf */; };
+		53D3BB8119F8296A00BF17A2 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6F19F8296A00BF17A2 /* Lato-MediumItalic.ttf */; };
+		53D3BB8219F8296A00BF17A2 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB7019F8296A00BF17A2 /* Lato-Regular.ttf */; };
+		53D3BB8319F8296A00BF17A2 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB7119F8296A00BF17A2 /* Lato-Semibold.ttf */; };
+		53D3BB8419F8296A00BF17A2 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB7219F8296A00BF17A2 /* Lato-SemiboldItalic.ttf */; };
+		53D3BB8519F8296A00BF17A2 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB7319F8296A00BF17A2 /* Lato-Thin.ttf */; };
+		53D3BB8619F8296A00BF17A2 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB7419F8296A00BF17A2 /* Lato-ThinItalic.ttf */; };
+		53D3BB8819F82C8400BF17A2 /* TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */; };
 		53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E43C6B19D0F61700EE28D0 /* DriverCell.m */; };
 		53EBE76019F5871800A9C65B /* DrawerSlideSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */; };
 /* End PBXBuildFile section */
@@ -74,6 +93,25 @@
 		536B740219CE082B000F86D5 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
 		536B740319CE082B000F86D5 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
 		5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverModel.xcdatamodel; sourceTree = "<group>"; };
+		53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		53D3BB6519F8296A00BF17A2 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		53D3BB6619F8296A00BF17A2 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		53D3BB6719F8296A00BF17A2 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		53D3BB6819F8296A00BF17A2 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		53D3BB6919F8296A00BF17A2 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		53D3BB6A19F8296A00BF17A2 /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		53D3BB6B19F8296A00BF17A2 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		53D3BB6C19F8296A00BF17A2 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		53D3BB6D19F8296A00BF17A2 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		53D3BB6E19F8296A00BF17A2 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		53D3BB6F19F8296A00BF17A2 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		53D3BB7019F8296A00BF17A2 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		53D3BB7119F8296A00BF17A2 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		53D3BB7219F8296A00BF17A2 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		53D3BB7319F8296A00BF17A2 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		53D3BB7419F8296A00BF17A2 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCustomFont.m; sourceTree = "<group>"; };
 		53E43C6A19D0F61700EE28D0 /* DriverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverCell.h; sourceTree = "<group>"; };
 		53E43C6B19D0F61700EE28D0 /* DriverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverCell.m; sourceTree = "<group>"; };
 		53EBE75E19F5871800A9C65B /* DrawerSlideSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerSlideSegue.h; sourceTree = "<group>"; };
@@ -120,6 +158,8 @@
 		53098A6F19CBE60E00274FEE /* whodriving */ = {
 			isa = PBXGroup;
 			children = (
+				53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */,
+				537335F919F6D8A7008E2D47 /* Resources */,
 				5344218219E07CC9001A179E /* Model */,
 				53098A7419CBE60E00274FEE /* AppDelegate.h */,
 				53098A7519CBE60E00274FEE /* AppDelegate.m */,
@@ -189,6 +229,39 @@
 				5344219219E1CAD3001A179E /* DriverResult.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		537335F919F6D8A7008E2D47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5373360819F6D8E4008E2D47 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5373360819F6D8E4008E2D47 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */,
+				53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */,
+				53D3BB6519F8296A00BF17A2 /* Lato-Bold.ttf */,
+				53D3BB6619F8296A00BF17A2 /* Lato-BoldItalic.ttf */,
+				53D3BB6719F8296A00BF17A2 /* Lato-Hairline.ttf */,
+				53D3BB6819F8296A00BF17A2 /* Lato-HairlineItalic.ttf */,
+				53D3BB6919F8296A00BF17A2 /* Lato-Heavy.ttf */,
+				53D3BB6A19F8296A00BF17A2 /* Lato-HeavyItalic.ttf */,
+				53D3BB6B19F8296A00BF17A2 /* Lato-Italic.ttf */,
+				53D3BB6C19F8296A00BF17A2 /* Lato-Light.ttf */,
+				53D3BB6D19F8296A00BF17A2 /* Lato-LightItalic.ttf */,
+				53D3BB6E19F8296A00BF17A2 /* Lato-Medium.ttf */,
+				53D3BB6F19F8296A00BF17A2 /* Lato-MediumItalic.ttf */,
+				53D3BB7019F8296A00BF17A2 /* Lato-Regular.ttf */,
+				53D3BB7119F8296A00BF17A2 /* Lato-Semibold.ttf */,
+				53D3BB7219F8296A00BF17A2 /* Lato-SemiboldItalic.ttf */,
+				53D3BB7319F8296A00BF17A2 /* Lato-Thin.ttf */,
+				53D3BB7419F8296A00BF17A2 /* Lato-ThinItalic.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +345,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53D3BB7B19F8296A00BF17A2 /* Lato-Heavy.ttf in Resources */,
+				53D3BB8619F8296A00BF17A2 /* Lato-ThinItalic.ttf in Resources */,
+				53D3BB7E19F8296A00BF17A2 /* Lato-Light.ttf in Resources */,
+				53D3BB7519F8296A00BF17A2 /* Lato-Black.ttf in Resources */,
+				53D3BB7719F8296A00BF17A2 /* Lato-Bold.ttf in Resources */,
 				53098A7C19CBE60E00274FEE /* Main.storyboard in Resources */,
+				53D3BB8119F8296A00BF17A2 /* Lato-MediumItalic.ttf in Resources */,
+				53D3BB8419F8296A00BF17A2 /* Lato-SemiboldItalic.ttf in Resources */,
+				53D3BB7619F8296A00BF17A2 /* Lato-BlackItalic.ttf in Resources */,
+				53D3BB7C19F8296A00BF17A2 /* Lato-HeavyItalic.ttf in Resources */,
 				53098A8119CBE60E00274FEE /* LaunchScreen.xib in Resources */,
+				53D3BB7A19F8296A00BF17A2 /* Lato-HairlineItalic.ttf in Resources */,
+				53D3BB7819F8296A00BF17A2 /* Lato-BoldItalic.ttf in Resources */,
+				53D3BB8319F8296A00BF17A2 /* Lato-Semibold.ttf in Resources */,
+				53D3BB8019F8296A00BF17A2 /* Lato-Medium.ttf in Resources */,
+				53D3BB7919F8296A00BF17A2 /* Lato-Hairline.ttf in Resources */,
+				53D3BB7D19F8296A00BF17A2 /* Lato-Italic.ttf in Resources */,
 				53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */,
+				53D3BB8519F8296A00BF17A2 /* Lato-Thin.ttf in Resources */,
+				53D3BB7F19F8296A00BF17A2 /* Lato-LightItalic.ttf in Resources */,
+				53D3BB8219F8296A00BF17A2 /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +392,7 @@
 				5343EBBF19EDD592000E1E2D /* PopFadeSegue.m in Sources */,
 				53098A7619CBE60E00274FEE /* AppDelegate.m in Sources */,
 				5343EBBC19EDC53D000E1E2D /* PushFadeSegue.m in Sources */,
+				53D3BB8819F82C8400BF17A2 /* TCCustomFont.m in Sources */,
 				5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */,
 				53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */,
 				53098A7319CBE60E00274FEE /* main.m in Sources */,
@@ -433,6 +525,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = whodriving/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -447,6 +540,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = whodriving/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

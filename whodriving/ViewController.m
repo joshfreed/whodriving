@@ -17,7 +17,15 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *findMyDriversButton;
 @property (weak, nonatomic) IBOutlet UIButton *manageDriversButton;
-@property (weak, nonatomic) IBOutlet UILabel *numPeopleLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *numPeopleLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *plusButton;
+@property (weak, nonatomic) IBOutlet UIButton *minusButton;
+@property (weak, nonatomic) IBOutlet UIView *numPeopleBg;
+@property (weak, nonatomic) IBOutlet UILabel *numPeopleLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *needDriversLabel;
+@property (weak, nonatomic) IBOutlet UILabel *needDriversPeopleLabel;
+
 
 @property NSArray *drivers;
 @property NSArray *tripResult;
@@ -28,11 +36,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    [self setCustomFont:self.plusButton.titleLabel fontName:@"Lato-Hairline"];
+    [self setCustomFont:self.minusButton.titleLabel fontName:@"Lato-Hairline"];
+    [self setCustomFont:self.numPeopleLabel2 fontName:@"Lato-Black"];
+    [self setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];
+    [self setCustomFont:self.needDriversPeopleLabel fontName:@"Lato-Regular"];
+    
+//    [self.numPeopleLabel setText:@"99"];
+//    [self.numPeopleLabel setTextColor:[UIColor greenColor]];
+//    [self.numPeopleLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:50]];
+}
+
+- (void)makeRoundedView:(UIView*)view
+{
+//    NSLog(@"%f", view.frame.size.width);
+    view.layer.cornerRadius = view.frame.size.width / 2;
+//    view.clipsToBounds = YES;
+}
+
+- (void)setCustomFont:(UILabel*)label fontName:(NSString*)fontName
+{
+    [label setFont:[UIFont fontWithName:fontName size:label.font.pointSize]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self prepareMainView];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [self makeRoundedView:self.numPeopleBg];
+    [self makeRoundedView:self.plusButton];
+    [self makeRoundedView:self.minusButton];
+    
+//    [self.numPeopleLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:50]];
 }
 
 - (void)prepareMainView
@@ -75,37 +118,39 @@
 
 - (IBAction)increasePersonCount:(UIButton *)sender
 {
-    NSInteger personCount = [self.numPeopleLabel.text integerValue];
+    NSInteger personCount = [self.numPeopleLabel2.text integerValue];
     
     personCount++;
     if (personCount > 99) {
         personCount = 99;
     }
     
-    [self.numPeopleLabel setText:[NSString stringWithFormat:@"%d", personCount]];
+    [self.numPeopleLabel2 setText:[NSString stringWithFormat:@"%d", personCount]];
 }
 
 - (IBAction)decreasePersonCount:(UIButton *)sender
 {
-    NSInteger personCount = [self.numPeopleLabel.text integerValue];
+    NSInteger personCount = [self.numPeopleLabel2.text integerValue];
     
     personCount--;
     if (personCount < 1) {
         personCount = 1;
     }
     
-    [self.numPeopleLabel setText:[NSString stringWithFormat:@"%d", personCount]];
+    [self.numPeopleLabel2 setText:[NSString stringWithFormat:@"%d", personCount]];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
     }
     
     if ([[segue identifier] isEqualToString:@"FindMyDrivers"]) {
-        NSInteger personCount = [self.numPeopleLabel.text integerValue];
+        NSInteger personCount = [self.numPeopleLabel2.text integerValue];
         NSNumber *passengerCount = [NSNumber numberWithInteger:personCount];
         TripSpecification *tripSpec = [[TripSpecification alloc] init:passengerCount possibleDrivers:self.drivers];
         
@@ -118,7 +163,7 @@
 
 - (IBAction)findMeDrivers:(UIButton *)sender
 {
-    NSInteger personCount = [self.numPeopleLabel.text integerValue];
+    NSInteger personCount = [self.numPeopleLabel2.text integerValue];
     NSNumber *passengerCount = [NSNumber numberWithInteger:personCount];
     TripSpecification *tripSpec = [[TripSpecification alloc] init:passengerCount possibleDrivers:self.drivers];
     TripService *tripService = [[TripService alloc] init];

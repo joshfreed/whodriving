@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface AppDelegate ()
 
 @end
@@ -41,19 +43,27 @@
  
 //    [self flushDatabase];
     
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
-    shadow.shadowColor = [UIColor whiteColor];
+//    NSShadow *shadow = [[NSShadow alloc] init];
+//    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
+//    shadow.shadowColor = [UIColor whiteColor];
+//    
+//    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+//     setTitleTextAttributes:
+//     @{NSForegroundColorAttributeName:[UIColor blackColor],
+//       NSShadowAttributeName:shadow,
+//       NSFontAttributeName:[UIFont boldSystemFontOfSize:12.0]
+//       }
+//     forState:UIControlStateNormal];
     
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
-     setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor blackColor],
-       NSShadowAttributeName:shadow,
-       NSFontAttributeName:[UIFont boldSystemFontOfSize:12.0]
-       }
-     forState:UIControlStateNormal];
-    
-    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+//    for (NSString* family in [UIFont familyNames])
+//    {
+//        NSLog(@"%@", family);
+//        
+//        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+//        {
+//            NSLog(@"  %@", name);
+//        }
+//    }
     
     return YES;
 }
