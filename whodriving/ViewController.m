@@ -38,23 +38,11 @@
     [super viewDidLoad];
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
-    [self setCustomFont:self.plusButton.titleLabel fontName:@"Lato-Hairline"];
-    [self setCustomFont:self.minusButton.titleLabel fontName:@"Lato-Hairline"];
-    [self setCustomFont:self.numPeopleLabel2 fontName:@"Lato-Black"];
-    [self setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];
-    [self setCustomFont:self.needDriversPeopleLabel fontName:@"Lato-Regular"];
-    
-//    [self.numPeopleLabel setText:@"99"];
-//    [self.numPeopleLabel setTextColor:[UIColor greenColor]];
-//    [self.numPeopleLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:50]];
 }
 
 - (void)makeRoundedView:(UIView*)view
 {
-//    NSLog(@"%f", view.frame.size.width);
     view.layer.cornerRadius = view.frame.size.width / 2;
-//    view.clipsToBounds = YES;
 }
 
 - (void)setCustomFont:(UILabel*)label fontName:(NSString*)fontName
@@ -75,7 +63,11 @@
     [self makeRoundedView:self.plusButton];
     [self makeRoundedView:self.minusButton];
     
-//    [self.numPeopleLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:50]];
+    [self setCustomFont:self.plusButton.titleLabel fontName:@"Lato-Hairline"];
+    [self setCustomFont:self.minusButton.titleLabel fontName:@"Lato-Hairline"];
+    [self setCustomFont:self.numPeopleLabel2 fontName:@"Lato-Black"];
+    [self setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];
+    [self setCustomFont:self.needDriversPeopleLabel fontName:@"Lato-Regular"];
 }
 
 - (void)prepareMainView
