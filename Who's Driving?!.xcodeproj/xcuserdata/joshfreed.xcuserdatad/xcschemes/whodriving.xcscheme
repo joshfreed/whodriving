@@ -17,7 +17,7 @@
                BlueprintIdentifier = "53098A6C19CBE60E00274FEE"
                BuildableName = "whodriving.app"
                BlueprintName = "whodriving"
-               ReferencedContainer = "container:whodriving.xcodeproj">
+               ReferencedContainer = "container:Who&apos;s Driving?!.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "53098A8519CBE60E00274FEE"
                BuildableName = "whodrivingTests.xctest"
                BlueprintName = "whodrivingTests"
-               ReferencedContainer = "container:whodriving.xcodeproj">
+               ReferencedContainer = "container:Who&apos;s Driving?!.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "53098A8519CBE60E00274FEE"
                BuildableName = "whodrivingTests.xctest"
                BlueprintName = "whodrivingTests"
-               ReferencedContainer = "container:whodriving.xcodeproj">
+               ReferencedContainer = "container:Who&apos;s Driving?!.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "53098A6C19CBE60E00274FEE"
             BuildableName = "whodriving.app"
             BlueprintName = "whodriving"
-            ReferencedContainer = "container:whodriving.xcodeproj">
+            ReferencedContainer = "container:Who&apos;s Driving?!.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "53098A6C19CBE60E00274FEE"
             BuildableName = "whodriving.app"
             BlueprintName = "whodriving"
-            ReferencedContainer = "container:whodriving.xcodeproj">
+            ReferencedContainer = "container:Who&apos;s Driving?!.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,7 +96,7 @@
             BlueprintIdentifier = "53098A6C19CBE60E00274FEE"
             BuildableName = "whodriving.app"
             BlueprintName = "whodriving"
-            ReferencedContainer = "container:whodriving.xcodeproj">
+            ReferencedContainer = "container:Who&apos;s Driving?!.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
