@@ -58,7 +58,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    
     [self makeRoundedView:self.numPeopleBg];
     [self makeRoundedView:self.plusButton];
     [self makeRoundedView:self.minusButton];
