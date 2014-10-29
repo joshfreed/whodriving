@@ -7,11 +7,13 @@
 //
 
 #import "DriverCell.h"
+#import "ViewHelper.h"
 
 @implementation DriverCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [ViewHelper setCustomFont:self.driverName fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.numPassengers fontName:@"Lato-Black"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

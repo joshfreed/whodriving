@@ -11,6 +11,7 @@
 #import "DriverCell.h"
 #import "AddDriverViewController.h"
 #import "AppDelegate.h"
+#import "ViewHelper.h"
 
 @interface ManageDriversTableViewController () <NSFetchedResultsControllerDelegate>
 
@@ -49,7 +50,6 @@
         NSLog(@"Unable to perform fetch.");
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -68,6 +68,10 @@
     
 }
 
+- (IBAction)popViewController:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -107,6 +111,10 @@
 
 - (void)configureCell:(DriverCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
+    if (indexPath.row % 2 == 1) {
+        cell.contentView.backgroundColor = UIColorFromRGB(0x34495e);
+    }
+    
     Driver *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     if (cell.driver != record) {
@@ -116,6 +124,10 @@
     [cell.driverName setText:record.driverName];
     [cell.numPassengers setText:[record.numPassengers stringValue]];
     [cell.enabledSwitch setOn:record.isEnabled];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 /*

@@ -12,6 +12,7 @@
 #import "TripSpecification.h"
 #import "TripService.h"
 #import "TripResultsViewController.h"
+#import "ViewHelper.h"
 
 @interface ViewController ()
 
@@ -40,16 +41,6 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
-- (void)makeRoundedView:(UIView*)view
-{
-    view.layer.cornerRadius = view.frame.size.width / 2;
-}
-
-- (void)setCustomFont:(UILabel*)label fontName:(NSString*)fontName
-{
-    [label setFont:[UIFont fontWithName:fontName size:label.font.pointSize]];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self prepareMainView];
@@ -59,15 +50,15 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self makeRoundedView:self.numPeopleBg];
-    [self makeRoundedView:self.plusButton];
-    [self makeRoundedView:self.minusButton];
+    [ViewHelper makeRoundedView:self.numPeopleBg];
+    [ViewHelper makeRoundedView:self.plusButton];
+    [ViewHelper makeRoundedView:self.minusButton];
     
-    [self setCustomFont:self.plusButton.titleLabel fontName:@"Lato-Hairline"];
-    [self setCustomFont:self.minusButton.titleLabel fontName:@"Lato-Hairline"];
-    [self setCustomFont:self.numPeopleLabel2 fontName:@"Lato-Black"];
-    [self setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];
-    [self setCustomFont:self.needDriversPeopleLabel fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.plusButton.titleLabel fontName:@"Lato-Hairline"];
+    [ViewHelper setCustomFont:self.minusButton.titleLabel fontName:@"Lato-Hairline"];
+    [ViewHelper setCustomFont:self.numPeopleLabel2 fontName:@"Lato-Black"];
+    [ViewHelper setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.needDriversPeopleLabel fontName:@"Lato-Regular"];
 }
 
 - (void)prepareMainView
@@ -134,7 +125,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+//    [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;

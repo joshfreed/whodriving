@@ -25,6 +25,7 @@
 		5344219319E1CAD3001A179E /* DriverResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344219219E1CAD3001A179E /* DriverResult.m */; };
 		536B740419CE082B000F86D5 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 536B740319CE082B000F86D5 /* Driver.m */; };
 		5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */; };
+		53B52E391A00713200C7D35B /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B52E381A00713200C7D35B /* ViewHelper.m */; };
 		53D3BB7519F8296A00BF17A2 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */; };
 		53D3BB7619F8296A00BF17A2 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */; };
 		53D3BB7719F8296A00BF17A2 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6519F8296A00BF17A2 /* Lato-Bold.ttf */; };
@@ -93,6 +94,8 @@
 		536B740219CE082B000F86D5 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
 		536B740319CE082B000F86D5 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
 		5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverModel.xcdatamodel; sourceTree = "<group>"; };
+		53B52E371A00713200C7D35B /* ViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHelper.h; sourceTree = "<group>"; };
+		53B52E381A00713200C7D35B /* ViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHelper.m; sourceTree = "<group>"; };
 		53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		53D3BB6519F8296A00BF17A2 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				5343EBBB19EDC53D000E1E2D /* PushFadeSegue.m */,
 				53EBE75E19F5871800A9C65B /* DrawerSlideSegue.h */,
 				53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */,
+				53B52E371A00713200C7D35B /* ViewHelper.h */,
+				53B52E381A00713200C7D35B /* ViewHelper.m */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				536B740419CE082B000F86D5 /* Driver.m in Sources */,
 				53346E9E19EDB4FD00EA7ABB /* TripResultsViewController.m in Sources */,
 				53098A7919CBE60E00274FEE /* ViewController.m in Sources */,
+				53B52E391A00713200C7D35B /* ViewHelper.m in Sources */,
 				5343EBBF19EDD592000E1E2D /* PopFadeSegue.m in Sources */,
 				53098A7619CBE60E00274FEE /* AppDelegate.m in Sources */,
 				5343EBBC19EDC53D000E1E2D /* PushFadeSegue.m in Sources */,
