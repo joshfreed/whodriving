@@ -50,6 +50,14 @@
         NSLog(@"Unable to perform fetch.");
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
+    
+//    self.tableView.estimatedRowHeight = 90.0;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -112,7 +120,7 @@
 - (void)configureCell:(DriverCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     if (indexPath.row % 2 == 1) {
-        cell.contentView.backgroundColor = UIColorFromRGB(0x34495e);
+//        cell.contentView.backgroundColor = UIColorFromRGB(0x34495e);
     }
     
     Driver *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -126,8 +134,9 @@
     [cell.enabledSwitch setOn:record.isEnabled];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (void)tableView:(UITableView *)tableView willDisplayCell:(DriverCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [ViewHelper setCustomFont:cell.driverName fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:cell.numPassengers fontName:@"Lato-Black"];
 }
 
 /*
@@ -151,6 +160,11 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
+
+//-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
 
 
 /*

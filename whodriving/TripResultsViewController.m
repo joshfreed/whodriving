@@ -71,6 +71,12 @@ static NSString * const reuseIdentifier = @"Cell";
 //    }
 }
 
+- (IBAction)popViewController:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 
 #pragma mark <UICollectionViewDataSource>
 

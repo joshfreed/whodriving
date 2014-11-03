@@ -125,7 +125,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
