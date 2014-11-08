@@ -10,6 +10,7 @@
 #import "DriverResultCollectionViewCell.h"
 #import "ManageDriversTableViewController.h"
 #import "TripService.h"
+#import "ViewHelper.h"
 
 @interface TripResultsViewController ()
 
@@ -99,6 +100,10 @@ static NSString * const reuseIdentifier = @"Cell";
     [cell.passengerCountLabel setText:[result.passengerCount stringValue]];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(DriverResultCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [ViewHelper makeRoundedView:cell];
 }
 
 #pragma mark <UICollectionViewDelegate>

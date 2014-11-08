@@ -21,10 +21,24 @@
     // Configure the view for the selected state
 }
 
+- (void)configure:(Driver *)driver
+{
+    if (self.driver != driver) {
+        self.driver = driver;
+    }
+    
+    [self.driverName setText:driver.driverName];
+    [self.numPassengers setText:[driver.numPassengers stringValue]];
+    [self.enabledSwitch setOn:driver.isEnabled];
+}
+
 - (IBAction)increasedPassengerCount:(UIButton *)sender
 {
     NSInteger passengerCount = [numPassengers.text integerValue];
     passengerCount++;
+    if (passengerCount > 99) {
+        passengerCount = 99;
+    }
     [numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
     [self.driver setPassengerCount:passengerCount];
 }
@@ -33,6 +47,9 @@
 {
     NSInteger passengerCount = [numPassengers.text integerValue];
     passengerCount--;
+    if (passengerCount < 0) {
+        passengerCount = 0;
+    }
     [numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
     [self.driver setPassengerCount:passengerCount];
 }

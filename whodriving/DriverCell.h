@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *enabledSwitch;
 @property Driver *driver;
 
+-(void)configure:(Driver*)driver;
+
 @end

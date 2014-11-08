@@ -13,6 +13,7 @@
 + (void)makeRoundedView:(UIView*)view
 {
     view.layer.cornerRadius = view.frame.size.width / 2;
+    view.clipsToBounds = YES;
 }
 
 + (void)setCustomFont:(UILabel*)label fontName:(NSString*)fontName

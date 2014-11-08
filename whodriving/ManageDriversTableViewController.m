@@ -30,6 +30,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    // This will remove extra separators from tableview
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     // Initialize Fetch Request
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Driver"];
     
@@ -50,14 +53,19 @@
         NSLog(@"Unable to perform fetch.");
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
-    
-//    self.tableView.estimatedRowHeight = 90.0;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 64;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+//    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -69,6 +77,11 @@
             NSLog(@"%@, %@", error, error.localizedDescription);
         }
     }
+}
+
+-(void)willTransitionToTraitCollection:(UITraitCollection *)newCollection
+             withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    NSLog(@"Trait collection = %@", newCollection);
 }
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
@@ -112,31 +125,23 @@
 {
     DriverCell *cell = (DriverCell*)[tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
-    [self configureCell:cell atIndexPath:indexPath];
-
+    Driver *driver = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [cell configure:driver];
     return cell;
-}
-
-- (void)configureCell:(DriverCell*)cell atIndexPath:(NSIndexPath*)indexPath
-{
-    if (indexPath.row % 2 == 1) {
-//        cell.contentView.backgroundColor = UIColorFromRGB(0x34495e);
-    }
-    
-    Driver *record = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    if (cell.driver != record) {
-        cell.driver = record;
-    }
-    
-    [cell.driverName setText:record.driverName];
-    [cell.numPassengers setText:[record.numPassengers stringValue]];
-    [cell.enabledSwitch setOn:record.isEnabled];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(DriverCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     [ViewHelper setCustomFont:cell.driverName fontName:@"Lato-Regular"];
     [ViewHelper setCustomFont:cell.numPassengers fontName:@"Lato-Black"];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
+        return 64;
+    } else {
+        return 78;
+    }
 }
 
 /*
@@ -212,7 +217,7 @@
             break;
         }
         case NSFetchedResultsChangeUpdate: {
-            [self configureCell:(DriverCell *)[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+//            [self configureCell:(DriverCell *)[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
         }
         case NSFetchedResultsChangeMove: {
