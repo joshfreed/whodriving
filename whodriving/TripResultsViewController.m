@@ -62,6 +62,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // Pass the selected object to the new view controller.
     
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
     }

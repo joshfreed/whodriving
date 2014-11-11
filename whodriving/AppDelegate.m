@@ -35,35 +35,13 @@
     // Configure Window
     [self.window setRootViewController:rootNavigationController];
     
-//    ViewController *viewController = (ViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"rootViewController"];
-//    if ([viewController isKindOfClass:[ViewController class]]) {
-//        [viewController setManagedObjectContext:self.managedObjectContext];
-//        [self.window setRootViewController:viewController];
-//    }
+    rootNavigationController.navigationBar.tintColor = [UIColor whiteColor];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+//    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, shadow, NSShadowAttributeName, [UIFont fontWithName:@"Lato-Heavy" size:21.0], NSFontAttributeName, nil]];
  
 //    [self flushDatabase];
-    
-//    NSShadow *shadow = [[NSShadow alloc] init];
-//    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
-//    shadow.shadowColor = [UIColor whiteColor];
-//    
-//    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
-//     setTitleTextAttributes:
-//     @{NSForegroundColorAttributeName:[UIColor blackColor],
-//       NSShadowAttributeName:shadow,
-//       NSFontAttributeName:[UIFont boldSystemFontOfSize:12.0]
-//       }
-//     forState:UIControlStateNormal];
-    
-//    for (NSString* family in [UIFont familyNames])
-//    {
-//        NSLog(@"%@", family);
-//        
-//        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-//        {
-//            NSLog(@"  %@", name);
-//        }
-//    }
     
     return YES;
 }

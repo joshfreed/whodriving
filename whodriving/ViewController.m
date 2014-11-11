@@ -125,6 +125,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 //    [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
