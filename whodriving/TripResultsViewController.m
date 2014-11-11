@@ -15,6 +15,7 @@
 @interface TripResultsViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIButton *findDifferentDriversButton;
 
 @end
 
@@ -28,6 +29,11 @@ static NSString * const reuseIdentifier = @"Cell";
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [ViewHelper setCustomFont:self.findDifferentDriversButton.titleLabel fontName:@"Lato-Regular"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,6 +111,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(DriverResultCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     [ViewHelper makeRoundedView:cell];
+    [ViewHelper setCustomFont:cell.driverNameLabel fontName:@"Lato-Regular"];
 }
 
 #pragma mark <UICollectionViewDelegate>

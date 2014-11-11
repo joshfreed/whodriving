@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numPeopleLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *needDriversLabel;
 @property (weak, nonatomic) IBOutlet UILabel *needDriversPeopleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 
 @property NSArray *drivers;
@@ -53,12 +54,11 @@
     [ViewHelper makeRoundedView:self.numPeopleBg];
     [ViewHelper makeRoundedView:self.plusButton];
     [ViewHelper makeRoundedView:self.minusButton];
-    
-    [ViewHelper setCustomFont:self.plusButton.titleLabel fontName:@"Lato-Hairline"];
-    [ViewHelper setCustomFont:self.minusButton.titleLabel fontName:@"Lato-Hairline"];
+
     [ViewHelper setCustomFont:self.numPeopleLabel2 fontName:@"Lato-Black"];
     [ViewHelper setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];
     [ViewHelper setCustomFont:self.needDriversPeopleLabel fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.searchButton.titleLabel fontName:@"Lato-Regular"];
 }
 
 - (void)prepareMainView

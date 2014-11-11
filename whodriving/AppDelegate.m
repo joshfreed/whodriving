@@ -38,10 +38,10 @@
     rootNavigationController.navigationBar.tintColor = [UIColor whiteColor];
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
-//    shadow.shadowOffset = CGSizeMake(0, 1);
+
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, shadow, NSShadowAttributeName, [UIFont fontWithName:@"Lato-Heavy" size:21.0], NSFontAttributeName, nil]];
  
-//    [self flushDatabase];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor whiteColor], NSShadowAttributeName:shadow, NSFontAttributeName:[UIFont fontWithName:@"Lato-Regular" size:12] } forState:UIControlStateNormal];
     
     return YES;
 }
