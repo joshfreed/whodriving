@@ -14,4 +14,5 @@
 @interface ViewHelper : NSObject
 + (void)makeRoundedView:(UIView*)view;
 + (void)setCustomFont:(UILabel*)label fontName:(NSString*)fontName;
++ (void)setCustomFontForTextField:(UITextField*)field fontName:(NSString*)fontName;
 @end

@@ -21,4 +21,10 @@
     [label setFont:[UIFont fontWithName:fontName size:label.font.pointSize]];
 }
 
++ (void)setCustomFontForTextField:(UITextField*)field fontName:(NSString*)fontName
+{
+    [field setFont:[UIFont fontWithName:fontName size:field.font.pointSize]];
+}
+
+
 @end

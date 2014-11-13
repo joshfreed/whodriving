@@ -8,12 +8,16 @@
 
 #import "AddDriverViewController.h"
 #import "Driver.h"
+#import "ViewHelper.h"
 
 @interface AddDriverViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *driverNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *driverName;
 @property (weak, nonatomic) IBOutlet UITextField *numPassengers;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UILabel *passengersLabel;
+@property (weak, nonatomic) IBOutlet UILabel *passengerDescLabel;
 
 @end
 
@@ -23,7 +27,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.driverName becomeFirstResponder];
+    
+    [ViewHelper setCustomFont:self.driverNameLabel fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.passengersLabel fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.passengerDescLabel fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFontForTextField:self.driverName fontName:@"Lato-Heavy"];
+    [ViewHelper setCustomFontForTextField:self.numPassengers fontName:@"Lato-Heavy"];
 }
 
 - (void)didReceiveMemoryWarning {
