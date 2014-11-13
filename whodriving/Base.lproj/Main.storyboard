@@ -19,22 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epm-L8-DDR">
-                                <rect key="frame" x="0.0" y="488" width="600" height="48"/>
-                                <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="MCt-De-zLJ"/>
-                                </constraints>
-                                <state key="normal" title="Find Different Drivers">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="findDifferentDrivers:" destination="IjH-zl-CS2" eventType="touchUpInside" id="VRn-vZ-4lN"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pgr-c6-7dC">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="488"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="Yzp-LK-a2F">
                                     <size key="itemSize" width="150" height="150"/>
@@ -78,25 +64,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Pgr-c6-7dC" firstAttribute="leading" secondItem="AKk-hv-rpn" secondAttribute="leading" id="ChC-yH-DFi"/>
-                            <constraint firstItem="pEb-4i-jx8" firstAttribute="top" secondItem="epm-L8-DDR" secondAttribute="bottom" id="Ugw-0x-sd9"/>
-                            <constraint firstItem="epm-L8-DDR" firstAttribute="leading" secondItem="AKk-hv-rpn" secondAttribute="leading" id="YBQ-6a-NZ8"/>
-                            <constraint firstItem="epm-L8-DDR" firstAttribute="top" secondItem="Pgr-c6-7dC" secondAttribute="bottom" id="b2s-rC-LwV"/>
                             <constraint firstItem="Pgr-c6-7dC" firstAttribute="top" secondItem="Wb8-7Y-FQz" secondAttribute="bottom" id="iK2-wG-89k"/>
-                            <constraint firstAttribute="trailing" secondItem="epm-L8-DDR" secondAttribute="trailing" id="jLp-JR-crT"/>
                             <constraint firstAttribute="trailing" secondItem="Pgr-c6-7dC" secondAttribute="trailing" id="vki-6T-vHm"/>
+                            <constraint firstItem="pEb-4i-jx8" firstAttribute="top" secondItem="Pgr-c6-7dC" secondAttribute="bottom" id="w4Z-cM-SbE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Drivers" id="fzg-WW-dik">
-                        <barButtonItem key="rightBarButtonItem" image="ManageDriversBarButton" id="3pr-lC-Ber" userLabel="Manage Drivers">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="Wga-Xw-Hn1" kind="show" identifier="ManageDrivers" id="eMM-HC-e0Q"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Your Drivers" id="fzg-WW-dik"/>
                     <connections>
                         <outlet property="collectionView" destination="Pgr-c6-7dC" id="ev5-lE-V7V"/>
-                        <outlet property="findDifferentDriversButton" destination="epm-L8-DDR" id="05P-Qi-lpa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byQ-O9-OGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -274,7 +249,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAT-Ab-kB1">
-                                <rect key="frame" x="210" y="449" width="180" height="45"/>
+                                <rect key="frame" x="210" y="365" width="180" height="45"/>
                                 <color key="backgroundColor" red="0.60784313725490191" green="0.34901960784313724" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="qt3-yQ-89i"/>
@@ -409,10 +384,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wOq-cf-LMc" firstAttribute="top" secondItem="NAT-Ab-kB1" secondAttribute="bottom" constant="42" id="MBq-DS-A1g"/>
                             <constraint firstAttribute="trailing" secondItem="x9V-YY-dRq" secondAttribute="trailing" id="V4P-os-2wf"/>
                             <constraint firstAttribute="centerX" secondItem="NAT-Ab-kB1" secondAttribute="centerX" id="YpA-8A-Ava"/>
                             <constraint firstItem="x9V-YY-dRq" firstAttribute="height" secondItem="ffs-Eo-OKd" secondAttribute="height" multiplier="0.333" id="e9I-kD-aBg"/>
+                            <constraint firstItem="NAT-Ab-kB1" firstAttribute="top" secondItem="x9V-YY-dRq" secondAttribute="bottom" constant="8" id="eQ8-hm-l6W"/>
                             <constraint firstItem="x9V-YY-dRq" firstAttribute="leading" secondItem="ffs-Eo-OKd" secondAttribute="leading" id="li6-mE-Zr5"/>
                             <constraint firstAttribute="centerY" secondItem="x9V-YY-dRq" secondAttribute="centerY" id="rfD-VZ-PBd"/>
                         </constraints>
@@ -612,7 +587,4 @@
         <image name="PurpleMinus" width="66" height="66"/>
         <image name="PurplePlus" width="66" height="66"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="JKn-18-G6m"/>
-    </inferredMetricsTieBreakers>
 </document>
