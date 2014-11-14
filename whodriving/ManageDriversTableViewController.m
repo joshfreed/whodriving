@@ -71,7 +71,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
+    if (![self.managedObjectContext save:&error]) { 
         if (error) {
             NSLog(@"Unable to save record.");
             NSLog(@"%@, %@", error, error.localizedDescription);
@@ -131,8 +131,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(DriverCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [ViewHelper setCustomFont:cell.driverName fontName:@"Lato-Regular"];
-    [ViewHelper setCustomFont:cell.numPassengers fontName:@"Lato-Black"];
+    [cell willDisplayCell];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -11,11 +11,9 @@
 
 @interface DriverCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UILabel *driverName;
-@property (nonatomic, weak) IBOutlet UILabel *numPassengers;
-@property (weak, nonatomic) IBOutlet UISwitch *enabledSwitch;
 @property Driver *driver;
 
 -(void)configure:(Driver*)driver;
+-(void)willDisplayCell;
 
 @end

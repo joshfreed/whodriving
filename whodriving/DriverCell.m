@@ -9,6 +9,12 @@
 #import "DriverCell.h"
 #import "ViewHelper.h"
 
+@interface DriverCell ()
+@property (nonatomic, weak) IBOutlet UITextField *driverName;
+@property (nonatomic, weak) IBOutlet UILabel *numPassengers;
+@property (weak, nonatomic) IBOutlet UISwitch *enabledSwitch;
+@end
+
 @implementation DriverCell
 
 - (void)awakeFromNib {
@@ -32,25 +38,31 @@
     [self.enabledSwitch setOn:driver.isEnabled];
 }
 
+- (void)willDisplayCell
+{
+    [ViewHelper setCustomFontForTextField:self.driverName fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.numPassengers fontName:@"Lato-Black"];
+}
+
 - (IBAction)increasedPassengerCount:(UIButton *)sender
 {
-    NSInteger passengerCount = [numPassengers.text integerValue];
+    NSInteger passengerCount = [self.numPassengers.text integerValue];
     passengerCount++;
     if (passengerCount > 99) {
         passengerCount = 99;
     }
-    [numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
+    [self.numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
     [self.driver setPassengerCount:passengerCount];
 }
 
 - (IBAction)decreasedPassengerCount:(UIButton *)sender
 {
-    NSInteger passengerCount = [numPassengers.text integerValue];
+    NSInteger passengerCount = [self.numPassengers.text integerValue];
     passengerCount--;
     if (passengerCount < 0) {
         passengerCount = 0;
     }
-    [numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
+    [self.numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
     [self.driver setPassengerCount:passengerCount];
 }
 
@@ -63,6 +75,9 @@
     }
 }
 
-@synthesize driverName, numPassengers;
+- (IBAction)editingDidEnd:(UITextField *)sender
+{
+    [self.driver setDriverName:self.driverName.text];
+}
 
 @end

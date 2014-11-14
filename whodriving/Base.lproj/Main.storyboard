@@ -103,24 +103,6 @@
                                                 <action selector="toggleDriver:" destination="eAQ-FV-UcD" eventType="valueChanged" id="nJt-jB-Eho"/>
                                             </connections>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ryn-eJ-tYc">
-                                            <rect key="frame" x="65" y="8" width="402" height="60"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="1oC-66-Omc">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="43.5"/>
-                                                </constraint>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="1oC-66-Omc"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            </variation>
-                                        </label>
                                         <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tg-xo-fq3" userLabel="Vertical Line">
                                             <rect key="frame" x="458" y="8" width="1" height="61.5"/>
                                             <color key="backgroundColor" red="0.58431372549019611" green="0.6470588235294118" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -149,6 +131,7 @@
                                                 </constraint>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -179,40 +162,54 @@
                                                 <action selector="increasedPassengerCount:" destination="eAQ-FV-UcD" eventType="touchUpInside" id="fb8-Kf-YaI"/>
                                             </connections>
                                         </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1kX-Yb-py6" userLabel="Driver Name">
+                                            <rect key="frame" x="65" y="8" width="393" height="60"/>
+                                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="editingDidEnd:" destination="eAQ-FV-UcD" eventType="editingDidEnd" id="Pnf-dg-yj7"/>
+                                            </connections>
+                                        </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="kPR-yJ-kge" secondAttribute="bottom" constant="8" id="1zr-5e-zyg"/>
                                         <constraint firstItem="ESE-Am-oWh" firstAttribute="leading" secondItem="oR6-Op-tjJ" secondAttribute="trailing" constant="6" id="2K1-kB-o6m"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ryn-eJ-tYc" secondAttribute="bottom" constant="8" id="3V9-er-FC6"/>
                                         <constraint firstItem="oR6-Op-tjJ" firstAttribute="leading" secondItem="ZtQ-Ws-eIj" secondAttribute="trailing" constant="6" id="3jg-oc-jxA"/>
-                                        <constraint firstItem="Ryn-eJ-tYc" firstAttribute="top" secondItem="pCb-rW-Qin" secondAttribute="top" constant="8" id="CXY-zd-VHq"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="ESE-Am-oWh" secondAttribute="trailing" constant="8" id="HuY-58-sEi">
                                             <variation key="heightClass=regular-widthClass=compact" constant="6"/>
                                         </constraint>
                                         <constraint firstItem="kPR-yJ-kge" firstAttribute="leading" secondItem="ZtQ-Ws-eIj" secondAttribute="trailing" id="JBs-95-qoD"/>
-                                        <constraint firstItem="ZtQ-Ws-eIj" firstAttribute="leading" secondItem="Ryn-eJ-tYc" secondAttribute="trailing" id="JeL-gA-bcY"/>
                                         <constraint firstItem="ZtQ-Ws-eIj" firstAttribute="leading" secondItem="9tg-xo-fq3" secondAttribute="trailing" constant="8" id="Kk3-ci-25t"/>
                                         <constraint firstItem="9tg-xo-fq3" firstAttribute="top" secondItem="pCb-rW-Qin" secondAttribute="top" constant="8" id="LSD-Ez-DlA"/>
                                         <constraint firstAttribute="centerY" secondItem="ESE-Am-oWh" secondAttribute="centerY" id="LpR-IG-gvO"/>
+                                        <constraint firstItem="1kX-Yb-py6" firstAttribute="leading" secondItem="bs4-Db-KqE" secondAttribute="trailing" constant="8" id="MVt-84-hlg"/>
                                         <constraint firstItem="oR6-Op-tjJ" firstAttribute="centerX" secondItem="kPR-yJ-kge" secondAttribute="centerX" id="Om7-zF-kDT"/>
                                         <constraint firstItem="bs4-Db-KqE" firstAttribute="leading" secondItem="pCb-rW-Qin" secondAttribute="leading" constant="8" id="Ooh-c6-QRJ"/>
                                         <constraint firstAttribute="bottom" secondItem="9tg-xo-fq3" secondAttribute="bottom" constant="6" id="Qoj-UF-6Nd"/>
+                                        <constraint firstItem="ZtQ-Ws-eIj" firstAttribute="leading" secondItem="1kX-Yb-py6" secondAttribute="trailing" id="Spl-GF-MLC"/>
+                                        <constraint firstItem="1kX-Yb-py6" firstAttribute="top" secondItem="pCb-rW-Qin" secondAttribute="top" constant="8" id="YNk-QL-Su9"/>
                                         <constraint firstAttribute="centerY" secondItem="bs4-Db-KqE" secondAttribute="centerY" constant="-0.75" id="ahv-qb-Y8h"/>
                                         <constraint firstItem="oR6-Op-tjJ" firstAttribute="top" secondItem="pCb-rW-Qin" secondAttribute="top" constant="8" id="ePT-Jy-CMy"/>
-                                        <constraint firstItem="Ryn-eJ-tYc" firstAttribute="leading" secondItem="bs4-Db-KqE" secondAttribute="trailing" constant="8" id="eaM-4F-gcp"/>
                                         <constraint firstItem="ESE-Am-oWh" firstAttribute="leading" secondItem="kPR-yJ-kge" secondAttribute="trailing" id="lYW-jM-jvH"/>
                                         <constraint firstAttribute="centerY" secondItem="ZtQ-Ws-eIj" secondAttribute="centerY" id="mtB-Gv-hZl"/>
+                                        <constraint firstItem="9tg-xo-fq3" firstAttribute="leading" secondItem="1kX-Yb-py6" secondAttribute="trailing" id="o9n-7A-6DO"/>
                                         <constraint firstItem="kPR-yJ-kge" firstAttribute="top" secondItem="oR6-Op-tjJ" secondAttribute="bottom" id="qKe-Vg-TIt"/>
+                                        <constraint firstAttribute="bottom" secondItem="1kX-Yb-py6" secondAttribute="bottom" constant="8" id="vwb-3b-tlz"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="Spl-GF-MLC"/>
                                             <exclude reference="JBs-95-qoD"/>
                                             <exclude reference="lYW-jM-jvH"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="driverName" destination="Ryn-eJ-tYc" id="prs-Dj-PwJ"/>
+                                    <outlet property="driverName" destination="1kX-Yb-py6" id="4Rd-Rg-RoI"/>
                                     <outlet property="enabledSwitch" destination="bs4-Db-KqE" id="lkW-AO-C6U"/>
                                     <outlet property="numPassengers" destination="oR6-Op-tjJ" id="323-tO-eke"/>
                                 </connections>
@@ -294,6 +291,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="people" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oDg-lY-sfT">
                                         <rect key="frame" x="435" y="112" width="90" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0b-Yb-jGR" userLabel="Num People Spacer">
@@ -306,6 +304,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need drivers for" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XnF-CH-Wo3">
                                         <rect key="frame" x="65" y="47" width="220" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
