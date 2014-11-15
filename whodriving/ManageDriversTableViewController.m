@@ -71,7 +71,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) { 
+    if (![self.managedObjectContext save:&error]) {
         if (error) {
             NSLog(@"Unable to save record.");
             NSLog(@"%@, %@", error, error.localizedDescription);

@@ -11,14 +11,8 @@
 #import "ViewHelper.h"
 
 @interface AddDriverViewController ()
-
-@property (weak, nonatomic) IBOutlet UILabel *driverNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *driverName;
-@property (weak, nonatomic) IBOutlet UITextField *numPassengers;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-@property (weak, nonatomic) IBOutlet UILabel *passengersLabel;
-@property (weak, nonatomic) IBOutlet UILabel *passengerDescLabel;
-
 @end
 
 @implementation AddDriverViewController
@@ -27,14 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.driverName becomeFirstResponder];
     
-    [ViewHelper setCustomFont:self.driverNameLabel fontName:@"Lato-Regular"];
-    [ViewHelper setCustomFont:self.passengersLabel fontName:@"Lato-Regular"];
-    [ViewHelper setCustomFont:self.passengerDescLabel fontName:@"Lato-Regular"];
     [ViewHelper setCustomFontForTextField:self.driverName fontName:@"Lato-Heavy"];
-    [ViewHelper setCustomFontForTextField:self.numPassengers fontName:@"Lato-Heavy"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,15 +37,17 @@
     if (sender != self.doneButton) {
         return;
     }
-    
-    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-    NSNumber * numPassengers = [f numberFromString:self.numPassengers.text];
+
+    NSString *driverName = self.driverName.text;
+    if ([driverName length] == 0) {
+        driverName = @"Unnamed Driver";
+    }
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Driver" inManagedObjectContext:self.managedObjectContext];
     Driver *driver = [[Driver alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
     [driver enable];
-    driver.driverName = self.driverName.text;
-    driver.numPassengers = numPassengers;
+    driver.driverName = driverName;
+    driver.numPassengers = [NSNumber numberWithInt:0];
     driver.createdOn = [NSDate date];
 
     NSError *error = nil;
@@ -71,6 +62,11 @@
     }
 }
 
+- (IBAction)dismissKeyboard:(id)sender;
+{
+    [self.driverName resignFirstResponder];
+    [self performSegueWithIdentifier:@"saveAndClose" sender:self.doneButton];
+}
 
 /*
 #pragma mark - Navigation
