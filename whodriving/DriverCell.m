@@ -78,6 +78,7 @@
 - (IBAction)editingDidEnd:(UITextField *)sender
 {
     [self.driver setDriverName:self.driverName.text];
+    [self resignFirstResponder];
 }
 
 @end

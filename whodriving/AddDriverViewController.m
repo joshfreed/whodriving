@@ -34,6 +34,7 @@
 // change to save button
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [self.driverName resignFirstResponder];
     if (sender != self.doneButton) {
         return;
     }
