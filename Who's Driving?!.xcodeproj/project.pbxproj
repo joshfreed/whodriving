@@ -13,7 +13,7 @@
 		53098A7C19CBE60E00274FEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53098A7A19CBE60E00274FEE /* Main.storyboard */; };
 		53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53098A7D19CBE60E00274FEE /* Images.xcassets */; };
 		53098A8119CBE60E00274FEE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53098A7F19CBE60E00274FEE /* LaunchScreen.xib */; };
-		53098A8D19CBE60E00274FEE /* whodrivingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A8C19CBE60E00274FEE /* whodrivingTests.m */; };
+		53098A8D19CBE60E00274FEE /* TripServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A8C19CBE60E00274FEE /* TripServiceTests.m */; };
 		53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9719CBF57200274FEE /* AddDriverViewController.m */; };
 		53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */; };
 		53346E9E19EDB4FD00EA7ABB /* TripResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */; };
@@ -45,6 +45,7 @@
 		53D3BB8519F8296A00BF17A2 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB7319F8296A00BF17A2 /* Lato-Thin.ttf */; };
 		53D3BB8619F8296A00BF17A2 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB7419F8296A00BF17A2 /* Lato-ThinItalic.ttf */; };
 		53D3BB8819F82C8400BF17A2 /* TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */; };
+		53E0D74F1A19597000BB3006 /* TripSpecTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E0D74E1A19597000BB3006 /* TripSpecTests.m */; };
 		53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E43C6B19D0F61700EE28D0 /* DriverCell.m */; };
 		53EBE76019F5871800A9C65B /* DrawerSlideSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */; };
 /* End PBXBuildFile section */
@@ -72,7 +73,7 @@
 		53098A8019CBE60E00274FEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		53098A8619CBE60E00274FEE /* whodrivingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whodrivingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53098A8B19CBE60E00274FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53098A8C19CBE60E00274FEE /* whodrivingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whodrivingTests.m; sourceTree = "<group>"; };
+		53098A8C19CBE60E00274FEE /* TripServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripServiceTests.m; sourceTree = "<group>"; };
 		53098A9619CBF57200274FEE /* AddDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDriverViewController.h; sourceTree = "<group>"; };
 		53098A9719CBF57200274FEE /* AddDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDriverViewController.m; sourceTree = "<group>"; };
 		53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDriversTableViewController.h; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		53D3BB7319F8296A00BF17A2 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		53D3BB7419F8296A00BF17A2 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCustomFont.m; sourceTree = "<group>"; };
+		53E0D74E1A19597000BB3006 /* TripSpecTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripSpecTests.m; sourceTree = "<group>"; };
 		53E43C6A19D0F61700EE28D0 /* DriverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverCell.h; sourceTree = "<group>"; };
 		53E43C6B19D0F61700EE28D0 /* DriverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverCell.m; sourceTree = "<group>"; };
 		53EBE75E19F5871800A9C65B /* DrawerSlideSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerSlideSegue.h; sourceTree = "<group>"; };
@@ -207,7 +209,8 @@
 		53098A8919CBE60E00274FEE /* whodrivingTests */ = {
 			isa = PBXGroup;
 			children = (
-				53098A8C19CBE60E00274FEE /* whodrivingTests.m */,
+				53E0D74E1A19597000BB3006 /* TripSpecTests.m */,
+				53098A8C19CBE60E00274FEE /* TripServiceTests.m */,
 				53098A8A19CBE60E00274FEE /* Supporting Files */,
 			);
 			path = whodrivingTests;
@@ -413,7 +416,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53098A8D19CBE60E00274FEE /* whodrivingTests.m in Sources */,
+				53098A8D19CBE60E00274FEE /* TripServiceTests.m in Sources */,
+				53E0D74F1A19597000BB3006 /* TripSpecTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,5 +14,6 @@
 @property NSArray *possibleDrivers;
 
 -(id)init:(NSNumber*)passengerCount possibleDrivers:(NSArray*)possibleDrivers;
+-(bool)isSatisfiedBy:(NSArray*)driverSet;
 
 @end

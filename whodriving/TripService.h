@@ -12,5 +12,6 @@
 @interface TripService : NSObject
 
 -(NSArray*)buildTrip:(TripSpecification*)tripSpec;
+-(NSArray*)getAllPossibleResults:(TripSpecification*)tripSpec;
 
 @end

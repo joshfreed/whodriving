@@ -7,6 +7,7 @@
 //
 
 #import "TripSpecification.h"
+#import "Driver.h"
 
 @implementation TripSpecification
 
@@ -16,6 +17,20 @@
     self.passengerCount = passengerCount;
     self.possibleDrivers = possibleDrivers;
     return self;
+}
+
+-(bool)isSatisfiedBy:(NSArray*)driverSet
+{
+    int satisfiedPeople = 0;
+    
+    for (Driver *driver in driverSet) {
+        satisfiedPeople += [driver.numPassengers intValue] + 1;
+        if (satisfiedPeople >= [self.passengerCount intValue]) {
+            return YES;
+        }
+    }
+
+    return NO;
 }
 
 @end

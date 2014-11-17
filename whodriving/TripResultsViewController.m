@@ -102,10 +102,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DriverResultCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Driver Result Cell" forIndexPath:indexPath];
     
-    DriverResult *result = [self.drivers objectAtIndex:indexPath.row];
-    [cell.driverNameLabel setText:result.driver.driverName];
-    [cell.passengerCountLabel setText:[result.passengerCount stringValue]];
-    
+    Driver *result = [self.drivers objectAtIndex:indexPath.row];
+    [cell.driverNameLabel setText:result.driverName];
     return cell;
 }
 

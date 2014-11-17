@@ -12,6 +12,5 @@
 @interface DriverResultCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *driverNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *passengerCountLabel;
 
 @end

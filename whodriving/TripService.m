@@ -1,4 +1,4 @@
-//
+///
 //  TripService.m
 //  whodriving
 //
@@ -10,50 +10,79 @@
 #import "Driver.h"
 #import "DriverResult.h"
 
+@interface TripService ()
+@property TripSpecification *tripSpec;
+@property NSMutableArray *allResultSets;
+@property NSMutableArray *stack;
+@end
+
 @implementation TripService
 
 -(NSArray*)buildTrip:(TripSpecification*)tripSpec
 {
-    NSMutableArray *results = [NSMutableArray array];
+    NSArray *allResultSets = [self getAllPossibleResults:tripSpec];
     
-    NSArray *sortedDrivers = [tripSpec.possibleDrivers sortedArrayUsingComparator:^(id obj1, id obj2) {
-        if (rand() % 2 == 0) {
-            return NSOrderedAscending;
-        } else {
-            return NSOrderedDescending;
-        }
-    }];
+    if (allResultSets.count > 0) {
+        NSArray *randomized = [allResultSets sortedArrayUsingComparator:^(id obj1, id obj2) {
+            if (rand() % 2 == 0) {
+                return NSOrderedAscending;
+            } else {
+                return NSOrderedDescending;
+            }
+        }];
+        return [randomized firstObject];
+    } else {
+        return [NSArray array];
+    }
+}
+
+-(NSArray*)getAllPossibleResults:(TripSpecification*)tripSpec
+{
+    self.tripSpec = tripSpec;
+    self.allResultSets = [NSMutableArray array];
+    self.stack = [NSMutableArray array];
     
     NSPredicate *capableDriverPredicate = [NSPredicate predicateWithBlock:^BOOL(Driver* driver, NSDictionary *bindings) {
-        return driver.isEnabled && [driver.numPassengers intValue] + 1 >= [tripSpec.passengerCount intValue];
+        return driver.isEnabled;
     }];
-    NSArray *filteredArray = [sortedDrivers filteredArrayUsingPredicate:capableDriverPredicate];
-    if (filteredArray.count > 0) {
-        Driver *driver = filteredArray.firstObject;
-        DriverResult *result = [[DriverResult alloc] init];
-        result.driver = driver;
-        result.passengerCount = driver.numPassengers;
-        [results addObject:result];
-        return results;
-    }
+    NSArray *enabledDrivers = [tripSpec.possibleDrivers filteredArrayUsingPredicate:capableDriverPredicate];
     
-    int satisfiedPassengers = 0;
-    for (Driver *driver in sortedDrivers) {
-        if (!driver.isEnabled) {
-            continue;
+    NSArray *sortedDrivers = [enabledDrivers sortedArrayUsingComparator:^(Driver *obj1, Driver *obj2) {
+        if (obj1.numPassengers > obj2.numPassengers) {
+            return NSOrderedAscending;
+        } else if (obj1.numPassengers < obj2.numPassengers) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
         }
-        
-        DriverResult *result = [[DriverResult alloc] init];
-        result.driver = driver;
-        result.passengerCount = driver.numPassengers;
-        [results addObject:result];
-        
-        satisfiedPassengers += [driver.numPassengers intValue] + 1;
-        if (satisfiedPassengers >= [tripSpec.passengerCount intValue]) {
-            break;
-        }
-    }
-    return results;
+    }];
+    
+    [self tryDrivers:sortedDrivers];
+
+    return self.allResultSets;
 }
+
+-(void)tryDrivers:(NSArray*)possibleDrivers
+{
+    int index = 0;
+    for (Driver *driver in possibleDrivers) {
+        [self.stack addObject:driver];
+        if ([self.tripSpec isSatisfiedBy:self.stack]) {
+            [self.allResultSets addObject:[NSArray arrayWithArray:self.stack]];
+            [self.stack removeLastObject];
+        } else {
+            NSRange range = NSMakeRange(index + 1, possibleDrivers.count - (index + 1));
+            if (range.length > 0) {
+                NSArray *newArray = [possibleDrivers subarrayWithRange:range];
+                [self tryDrivers:newArray];
+            }
+            [self.stack removeLastObject];
+        }
+        
+        index++;
+    }
+}
+
+
 
 @end
