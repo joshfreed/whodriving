@@ -27,7 +27,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *needDriversLabel;
 @property (weak, nonatomic) IBOutlet UILabel *needDriversPeopleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIView *searchForm;
+@property (weak, nonatomic) IBOutlet UIView *resultsView;
 
+@property (weak, nonatomic) UIView *contentView;
 
 @property NSArray *drivers;
 @property NSArray *tripResult;
@@ -38,14 +41,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self prepareMainView];
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -126,7 +126,6 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     if ([[segue identifier] isEqualToString:@"ManageDrivers"]) {
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
@@ -145,15 +144,136 @@
     }
 }
 
+- (void)updateDriverResults:(NSArray *)drivingDrivers
+{
+    [[self.resultsView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    int i = 0;
+    
+    UIView *spacer1 = [UIView new];
+    spacer1.translatesAutoresizingMaskIntoConstraints = NO;
+//    spacer1.backgroundColor = [UIColor grayColor];
+    [self.resultsView addSubview:spacer1];
+    
+    UIView *spacer2 = [UIView new];
+    spacer2.translatesAutoresizingMaskIntoConstraints = NO;
+//    spacer2.backgroundColor = [UIColor brownColor];
+    [self.resultsView addSubview:spacer2];
+    
+    [self.resultsView addConstraint:[NSLayoutConstraint constraintWithItem:spacer1
+                                                                 attribute:NSLayoutAttributeCenterX
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.resultsView
+                                                                 attribute:NSLayoutAttributeCenterX
+                                                                multiplier:1
+                                                                  constant:0]];
+    [self.resultsView addConstraint:[NSLayoutConstraint constraintWithItem:spacer2
+                                                                 attribute:NSLayoutAttributeCenterX
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.resultsView
+                                                                 attribute:NSLayoutAttributeCenterX
+                                                                multiplier:1
+                                                                  constant:0]];
+    [spacer1 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[spacer1(10)]"
+                                                                        options:0
+                                                                        metrics:nil
+                                                                          views:@{@"spacer1": spacer1}]];
+    [spacer2 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[spacer2(10)]"
+                                                                    options:0
+                                                                    metrics:nil
+                                                                      views:@{@"spacer2": spacer2}]];
+    
+    NSMutableArray *labels = [NSMutableArray array];
+    for (Driver *driver in drivingDrivers) {
+        UILabel *driverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 35)];
+        driverLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [driverLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:30]];
+        [driverLabel setTextColor:UIColorFromRGB(0x444444)];
+        [driverLabel setText:driver.driverName];
+        [driverLabel setTextAlignment:NSTextAlignmentCenter];
+        [self.resultsView addSubview:driverLabel];
+        [labels addObject:driverLabel];
+    }
+    
+    i = 0;
+    NSMutableDictionary *viewsDictionary = [NSMutableDictionary dictionary];
+    [viewsDictionary setValue:spacer1 forKey:@"spacer1"];
+    [viewsDictionary setValue:spacer2 forKey:@"spacer2"];
+    for (UILabel *driverLabel in labels) {
+        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
+        [viewsDictionary setValue:driverLabel forKey:viewName];
+        i++;
+    }
+    
+    i = 0;
+    NSMutableString *vFormat = [NSMutableString stringWithString:@"V:|[spacer1]"];
+    for (UILabel *driverLabel in labels) {
+        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
+        
+        if (i == 0) {
+            [vFormat appendFormat:@"[%@]", viewName];
+        } else {
+            [vFormat appendFormat:@"-15-[%@]", viewName];
+        }
+        
+        i++;
+    }
+    [vFormat appendString:@"[spacer2(==spacer1)]|"];
+    [self.resultsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vFormat
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:viewsDictionary]];
+    
+    i = 0;
+    for (UILabel *driverLabel in labels) {
+        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
+        
+        [driverLabel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[%@(35)]", viewName]
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:viewsDictionary]];
+        [self.resultsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-[%@]-|", viewName]
+                                                                                 options:0
+                                                                                 metrics:nil
+                                                                                   views:viewsDictionary] ];
+        [self.resultsView addConstraint:[NSLayoutConstraint constraintWithItem:driverLabel
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:self.resultsView
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                       multiplier:1
+                                                                         constant:0]];
+        i++;
+    }
+    
+//    NSLog(vFormat);
+}
+
 - (IBAction)findMeDrivers:(UIButton *)sender
 {
+    [self.view layoutIfNeeded];
+    
+    [self.view.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop){
+        if (constraint.firstItem == self.searchButton && constraint.firstAttribute == NSLayoutAttributeTop && constraint.secondItem == self.searchForm) {
+            [constraint setActive:NO];
+        }
+        if (constraint.secondItem == self.searchForm && constraint.secondAttribute == NSLayoutAttributeBottom && constraint.firstItem == self.view) {
+            [constraint setActive:NO];
+        }
+    }];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+    }];
+    
     NSInteger personCount = [self.numPeopleLabel2.text integerValue];
     NSNumber *passengerCount = [NSNumber numberWithInteger:personCount];
     TripSpecification *tripSpec = [[TripSpecification alloc] init:passengerCount possibleDrivers:self.drivers];
     TripService *tripService = [[TripService alloc] init];
-    self.tripResult = [tripService buildTrip:tripSpec];
-    [self performSegueWithIdentifier:@"FindMyDrivers" sender:self];
+    NSArray *drivingDrivers = [tripService buildTrip:tripSpec];
+    [self updateDriverResults:drivingDrivers];
 }
+
 //
 //- (IBAction)showManageDriversScreen:(UIButton *)sender
 //{
