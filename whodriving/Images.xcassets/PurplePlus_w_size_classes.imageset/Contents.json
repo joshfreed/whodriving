@@ -1,0 +1,40 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "iPad-Purple-Plus.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "iPad-Purple-Plus@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "iPhone-Purple-Plus.png",
+      "widthClass" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "iPhone-Purple-Plus@2x.png",
+      "widthClass" : "compact",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "iPhone-Purple-Plus@3x.png",
+      "widthClass" : "compact",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

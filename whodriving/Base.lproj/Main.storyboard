@@ -3,7 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -305,51 +304,39 @@
                                         </variation>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGh-G1-avj" userLabel="Plus/Minus Btn Container">
-                                        <rect key="frame" x="316" y="27" width="140" height="160"/>
+                                        <rect key="frame" x="278.5" y="-10.5" width="215" height="235"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXE-tS-cn7">
-                                                <rect key="frame" x="95" y="0.0" width="45" height="45"/>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXE-tS-cn7">
+                                                <rect key="frame" x="95" y="0.0" width="120" height="120"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="KXE-tS-cn7" secondAttribute="height" multiplier="1:1" id="7RL-0V-xUL"/>
-                                                    <constraint firstAttribute="width" constant="45" id="9nI-1C-FVc">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                                    <constraint firstAttribute="width" constant="120" id="9nI-1C-FVc">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                                                     </constraint>
-                                                    <constraint firstAttribute="height" constant="45" id="VCC-zc-tG1">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                                    <constraint firstAttribute="height" constant="120" id="VCC-zc-tG1">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                                                     </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="+" image="PurplePlus"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="7RL-0V-xUL"/>
-                                                    </mask>
-                                                </variation>
+                                                <state key="normal" image="PurplePlus_by_device"/>
                                                 <connections>
                                                     <action selector="increasePersonCount:" destination="g6C-VJ-uip" eventType="touchUpInside" id="C3N-H8-zHC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zd-vh-tGv">
-                                                <rect key="frame" x="0.0" y="115" width="45" height="45"/>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zd-vh-tGv">
+                                                <rect key="frame" x="0.0" y="115" width="120" height="120"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="83f-vG-l0B">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                                    <constraint firstAttribute="height" constant="120" id="83f-vG-l0B">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                                                     </constraint>
-                                                    <constraint firstAttribute="width" secondItem="8Zd-vh-tGv" secondAttribute="height" multiplier="1:1" id="CFM-gV-vhH"/>
-                                                    <constraint firstAttribute="width" constant="45" id="DeX-dr-tmR">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                                    <constraint firstAttribute="width" constant="120" id="DeX-dr-tmR">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                                                     </constraint>
                                                 </constraints>
-                                                <state key="normal" title="-" image="PurpleMinus">
+                                                <state key="normal" image="PurpleMinus_by_device">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="CFM-gV-vhH"/>
-                                                    </mask>
-                                                </variation>
                                                 <connections>
                                                     <action selector="decreasePersonCount:" destination="g6C-VJ-uip" eventType="touchUpInside" id="9Ap-4J-Aba"/>
                                                 </connections>
@@ -357,11 +344,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="CUB-GX-edU">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="93"/>
+                                            <constraint firstAttribute="width" constant="215" id="CUB-GX-edU">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="123"/>
                                             </constraint>
-                                            <constraint firstAttribute="height" constant="160" id="Os0-ps-zT4">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="107"/>
+                                            <constraint firstAttribute="height" constant="235" id="Os0-ps-zT4">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="137"/>
                                             </constraint>
                                             <constraint firstItem="8Zd-vh-tGv" firstAttribute="leading" secondItem="uGh-G1-avj" secondAttribute="leading" id="e2R-dI-qKf"/>
                                             <constraint firstAttribute="trailing" secondItem="KXE-tS-cn7" secondAttribute="trailing" id="e8R-pX-HuY"/>
@@ -574,7 +561,7 @@
         <image name="ManageDriversBarButton" width="22" height="16"/>
         <image name="Minus" width="128" height="128"/>
         <image name="Plus" width="128" height="128"/>
-        <image name="PurpleMinus" width="66" height="66"/>
-        <image name="PurplePlus" width="66" height="66"/>
+        <image name="PurpleMinus_by_device" width="30" height="30"/>
+        <image name="PurplePlus_by_device" width="30" height="30"/>
     </resources>
 </document>
