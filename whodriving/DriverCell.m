@@ -18,7 +18,7 @@
 @implementation DriverCell
 
 - (void)awakeFromNib {
-    
+    self.driverName.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -79,6 +79,11 @@
 {
     [self.driver setDriverName:self.driverName.text];
     [self resignFirstResponder];
+}
+
+- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return textField.text.length + (string.length - range.length) <= 30;
 }
 
 @end

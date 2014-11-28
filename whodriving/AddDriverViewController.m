@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.driverName.delegate = self;
     [self.driverName becomeFirstResponder];
     
     [ViewHelper setCustomFontForTextField:self.driverName fontName:@"Lato-Heavy"];
@@ -67,6 +68,11 @@
 {
     [self.driverName resignFirstResponder];
     [self performSegueWithIdentifier:@"saveAndClose" sender:self.doneButton];
+}
+
+- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return textField.text.length + (string.length - range.length) <= 30;
 }
 
 /*

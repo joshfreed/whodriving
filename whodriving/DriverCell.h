@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Driver.h"
 
-@interface DriverCell : UITableViewCell
+@interface DriverCell : UITableViewCell <UITextFieldDelegate>
 
 @property Driver *driver;
 
