@@ -86,4 +86,15 @@
     return textField.text.length + (string.length - range.length) <= 30;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.parentTableView.activeTextField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.parentTableView.activeTextField = nil;
+}
+
+
 @end

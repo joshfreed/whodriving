@@ -11,5 +11,6 @@
 @interface ManageDriversTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (weak) UITextField *activeTextField;
 
 @end
