@@ -16,10 +16,11 @@
 		53098A8D19CBE60E00274FEE /* TripServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A8C19CBE60E00274FEE /* TripServiceTests.m */; };
 		53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9719CBF57200274FEE /* AddDriverViewController.m */; };
 		53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */; };
-		5328AF5A1A2E931700918645 /* WelcomeScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5328AF591A2E931700918645 /* WelcomeScreen.xib */; };
+		5328AF5D1A2FF5EF00918645 /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5328AF5C1A2FF5EF00918645 /* WelcomeView.m */; };
+		5328AF5F1A2FF63700918645 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5328AF5E1A2FF63700918645 /* WelcomeView.xib */; };
+		5328AF611A30005F00918645 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5328AF601A30005F00918645 /* SearchView.xib */; };
+		5328AF641A30006E00918645 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5328AF631A30006E00918645 /* SearchView.m */; };
 		53346E9E19EDB4FD00EA7ABB /* TripResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */; };
-		5343EBBC19EDC53D000E1E2D /* PushFadeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343EBBB19EDC53D000E1E2D /* PushFadeSegue.m */; };
-		5343EBBF19EDD592000E1E2D /* PopFadeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343EBBE19EDD592000E1E2D /* PopFadeSegue.m */; };
 		5344218119E07CC0001A179E /* TripService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218019E07CC0001A179E /* TripService.m */; };
 		5344218519E07D52001A179E /* TripSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218419E07D52001A179E /* TripSpecification.m */; };
 		5344219019E1C9D6001A179E /* DriverResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218F19E1C9D6001A179E /* DriverResultCollectionViewCell.m */; };
@@ -48,7 +49,6 @@
 		53D3BB8819F82C8400BF17A2 /* TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */; };
 		53E0D74F1A19597000BB3006 /* TripSpecTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E0D74E1A19597000BB3006 /* TripSpecTests.m */; };
 		53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E43C6B19D0F61700EE28D0 /* DriverCell.m */; };
-		53EBE76019F5871800A9C65B /* DrawerSlideSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,13 +79,14 @@
 		53098A9719CBF57200274FEE /* AddDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDriverViewController.m; sourceTree = "<group>"; };
 		53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDriversTableViewController.h; sourceTree = "<group>"; };
 		53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDriversTableViewController.m; sourceTree = "<group>"; };
-		5328AF591A2E931700918645 /* WelcomeScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WelcomeScreen.xib; path = ../WelcomeScreen.xib; sourceTree = "<group>"; };
+		5328AF5B1A2FF5EF00918645 /* WelcomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeView.h; sourceTree = "<group>"; };
+		5328AF5C1A2FF5EF00918645 /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeView.m; sourceTree = "<group>"; };
+		5328AF5E1A2FF63700918645 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
+		5328AF601A30005F00918645 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		5328AF621A30006E00918645 /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
+		5328AF631A30006E00918645 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		53346E9C19EDB4FD00EA7ABB /* TripResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripResultsViewController.h; sourceTree = "<group>"; };
 		53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripResultsViewController.m; sourceTree = "<group>"; };
-		5343EBBA19EDC53D000E1E2D /* PushFadeSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushFadeSegue.h; sourceTree = "<group>"; };
-		5343EBBB19EDC53D000E1E2D /* PushFadeSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushFadeSegue.m; sourceTree = "<group>"; };
-		5343EBBD19EDD592000E1E2D /* PopFadeSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopFadeSegue.h; sourceTree = "<group>"; };
-		5343EBBE19EDD592000E1E2D /* PopFadeSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopFadeSegue.m; sourceTree = "<group>"; };
 		5344217F19E07CC0001A179E /* TripService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripService.h; sourceTree = "<group>"; };
 		5344218019E07CC0001A179E /* TripService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripService.m; sourceTree = "<group>"; };
 		5344218319E07D52001A179E /* TripSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripSpecification.h; sourceTree = "<group>"; };
@@ -121,8 +122,6 @@
 		53E0D74E1A19597000BB3006 /* TripSpecTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripSpecTests.m; sourceTree = "<group>"; };
 		53E43C6A19D0F61700EE28D0 /* DriverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverCell.h; sourceTree = "<group>"; };
 		53E43C6B19D0F61700EE28D0 /* DriverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverCell.m; sourceTree = "<group>"; };
-		53EBE75E19F5871800A9C65B /* DrawerSlideSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerSlideSegue.h; sourceTree = "<group>"; };
-		53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerSlideSegue.m; sourceTree = "<group>"; };
 		53FFC62419E44BBA00780E7D /* DriverModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DriverModel 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,37 +164,36 @@
 		53098A6F19CBE60E00274FEE /* whodriving */ = {
 			isa = PBXGroup;
 			children = (
-				5328AF591A2E931700918645 /* WelcomeScreen.xib */,
-				53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */,
-				537335F919F6D8A7008E2D47 /* Resources */,
-				5344218219E07CC9001A179E /* Model */,
-				53098A7419CBE60E00274FEE /* AppDelegate.h */,
-				53098A7519CBE60E00274FEE /* AppDelegate.m */,
-				53098A7719CBE60E00274FEE /* ViewController.h */,
-				53098A7819CBE60E00274FEE /* ViewController.m */,
-				53098A7A19CBE60E00274FEE /* Main.storyboard */,
-				53098A7D19CBE60E00274FEE /* Images.xcassets */,
-				53098A7F19CBE60E00274FEE /* LaunchScreen.xib */,
-				53098A7019CBE60E00274FEE /* Supporting Files */,
 				53098A9619CBF57200274FEE /* AddDriverViewController.h */,
 				53098A9719CBF57200274FEE /* AddDriverViewController.m */,
-				53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */,
-				53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */,
+				53098A7419CBE60E00274FEE /* AppDelegate.h */,
+				53098A7519CBE60E00274FEE /* AppDelegate.m */,
 				53E43C6A19D0F61700EE28D0 /* DriverCell.h */,
 				53E43C6B19D0F61700EE28D0 /* DriverCell.m */,
 				5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */,
 				5344218E19E1C9D6001A179E /* DriverResultCollectionViewCell.h */,
 				5344218F19E1C9D6001A179E /* DriverResultCollectionViewCell.m */,
+				53098A7D19CBE60E00274FEE /* Images.xcassets */,
+				53098A7F19CBE60E00274FEE /* LaunchScreen.xib */,
+				53098A7A19CBE60E00274FEE /* Main.storyboard */,
+				53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */,
+				53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */,
+				5344218219E07CC9001A179E /* Model */,
+				537335F919F6D8A7008E2D47 /* Resources */,
+				53098A7019CBE60E00274FEE /* Supporting Files */,
+				53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */,
 				53346E9C19EDB4FD00EA7ABB /* TripResultsViewController.h */,
 				53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */,
-				5343EBBA19EDC53D000E1E2D /* PushFadeSegue.h */,
-				5343EBBD19EDD592000E1E2D /* PopFadeSegue.h */,
-				5343EBBE19EDD592000E1E2D /* PopFadeSegue.m */,
-				5343EBBB19EDC53D000E1E2D /* PushFadeSegue.m */,
-				53EBE75E19F5871800A9C65B /* DrawerSlideSegue.h */,
-				53EBE75F19F5871800A9C65B /* DrawerSlideSegue.m */,
+				53098A7719CBE60E00274FEE /* ViewController.h */,
+				53098A7819CBE60E00274FEE /* ViewController.m */,
 				53B52E371A00713200C7D35B /* ViewHelper.h */,
 				53B52E381A00713200C7D35B /* ViewHelper.m */,
+				5328AF5B1A2FF5EF00918645 /* WelcomeView.h */,
+				5328AF5C1A2FF5EF00918645 /* WelcomeView.m */,
+				5328AF5E1A2FF63700918645 /* WelcomeView.xib */,
+				5328AF601A30005F00918645 /* SearchView.xib */,
+				5328AF621A30006E00918645 /* SearchView.h */,
+				5328AF631A30006E00918645 /* SearchView.m */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -367,14 +365,15 @@
 				53D3BB7619F8296A00BF17A2 /* Lato-BlackItalic.ttf in Resources */,
 				53D3BB7C19F8296A00BF17A2 /* Lato-HeavyItalic.ttf in Resources */,
 				53098A8119CBE60E00274FEE /* LaunchScreen.xib in Resources */,
+				5328AF5F1A2FF63700918645 /* WelcomeView.xib in Resources */,
 				53D3BB7A19F8296A00BF17A2 /* Lato-HairlineItalic.ttf in Resources */,
 				53D3BB7819F8296A00BF17A2 /* Lato-BoldItalic.ttf in Resources */,
 				53D3BB8319F8296A00BF17A2 /* Lato-Semibold.ttf in Resources */,
 				53D3BB8019F8296A00BF17A2 /* Lato-Medium.ttf in Resources */,
 				53D3BB7919F8296A00BF17A2 /* Lato-Hairline.ttf in Resources */,
 				53D3BB7D19F8296A00BF17A2 /* Lato-Italic.ttf in Resources */,
+				5328AF611A30005F00918645 /* SearchView.xib in Resources */,
 				53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */,
-				5328AF5A1A2E931700918645 /* WelcomeScreen.xib in Resources */,
 				53D3BB8519F8296A00BF17A2 /* Lato-Thin.ttf in Resources */,
 				53D3BB7F19F8296A00BF17A2 /* Lato-LightItalic.ttf in Resources */,
 				53D3BB8219F8296A00BF17A2 /* Lato-Regular.ttf in Resources */,
@@ -399,20 +398,19 @@
 				53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */,
 				5344218519E07D52001A179E /* TripSpecification.m in Sources */,
 				536B740419CE082B000F86D5 /* Driver.m in Sources */,
+				5328AF641A30006E00918645 /* SearchView.m in Sources */,
 				53346E9E19EDB4FD00EA7ABB /* TripResultsViewController.m in Sources */,
 				53098A7919CBE60E00274FEE /* ViewController.m in Sources */,
 				53B52E391A00713200C7D35B /* ViewHelper.m in Sources */,
-				5343EBBF19EDD592000E1E2D /* PopFadeSegue.m in Sources */,
 				53098A7619CBE60E00274FEE /* AppDelegate.m in Sources */,
-				5343EBBC19EDC53D000E1E2D /* PushFadeSegue.m in Sources */,
 				53D3BB8819F82C8400BF17A2 /* TCCustomFont.m in Sources */,
 				5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */,
 				53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */,
 				53098A7319CBE60E00274FEE /* main.m in Sources */,
-				53EBE76019F5871800A9C65B /* DrawerSlideSegue.m in Sources */,
 				5344219019E1C9D6001A179E /* DriverResultCollectionViewCell.m in Sources */,
 				5344219319E1CAD3001A179E /* DriverResult.m in Sources */,
 				5344218119E07CC0001A179E /* TripService.m in Sources */,
+				5328AF5D1A2FF5EF00918645 /* WelcomeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
