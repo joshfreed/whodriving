@@ -16,6 +16,7 @@
 		53098A8D19CBE60E00274FEE /* TripServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A8C19CBE60E00274FEE /* TripServiceTests.m */; };
 		53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9719CBF57200274FEE /* AddDriverViewController.m */; };
 		53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */; };
+		5328AF5A1A2E931700918645 /* WelcomeScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5328AF591A2E931700918645 /* WelcomeScreen.xib */; };
 		53346E9E19EDB4FD00EA7ABB /* TripResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */; };
 		5343EBBC19EDC53D000E1E2D /* PushFadeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343EBBB19EDC53D000E1E2D /* PushFadeSegue.m */; };
 		5343EBBF19EDD592000E1E2D /* PopFadeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343EBBE19EDD592000E1E2D /* PopFadeSegue.m */; };
@@ -78,6 +79,7 @@
 		53098A9719CBF57200274FEE /* AddDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDriverViewController.m; sourceTree = "<group>"; };
 		53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDriversTableViewController.h; sourceTree = "<group>"; };
 		53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDriversTableViewController.m; sourceTree = "<group>"; };
+		5328AF591A2E931700918645 /* WelcomeScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WelcomeScreen.xib; path = ../WelcomeScreen.xib; sourceTree = "<group>"; };
 		53346E9C19EDB4FD00EA7ABB /* TripResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripResultsViewController.h; sourceTree = "<group>"; };
 		53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripResultsViewController.m; sourceTree = "<group>"; };
 		5343EBBA19EDC53D000E1E2D /* PushFadeSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushFadeSegue.h; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		53098A6F19CBE60E00274FEE /* whodriving */ = {
 			isa = PBXGroup;
 			children = (
+				5328AF591A2E931700918645 /* WelcomeScreen.xib */,
 				53D3BB8719F82C8400BF17A2 /* TCCustomFont.m */,
 				537335F919F6D8A7008E2D47 /* Resources */,
 				5344218219E07CC9001A179E /* Model */,
@@ -371,6 +374,7 @@
 				53D3BB7919F8296A00BF17A2 /* Lato-Hairline.ttf in Resources */,
 				53D3BB7D19F8296A00BF17A2 /* Lato-Italic.ttf in Resources */,
 				53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */,
+				5328AF5A1A2E931700918645 /* WelcomeScreen.xib in Resources */,
 				53D3BB8519F8296A00BF17A2 /* Lato-Thin.ttf in Resources */,
 				53D3BB7F19F8296A00BF17A2 /* Lato-LightItalic.ttf in Resources */,
 				53D3BB8219F8296A00BF17A2 /* Lato-Regular.ttf in Resources */,

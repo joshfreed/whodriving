@@ -17,7 +17,7 @@
 @interface ViewController ()
 
 // These outlets are for views in the Search View
-@property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (strong, nonatomic) IBOutlet UIView *searchView;
 @property (weak, nonatomic) IBOutlet UIView *searchForm;
 @property (weak, nonatomic) IBOutlet UIView *numPeopleBg;
 @property (weak, nonatomic) IBOutlet UILabel *personCountLabel;
@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *needDriversPeopleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIView *resultsView;
+
+// Welcome Screen outlets and properties
+@property (strong, nonatomic) UIView *welcomeView;
 
 // Model properties
 @property NSArray *drivers;
@@ -36,15 +39,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"WelcomeScreen" owner:self options:nil];
+    self.welcomeView = [nibObjects objectAtIndex:0];
+    [self.welcomeView setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self prepareMainView];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [self prepareMainView];
     
     [ViewHelper makeRoundedView:self.numPeopleBg];
 
@@ -59,14 +68,75 @@
     [self refreshDriversArray];
 
     if (self.drivers.count == 0) {
-//        [self.actionButton setTitle:@"Add Drivers" forState:UIControlStateNormal];
-//        [self.actionButton removeTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];
-//        [self.actionButton addTarget:self action:@selector(showManageDriversScreen:) forControlEvents:UIControlEventTouchUpInside];
+        [self.searchView removeFromSuperview];
+        [self.view addSubview:self.welcomeView];
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.welcomeView
+                                                                  attribute:NSLayoutAttributeTop
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeTop
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.welcomeView
+                                                                  attribute:NSLayoutAttributeLeading
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeLeading
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.welcomeView
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.welcomeView
+                                                                  attribute:NSLayoutAttributeTrailing
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeTrailing
+                                                                 multiplier:1.0
+                                                                   constant:0.0]];
+        [self.view layoutIfNeeded];
     } else {
-
-//        [self.actionButton setTitle:@"Find My Drivers" forState:UIControlStateNormal];
-//        [self.actionButton removeTarget:self action:@selector(showManageDriversScreen:) forControlEvents:UIControlEventTouchUpInside];
-//        [self.actionButton addTarget:self action:@selector(findMeDrivers:) forControlEvents:UIControlEventTouchUpInside];
+        [self.welcomeView removeFromSuperview];
+        [self.view addSubview:self.searchView];
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.searchView
+                                                              attribute:NSLayoutAttributeTop
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.view
+                                                              attribute:NSLayoutAttributeTop
+                                                             multiplier:1.0
+                                                               constant:0.0]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.searchView
+                                                              attribute:NSLayoutAttributeLeading
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.view
+                                                              attribute:NSLayoutAttributeLeading
+                                                             multiplier:1.0
+                                                               constant:0.0]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.searchView
+                                                              attribute:NSLayoutAttributeBottom
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.view
+                                                              attribute:NSLayoutAttributeBottom
+                                                             multiplier:1.0
+                                                               constant:0.0]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.searchView
+                                                              attribute:NSLayoutAttributeTrailing
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.view
+                                                              attribute:NSLayoutAttributeTrailing
+                                                             multiplier:1.0
+                                                               constant:0.0]];
+        [self.view layoutIfNeeded];
     }
 }
 

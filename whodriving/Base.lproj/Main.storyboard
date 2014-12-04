@@ -246,6 +246,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp7-3v-bDC" userLabel="Welcome View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc2-tN-z55" userLabel="Search View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <subviews>
@@ -441,8 +445,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Hc2-tN-z55" secondAttribute="trailing" id="Nub-8h-ZcS"/>
+                            <constraint firstItem="jp7-3v-bDC" firstAttribute="top" secondItem="WqA-ra-rbe" secondAttribute="bottom" id="QfZ-FZ-0kE"/>
+                            <constraint firstAttribute="trailing" secondItem="jp7-3v-bDC" secondAttribute="trailing" id="TA7-Uh-szB"/>
+                            <constraint firstItem="jp7-3v-bDC" firstAttribute="leading" secondItem="ffs-Eo-OKd" secondAttribute="leading" id="a6V-iP-Zoq"/>
                             <constraint firstItem="wOq-cf-LMc" firstAttribute="top" secondItem="Hc2-tN-z55" secondAttribute="bottom" id="c4a-rG-lyI"/>
                             <constraint firstItem="Hc2-tN-z55" firstAttribute="top" secondItem="WqA-ra-rbe" secondAttribute="bottom" id="qWT-vl-qw0"/>
+                            <constraint firstItem="wOq-cf-LMc" firstAttribute="top" secondItem="jp7-3v-bDC" secondAttribute="bottom" id="qXa-cx-VDP"/>
                             <constraint firstItem="Hc2-tN-z55" firstAttribute="leading" secondItem="ffs-Eo-OKd" secondAttribute="leading" id="vad-N6-lbI"/>
                         </constraints>
                     </view>
