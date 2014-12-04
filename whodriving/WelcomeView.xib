@@ -12,49 +12,65 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3p-6N-REL">
-                    <rect key="frame" x="0.0" y="175" width="600" height="250"/>
+                    <rect key="frame" x="0.0" y="150" width="600" height="300"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-AN-hWE" userLabel="Spacer 1">
-                            <rect key="frame" x="295" y="0.0" width="10" height="36"/>
+                            <rect key="frame" x="295" y="0.0" width="10" height="33.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="10" id="Lh2-4g-uLl"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're almost ready to roll!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wxc-Vw-DKh">
-                            <rect key="frame" x="127" y="36" width="346.5" height="36"/>
+                            <rect key="frame" x="127" y="33" width="346.5" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQb-aX-ONq" userLabel="Spacer 2">
-                            <rect key="frame" x="295" y="72" width="10" height="35.5"/>
+                            <rect key="frame" x="295" y="69" width="10" height="33.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="10" id="Ijy-gj-I9i"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before I can tell you who's driving you gotta add some drivers for me to choose from." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5k-4U-1kt">
-                            <rect key="frame" x="8" y="107" width="584" height="41"/>
+                            <rect key="frame" x="8" y="102" width="584" height="41"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3en-xz-wnj" userLabel="Spacer 3">
-                            <rect key="frame" x="297" y="148" width="5" height="36"/>
+                            <rect key="frame" x="297" y="143" width="5" height="33.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="5" id="hDx-Rs-3B0"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ate-iJ-0hI">
-                            <rect key="frame" x="237" y="184" width="125" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ate-iJ-0hI">
+                            <rect key="frame" x="147" y="177" width="305" height="90"/>
+                            <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="305" id="3vc-BC-sap">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="240"/>
+                                </constraint>
+                                <constraint firstAttribute="height" constant="90" id="8Rh-eI-BxA">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="70"/>
+                                </constraint>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <state key="normal" title="Add Some Drivers">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            </variation>
+                            <connections>
+                                <action selector="showManageDriversScreen:" destination="iN0-l3-epB" eventType="touchUpInside" id="AJW-AW-9Nx"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfq-BP-xRw" userLabel="Spacer 4">
-                            <rect key="frame" x="297" y="214" width="5" height="35.5"/>
+                            <rect key="frame" x="297" y="267" width="5" height="33"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="5" id="3hL-6b-Cmo"/>
@@ -76,7 +92,7 @@
                         <constraint firstAttribute="centerX" secondItem="HQb-aX-ONq" secondAttribute="centerX" id="cxR-io-5wx"/>
                         <constraint firstAttribute="centerX" secondItem="z5k-4U-1kt" secondAttribute="centerX" id="d6D-3A-ISF"/>
                         <constraint firstItem="RdD-AN-hWE" firstAttribute="top" secondItem="o3p-6N-REL" secondAttribute="top" id="eES-tt-NKk"/>
-                        <constraint firstAttribute="height" constant="250" id="fUS-17-0aw"/>
+                        <constraint firstAttribute="height" constant="300" id="fUS-17-0aw"/>
                         <constraint firstAttribute="centerX" secondItem="Ate-iJ-0hI" secondAttribute="centerX" id="gGQ-GU-0a3"/>
                         <constraint firstItem="z5k-4U-1kt" firstAttribute="leading" secondItem="o3p-6N-REL" secondAttribute="leadingMargin" id="gWp-4b-o2N"/>
                         <constraint firstAttribute="centerX" secondItem="Cfq-BP-xRw" secondAttribute="centerX" id="ghk-81-ICY"/>
@@ -93,6 +109,11 @@
                 <constraint firstItem="o3p-6N-REL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ub2-rq-0ky"/>
                 <constraint firstAttribute="trailing" secondItem="o3p-6N-REL" secondAttribute="trailing" id="uph-Um-Ven"/>
             </constraints>
+            <connections>
+                <outlet property="addDriversButton" destination="Ate-iJ-0hI" id="dS6-h1-19v"/>
+                <outlet property="textLabel1" destination="Wxc-Vw-DKh" id="TjO-ah-D8P"/>
+                <outlet property="textLabel2" destination="z5k-4U-1kt" id="v34-AN-Uiw"/>
+            </connections>
             <point key="canvasLocation" x="204" y="259"/>
         </view>
     </objects>

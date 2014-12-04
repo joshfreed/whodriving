@@ -31,7 +31,7 @@
                                             </connections>
                                         </switch>
                                         <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tg-xo-fq3" userLabel="Vertical Line">
-                                            <rect key="frame" x="458" y="8" width="1" height="61.5"/>
+                                            <rect key="frame" x="458" y="8" width="1" height="62"/>
                                             <color key="backgroundColor" red="0.58431372549019611" green="0.6470588235294118" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="1" id="orj-IC-EQy"/>
@@ -65,7 +65,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="passengers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kPR-yJ-kge">
-                                            <rect key="frame" x="491" y="53" width="68" height="14.5"/>
+                                            <rect key="frame" x="491" y="53" width="68" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="0YX-25-vuQ"/>
                                             </constraints>
@@ -164,7 +164,7 @@
         <!--Who's Driving?!-->
         <scene sceneID="eqR-Ty-dyS">
             <objects>
-                <viewController id="g6C-VJ-uip" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="g6C-VJ-uip" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WqA-ra-rbe"/>
                         <viewControllerLayoutGuide type="bottom" id="wOq-cf-LMc"/>
@@ -207,7 +207,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37i-XL-uZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160" y="136"/>
+            <point key="canvasLocation" x="130" y="136"/>
         </scene>
         <!--New Driver-->
         <scene sceneID="iBC-Fo-he1">

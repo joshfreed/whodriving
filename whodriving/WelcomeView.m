@@ -7,6 +7,15 @@
 //
 
 #import "WelcomeView.h"
+#import "ViewHelper.h"
+
+@interface WelcomeView ()
+
+@property (weak, nonatomic) IBOutlet UILabel *textLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel2;
+@property (weak, nonatomic) IBOutlet UIButton *addDriversButton;
+
+@end
 
 @implementation WelcomeView
 
@@ -49,6 +58,15 @@
                                                               multiplier:1.0
                                                                 constant:0.0]];
     [self.superview layoutIfNeeded];
+    
+    [ViewHelper setCustomFont:self.textLabel1 fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.textLabel2 fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.addDriversButton.titleLabel fontName:@"Lato-Regular"];
+}
+
+- (IBAction)showManageDriversScreen:(UIButton *)sender
+{
+    [self.delegate showManageDrivers];
 }
 
 @end

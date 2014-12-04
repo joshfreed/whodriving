@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WelcomeViewDelegate;
+
 @interface WelcomeView : UIView
 
+@property (nonatomic, weak) id<WelcomeViewDelegate> delegate;
+
 -(void)viewWillAppear;
+
+@end
+
+@protocol WelcomeViewDelegate <NSObject>
+
+- (void)showManageDrivers;
 
 @end

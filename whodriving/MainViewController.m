@@ -6,25 +6,26 @@
 //  Copyright (c) 2014 Josh Freed. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "ManageDriversTableViewController.h"
 #import "SearchView.h"
 #import "WelcomeView.h"
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @property (strong, nonatomic) SearchView *searchView;
 @property (strong, nonatomic) WelcomeView *welcomeView;
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.searchView = [[[NSBundle mainBundle] loadNibNamed:@"SearchView" owner:self options:nil] objectAtIndex:0];
     self.welcomeView = [[[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil] objectAtIndex:0];
+    self.welcomeView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -72,10 +73,9 @@
     }
 }
 
-//
-//- (IBAction)showManageDriversScreen:(UIButton *)sender
-//{
-//    [self performSegueWithIdentifier:@"ManageDrivers" sender:self];
-//}
+-(void)showManageDrivers
+{
+    [self performSegueWithIdentifier:@"ManageDrivers" sender:self];
+}
 
 @end
