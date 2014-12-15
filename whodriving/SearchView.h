@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SearchViewDelegate;
+
 @interface SearchView : UIView
+
+@property (nonatomic, weak) id<SearchViewDelegate> delegate;
+@property NSArray *drivers;
 
 -(void)viewWillAppear;
 
-@property NSArray *drivers;
+@end
+
+@protocol SearchViewDelegate <NSObject>
+
+- (void)findDrivers:(NSNumber*)personCount;
 
 @end

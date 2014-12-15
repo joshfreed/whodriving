@@ -100,6 +100,13 @@
 
 - (IBAction)findMeDrivers:(UIButton *)sender
 {
+//    [self showAnimatedSearchResults];
+    NSNumber *personCount = [NSNumber numberWithInteger:[self.personCountLabel.text integerValue]];
+    [self.delegate findDrivers:personCount];
+}
+
+-(void)showAnimatedSearchResults
+{
     UIView *view = self;
     [view layoutIfNeeded];
     
@@ -117,9 +124,8 @@
     } completion:^(BOOL finished) {
     }];
     
-    NSInteger personCount = [self.personCountLabel.text integerValue];
-    NSNumber *passengerCount = [NSNumber numberWithInteger:personCount];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:passengerCount possibleDrivers:self.drivers];
+    NSNumber *personCount = [NSNumber numberWithInteger:[self.personCountLabel.text integerValue]];
+    TripSpecification *tripSpec = [[TripSpecification alloc] init:personCount possibleDrivers:self.drivers];
     TripService *tripService = [[TripService alloc] init];
     NSArray *drivingDrivers = [tripService buildTrip:tripSpec];
     [self updateDriverResults:drivingDrivers];
@@ -229,6 +235,9 @@
         i++;
     }
     
+    for (UILabel *driverLabel in labels) {
+        NSLog(@"Intrinsic: %f, %f  Size: %f, %f", driverLabel.intrinsicContentSize.width, driverLabel.intrinsicContentSize.height, driverLabel.frame.size.width, driverLabel.frame.size.height);
+    }
     //    NSLog(vFormat);
 }
 

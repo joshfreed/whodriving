@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -14,10 +12,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbv-12-cet" userLabel="Search Form">
-                    <rect key="frame" x="0.0" y="126" width="600" height="214"/>
+                    <rect key="frame" x="0.0" y="193" width="600" height="214"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0z-za-PXk" userLabel="Num People BG View">
-                            <rect key="frame" x="311" y="32" width="150" height="150"/>
+                            <rect key="frame" x="312" y="32" width="150" height="150"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mwm-mw-Uqe">
                                     <rect key="frame" x="25" y="20" width="100" height="100"/>
@@ -46,7 +44,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="people" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-mO-Cep">
-                            <rect key="frame" x="466" y="120" width="119.5" height="48"/>
+                            <rect key="frame" x="467" y="120" width="119.5" height="48"/>
                             <fontDescription key="fontDescription" type="system" pointSize="40"/>
                             <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -55,14 +53,14 @@
                             </variation>
                         </label>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tg6-hF-U3F" userLabel="Num People Spacer">
-                            <rect key="frame" x="0.0" y="105" width="311.5" height="4"/>
+                            <rect key="frame" x="0.0" y="105" width="312" height="4"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="4" id="KFg-Fi-Ovt"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need drivers for" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="A8c-fO-9Nb">
-                            <rect key="frame" x="13" y="46" width="293" height="48"/>
+                            <rect key="frame" x="14" y="46" width="293" height="48"/>
                             <fontDescription key="fontDescription" type="system" pointSize="40"/>
                             <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -71,7 +69,7 @@
                             </variation>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfR-V9-dZj" userLabel="Plus/Minus Btn Container">
-                            <rect key="frame" x="278" y="-11" width="215" height="235"/>
+                            <rect key="frame" x="279" y="-11" width="215" height="235"/>
                             <subviews>
                                 <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIR-nO-1Dk">
                                     <rect key="frame" x="95" y="0.0" width="120" height="120"/>
@@ -152,12 +150,10 @@
                     </variation>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMI-e6-LAe">
-                    <rect key="frame" x="147" y="396" width="305" height="90"/>
+                    <rect key="frame" x="147" y="478" width="305" height="90"/>
                     <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="305" id="GtY-8k-1d6">
-                            <variation key="heightClass=regular-widthClass=compact" constant="240"/>
-                        </constraint>
+                        <constraint firstAttribute="width" constant="305" id="GtY-8k-1d6"/>
                         <constraint firstAttribute="height" constant="90" id="yXm-aW-nUQ">
                             <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                         </constraint>
@@ -170,42 +166,42 @@
                     <variation key="heightClass=regular-widthClass=compact">
                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                         <mask key="constraints">
-                            <include reference="yXm-aW-nUQ"/>
+                            <exclude reference="GtY-8k-1d6"/>
                         </mask>
                     </variation>
                     <connections>
                         <action selector="findMeDrivers:" destination="8L0-UL-V1r" eventType="touchUpInside" id="HM0-QT-xe9"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lS-QL-rYE" userLabel="Results View Container">
-                    <rect key="frame" x="16" y="340" width="568" height="24"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="Zbv-12-cet" secondAttribute="bottom" constant="-40" id="43x-zx-d8z">
-                    <variation key="heightClass=regular-widthClass=compact" constant="-30"/>
-                </constraint>
-                <constraint firstItem="ZMI-e6-LAe" firstAttribute="top" secondItem="Zbv-12-cet" secondAttribute="bottom" constant="56" id="7CJ-B5-HxT">
-                    <variation key="heightClass=regular-widthClass=compact" constant="40"/>
-                </constraint>
-                <constraint firstItem="2lS-QL-rYE" firstAttribute="top" secondItem="g0z-za-PXk" secondAttribute="bottom" constant="32" id="OAc-Cy-23T"/>
-                <constraint firstAttribute="trailingMargin" secondItem="2lS-QL-rYE" secondAttribute="trailing" constant="8" id="aYv-Ey-Qhn"/>
+                <constraint firstAttribute="centerY" secondItem="Zbv-12-cet" secondAttribute="centerY" id="43x-zx-d8z"/>
                 <constraint firstAttribute="trailing" secondItem="Zbv-12-cet" secondAttribute="trailing" id="bSa-ex-E8k"/>
                 <constraint firstItem="Zbv-12-cet" firstAttribute="leading" secondItem="8L0-UL-V1r" secondAttribute="leading" id="hLh-0h-gZL"/>
-                <constraint firstItem="2lS-QL-rYE" firstAttribute="leading" secondItem="8L0-UL-V1r" secondAttribute="leadingMargin" constant="8" id="jDo-1Z-OtG"/>
-                <constraint firstItem="Zbv-12-cet" firstAttribute="top" secondItem="8L0-UL-V1r" secondAttribute="top" priority="900" id="lFj-tM-fwC"/>
-                <constraint firstItem="ZMI-e6-LAe" firstAttribute="top" secondItem="2lS-QL-rYE" secondAttribute="bottom" constant="32" id="tZD-Wx-IaO"/>
-                <constraint firstAttribute="bottom" secondItem="ZMI-e6-LAe" secondAttribute="bottom" priority="900" constant="32" id="wTX-jX-IYc"/>
+                <constraint firstAttribute="trailing" secondItem="ZMI-e6-LAe" secondAttribute="trailing" constant="32" id="qT0-kp-Hu9"/>
+                <constraint firstAttribute="bottom" secondItem="ZMI-e6-LAe" secondAttribute="bottom" constant="32" id="wTX-jX-IYc"/>
+                <constraint firstItem="ZMI-e6-LAe" firstAttribute="leading" secondItem="8L0-UL-V1r" secondAttribute="leading" constant="32" id="z9V-7z-Zmi"/>
                 <constraint firstAttribute="centerX" secondItem="ZMI-e6-LAe" secondAttribute="centerX" id="zDT-wi-ycL"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="qT0-kp-Hu9"/>
+                    <exclude reference="z9V-7z-Zmi"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="qT0-kp-Hu9"/>
+                    <include reference="z9V-7z-Zmi"/>
+                    <exclude reference="zDT-wi-ycL"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="needDriversLabel" destination="A8c-fO-9Nb" id="9LQ-cF-roM"/>
                 <outlet property="needDriversPeopleLabel" destination="l1E-mO-Cep" id="XR4-AQ-QfI"/>
                 <outlet property="numPeopleBg" destination="g0z-za-PXk" id="jYT-6v-WqG"/>
                 <outlet property="personCountLabel" destination="mwm-mw-Uqe" id="YsC-Dy-o60"/>
-                <outlet property="resultsView" destination="2lS-QL-rYE" id="jKR-dq-0R2"/>
                 <outlet property="searchButton" destination="ZMI-e6-LAe" id="oMk-0j-b4T"/>
                 <outlet property="searchForm" destination="Zbv-12-cet" id="3eo-6B-Z97"/>
             </connections>
