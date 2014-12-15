@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbv-12-cet" userLabel="Search Form">
-                    <rect key="frame" x="0.0" y="193" width="600" height="214"/>
+                    <rect key="frame" x="0.0" y="132" width="600" height="214"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0z-za-PXk" userLabel="Num People BG View">
                             <rect key="frame" x="312" y="32" width="150" height="150"/>
@@ -176,7 +176,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="Zbv-12-cet" secondAttribute="centerY" id="43x-zx-d8z"/>
+                <constraint firstAttribute="centerY" secondItem="Zbv-12-cet" secondAttribute="centerY" constant="61" id="43x-zx-d8z"/>
                 <constraint firstAttribute="trailing" secondItem="Zbv-12-cet" secondAttribute="trailing" id="bSa-ex-E8k"/>
                 <constraint firstItem="Zbv-12-cet" firstAttribute="leading" secondItem="8L0-UL-V1r" secondAttribute="leading" id="hLh-0h-gZL"/>
                 <constraint firstAttribute="trailing" secondItem="ZMI-e6-LAe" secondAttribute="trailing" constant="32" id="qT0-kp-Hu9"/>

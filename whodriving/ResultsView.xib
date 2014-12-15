@@ -11,7 +11,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-NQ-8PZ">
-                    <rect key="frame" x="147.5" y="478" width="305" height="90"/>
+                    <rect key="frame" x="147" y="478" width="305" height="90"/>
                     <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="305" id="Az1-1f-Z1u"/>
@@ -34,12 +34,20 @@
                         <action selector="doneButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="3sM-3R-sG4"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuT-4U-xKR" userLabel="Driver Names Container">
+                    <rect key="frame" x="32" y="32" width="536" height="414"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="u3b-NQ-8PZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="3eL-yJ-ccU"/>
+                <constraint firstAttribute="trailing" secondItem="fuT-4U-xKR" secondAttribute="trailing" constant="32" id="6rH-nd-kBF"/>
+                <constraint firstItem="u3b-NQ-8PZ" firstAttribute="top" secondItem="fuT-4U-xKR" secondAttribute="bottom" constant="32" id="CiC-qt-0R7"/>
                 <constraint firstAttribute="centerX" secondItem="u3b-NQ-8PZ" secondAttribute="centerX" id="Jah-OW-w5c"/>
                 <constraint firstAttribute="trailing" secondItem="u3b-NQ-8PZ" secondAttribute="trailing" constant="32" id="iYB-Is-w3W"/>
+                <constraint firstItem="fuT-4U-xKR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="q1J-rX-ibW"/>
+                <constraint firstItem="fuT-4U-xKR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="urp-tz-ThA"/>
                 <constraint firstAttribute="bottom" secondItem="u3b-NQ-8PZ" secondAttribute="bottom" constant="32" id="yAQ-3k-1Wb"/>
             </constraints>
             <variation key="default">
@@ -57,6 +65,7 @@
             </variation>
             <connections>
                 <outlet property="doneButton" destination="u3b-NQ-8PZ" id="qP3-Q2-plq"/>
+                <outlet property="driverNamesContainer" destination="fuT-4U-xKR" id="OJU-ig-ywI"/>
             </connections>
         </view>
     </objects>
