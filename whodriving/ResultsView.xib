@@ -16,7 +16,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="305" id="Az1-1f-Z1u"/>
                         <constraint firstAttribute="height" constant="90" id="lof-iU-8xR">
-                            <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                         </constraint>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
@@ -40,24 +40,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="u3b-NQ-8PZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="3eL-yJ-ccU"/>
-                <constraint firstItem="Evb-dU-8Hj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="9gH-39-Vg1">
-                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                </constraint>
+                <constraint firstItem="u3b-NQ-8PZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="3eL-yJ-ccU"/>
+                <constraint firstItem="Evb-dU-8Hj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="9gH-39-Vg1"/>
                 <constraint firstAttribute="centerX" secondItem="u3b-NQ-8PZ" secondAttribute="centerX" id="Jah-OW-w5c"/>
-                <constraint firstItem="Evb-dU-8Hj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="RvK-nh-uG4">
-                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                </constraint>
-                <constraint firstItem="u3b-NQ-8PZ" firstAttribute="top" secondItem="Evb-dU-8Hj" secondAttribute="bottom" constant="32" id="XuJ-Gt-ben">
-                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                </constraint>
-                <constraint firstAttribute="trailing" secondItem="u3b-NQ-8PZ" secondAttribute="trailing" constant="16" id="iYB-Is-w3W"/>
-                <constraint firstAttribute="trailing" secondItem="Evb-dU-8Hj" secondAttribute="trailing" constant="32" id="tjq-26-DdQ">
-                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                </constraint>
-                <constraint firstAttribute="bottom" secondItem="u3b-NQ-8PZ" secondAttribute="bottom" constant="32" id="yAQ-3k-1Wb">
-                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                </constraint>
+                <constraint firstItem="Evb-dU-8Hj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="RvK-nh-uG4"/>
+                <constraint firstItem="u3b-NQ-8PZ" firstAttribute="top" secondItem="Evb-dU-8Hj" secondAttribute="bottom" constant="32" id="XuJ-Gt-ben"/>
+                <constraint firstAttribute="trailing" secondItem="u3b-NQ-8PZ" secondAttribute="trailing" constant="32" id="iYB-Is-w3W"/>
+                <constraint firstAttribute="trailing" secondItem="Evb-dU-8Hj" secondAttribute="trailing" constant="32" id="tjq-26-DdQ"/>
+                <constraint firstAttribute="bottom" secondItem="u3b-NQ-8PZ" secondAttribute="bottom" constant="32" id="yAQ-3k-1Wb"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

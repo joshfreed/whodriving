@@ -83,7 +83,7 @@
         UILabel *driverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 35)];
         driverLabel.translatesAutoresizingMaskIntoConstraints = NO;
 //        [driverLabel setBackgroundColor:[UIColor greenColor]];
-        [driverLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:45]];
+        [driverLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:24]];
         [driverLabel setTextColor:UIColorFromRGB(0x444444)];
         [driverLabel setText:driver.driverName];
         [driverLabel setTextAlignment:NSTextAlignmentCenter];
@@ -127,7 +127,7 @@
     for (UILabel *driverLabel in labels) {
         NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
         
-        [driverLabel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[%@(60)]", viewName]
+        [driverLabel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[%@(30)]", viewName]
                                                                             options:0
                                                                             metrics:nil
                                                                               views:viewsDictionary]];

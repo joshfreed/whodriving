@@ -95,7 +95,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                             <variation key="heightClass=regular-widthClass=compact">
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             </variation>
                                             <connections>
                                                 <action selector="editingDidEnd:" destination="eAQ-FV-UcD" eventType="editingDidEndOnExit" id="Axe-4B-8b7"/>
