@@ -7,20 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JoshView.h"
 
 @protocol SearchViewDelegate;
 
-@interface SearchView : UIView
-
+@interface SearchView : JoshView
 @property (nonatomic, weak) id<SearchViewDelegate> delegate;
 @property NSArray *drivers;
-
--(void)viewWillAppear;
-
 @end
 
 @protocol SearchViewDelegate <NSObject>
-
 - (void)findDrivers:(NSNumber*)personCount;
-
 @end

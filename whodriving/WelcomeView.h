@@ -7,19 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JoshView.h"
 
 @protocol WelcomeViewDelegate;
 
-@interface WelcomeView : UIView
-
+@interface WelcomeView : JoshView
 @property (nonatomic, weak) id<WelcomeViewDelegate> delegate;
-
--(void)viewWillAppear;
-
 @end
 
 @protocol WelcomeViewDelegate <NSObject>
-
 - (void)showManageDrivers;
-
 @end

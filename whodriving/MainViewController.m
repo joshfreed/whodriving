@@ -14,6 +14,7 @@
 
 @interface MainViewController ()
 
+@property (weak, nonatomic) JoshView *currentView;
 @property (strong, nonatomic) SearchView *searchView;
 @property (strong, nonatomic) WelcomeView *welcomeView;
 @property (strong, nonatomic) ResultsView *resultsView;
@@ -29,6 +30,7 @@
     self.searchView = [[[NSBundle mainBundle] loadNibNamed:@"SearchView" owner:self options:nil] objectAtIndex:0];
     self.welcomeView = [[[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil] objectAtIndex:0];
     self.resultsView = [[[NSBundle mainBundle] loadNibNamed:@"ResultsView" owner:self options:nil] objectAtIndex:0];
+    self.currentView = self.searchView;
 
     self.searchView.delegate = self;
     self.welcomeView.delegate = self;
@@ -44,9 +46,7 @@
 //        [self.view addSubview:self.welcomeView];
 //        [self.welcomeView viewWillAppear];
 //    } else {
-        [self.welcomeView removeFromSuperview];
-        [self.view addSubview:self.searchView];
-        [self.searchView viewWillAppear];
+    [self switchView:self.searchView];
 //    }
 }
 
@@ -54,6 +54,23 @@
 {
 //    NSLog(@"Intrinsic: %f, %f", self.view.intrinsicContentSize.width, self.view.intrinsicContentSize.height);
 //    NSLog(@"Bounds: %f, %f", self.view.bounds.size.width, self.view.bounds.size.height);
+}
+
+- (void) viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.currentView viewDidLayoutSubviews];
+}
+
+- (void) switchView:(JoshView*)newView
+{
+    if (self.currentView != nil) {
+        [self.currentView removeFromSuperview];
+    }
+    
+    [self.view addSubview:newView];
+    [newView viewWillAppear];
+    self.currentView = newView;
 }
 
 - (void)refreshDriversArray
@@ -97,17 +114,12 @@
     TripSpecification *tripSpec = [[TripSpecification alloc] init:personCount possibleDrivers:self.drivers];
     self.resultsView.tripSpec = tripSpec;
     
-    [self.welcomeView removeFromSuperview];
-    [self.searchView removeFromSuperview];
-    [self.view addSubview:self.resultsView];
-    [self.resultsView viewWillAppear];
+    [self switchView:self.resultsView];
 }
 
 -(void)done
 {
-    [self.resultsView removeFromSuperview];
-    [self.view addSubview:self.searchView];
-    [self.searchView viewWillAppear];
+    [self switchView:self.searchView];
 }
 
 @end

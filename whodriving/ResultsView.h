@@ -7,18 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JoshView.h"
 #import "TripSpecification.h"
 
 @protocol ResultsViewDelegate;
 
-@interface ResultsView : UIView
+@interface ResultsView : JoshView
 @property (nonatomic, weak) id<ResultsViewDelegate> delegate;
 @property TripSpecification *tripSpec;
--(void)viewWillAppear;
 @end
 
 @protocol ResultsViewDelegate <NSObject>
-
 - (void)done;
-
 @end

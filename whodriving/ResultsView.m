@@ -13,56 +13,30 @@
 
 @interface ResultsView ()
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
-@property (weak, nonatomic) IBOutlet UIView *driverNamesContainer;
+@property (weak, nonatomic) IBOutlet UIScrollView *driverNamesContainer;
 @end
 
 @implementation ResultsView
 
--(void)awakeFromNib
-{
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-}
-
 -(void)viewWillAppear
 {
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                               attribute:NSLayoutAttributeTop
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.superview
-                                                               attribute:NSLayoutAttributeTop
-                                                              multiplier:1.0
-                                                                constant:0.0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                               attribute:NSLayoutAttributeLeading
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.superview
-                                                               attribute:NSLayoutAttributeLeading
-                                                              multiplier:1.0
-                                                                constant:0.0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                               attribute:NSLayoutAttributeBottom
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.superview
-                                                               attribute:NSLayoutAttributeBottom
-                                                              multiplier:1.0
-                                                                constant:0.0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                               attribute:NSLayoutAttributeTrailing
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.superview
-                                                               attribute:NSLayoutAttributeTrailing
-                                                              multiplier:1.0
-                                                                constant:0.0]];
-    [self.superview layoutIfNeeded];
+    [super viewWillAppear];
     
     [ViewHelper setCustomFont:self.doneButton.titleLabel fontName:@"Lato-Regular"];
     
     TripService *tripService = [[TripService alloc] init];
     NSArray *drivingDrivers = [tripService buildTrip:self.tripSpec];
     [self displayDrivers:drivingDrivers];
+}
+
+-(void) viewDidLayoutSubviews
+{
+    CGFloat scrollViewHeight = 0.0f;
+    for (UIView* view in self.driverNamesContainer.subviews)
+    {
+        scrollViewHeight += view.frame.size.height;
+    }
+    [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, scrollViewHeight))];
 }
 
 -(void)displayDrivers:(NSArray*)drivingDrivers
@@ -73,12 +47,12 @@
     
     UIView *spacer1 = [UIView new];
     spacer1.translatesAutoresizingMaskIntoConstraints = NO;
-    //    spacer1.backgroundColor = [UIColor grayColor];
+//    spacer1.backgroundColor = [UIColor grayColor];
     [self.driverNamesContainer addSubview:spacer1];
     
     UIView *spacer2 = [UIView new];
     spacer2.translatesAutoresizingMaskIntoConstraints = NO;
-    //    spacer2.backgroundColor = [UIColor brownColor];
+//    spacer2.backgroundColor = [UIColor brownColor];
     [self.driverNamesContainer addSubview:spacer2];
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:spacer1
@@ -108,6 +82,7 @@
     for (Driver *driver in drivingDrivers) {
         UILabel *driverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 35)];
         driverLabel.translatesAutoresizingMaskIntoConstraints = NO;
+//        [driverLabel setBackgroundColor:[UIColor greenColor]];
         [driverLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:45]];
         [driverLabel setTextColor:UIColorFromRGB(0x444444)];
         [driverLabel setText:driver.driverName];
@@ -137,7 +112,7 @@
         if (i == 0) {
             [vFormat appendFormat:@"[%@]", viewName];
         } else {
-            [vFormat appendFormat:@"-15-[%@]", viewName];
+            [vFormat appendFormat:@"-16-[%@]", viewName];
         }
         
         i++;
@@ -156,7 +131,7 @@
                                                                             options:0
                                                                             metrics:nil
                                                                               views:viewsDictionary]];
-        [self.driverNamesContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-[%@]-|", viewName]
+        [self.driverNamesContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-0-[%@]-0-|", viewName]
                                                                                           options:0
                                                                                           metrics:nil
                                                                                             views:viewsDictionary]];
@@ -169,6 +144,27 @@
                                                                                constant:0]];
         i++;
     }
+    
+//    NSLog(vFormat);
+    
+    /*
+    for (UILabel *driverLabel in labels) {
+        float widthIs = [driverLabel.text boundingRectWithSize:driverLabel.frame.size
+                                                       options:NSStringDrawingUsesLineFragmentOrigin
+                                                    attributes:@{ NSFontAttributeName:driverLabel.font }
+                                                       context:nil].size.width;
+        NSLog(@"the width of yourLabel is %f", widthIs);
+        float otherWidth = [driverLabel.text sizeWithAttributes:@{NSFontAttributeName: driverLabel.font}].width;
+        NSLog(@"%f", otherWidth);
+        NSLog(@"%f", driverLabel.intrinsicContentSize.width);
+    }
+    
+    NSLog(@"Container: %f, @ %f = %f", self.driverNamesContainer.frame.size.width, [UIScreen mainScreen].scale, self.driverNamesContainer.frame.size.width * [UIScreen mainScreen].scale);
+    NSLog(@"VIEW: %f, @ %f = %f", self.frame.size.width, [UIScreen mainScreen].scale, self.frame.size.width * [UIScreen mainScreen].scale);
+     */
+    
+//    NSLog(@"%f, %f", self.driverNamesContainer.frame.size.width, self.driverNamesContainer.frame.size.height);
+
 }
 
 - (IBAction)doneButton:(UIButton *)sender

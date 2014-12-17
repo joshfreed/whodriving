@@ -29,6 +29,7 @@
 		5344219319E1CAD3001A179E /* DriverResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344219219E1CAD3001A179E /* DriverResult.m */; };
 		536B740419CE082B000F86D5 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 536B740319CE082B000F86D5 /* Driver.m */; };
 		5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */; };
+		539D31D61A40BAAE006A689B /* JoshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 539D31D51A40BAAE006A689B /* JoshView.m */; };
 		53B52E391A00713200C7D35B /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B52E381A00713200C7D35B /* ViewHelper.m */; };
 		53D3BB7519F8296A00BF17A2 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */; };
 		53D3BB7619F8296A00BF17A2 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */; };
@@ -103,6 +104,8 @@
 		536B740219CE082B000F86D5 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
 		536B740319CE082B000F86D5 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
 		5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverModel.xcdatamodel; sourceTree = "<group>"; };
+		539D31D41A40BAAE006A689B /* JoshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoshView.h; sourceTree = "<group>"; };
+		539D31D51A40BAAE006A689B /* JoshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoshView.m; sourceTree = "<group>"; };
 		53B52E371A00713200C7D35B /* ViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHelper.h; sourceTree = "<group>"; };
 		53B52E381A00713200C7D35B /* ViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHelper.m; sourceTree = "<group>"; };
 		53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				5328AF631A30006E00918645 /* SearchView.m */,
 				5327649D1A3CBF2200B66504 /* ResultsView.h */,
 				5327649E1A3CBF2200B66504 /* ResultsView.m */,
+				539D31D41A40BAAE006A689B /* JoshView.h */,
+				539D31D51A40BAAE006A689B /* JoshView.m */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 				53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */,
 				5344218519E07D52001A179E /* TripSpecification.m in Sources */,
 				5327649F1A3CBF2200B66504 /* ResultsView.m in Sources */,
+				539D31D61A40BAAE006A689B /* JoshView.m in Sources */,
 				536B740419CE082B000F86D5 /* Driver.m in Sources */,
 				5328AF641A30006E00918645 /* SearchView.m in Sources */,
 				53346E9E19EDB4FD00EA7ABB /* TripResultsViewController.m in Sources */,

@@ -26,45 +26,9 @@
 
 @implementation SearchView
 
--(void)awakeFromNib
-{
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-}
-
 - (void)viewWillAppear
 {
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                          attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.superview
-                                                          attribute:NSLayoutAttributeTop
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                          attribute:NSLayoutAttributeLeading
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.superview
-                                                          attribute:NSLayoutAttributeLeading
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                          attribute:NSLayoutAttributeBottom
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.superview
-                                                          attribute:NSLayoutAttributeBottom
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-    
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                          attribute:NSLayoutAttributeTrailing
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.superview
-                                                          attribute:NSLayoutAttributeTrailing
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-    [self.superview layoutIfNeeded];
+    [super viewWillAppear];
     
     [ViewHelper makeRoundedView:self.numPeopleBg];
     
@@ -235,9 +199,9 @@
         i++;
     }
     
-    for (UILabel *driverLabel in labels) {
-        NSLog(@"Intrinsic: %f, %f  Size: %f, %f", driverLabel.intrinsicContentSize.width, driverLabel.intrinsicContentSize.height, driverLabel.frame.size.width, driverLabel.frame.size.height);
-    }
+//    for (UILabel *driverLabel in labels) {
+//        NSLog(@"Intrinsic: %f, %f  Size: %f, %f", driverLabel.intrinsicContentSize.width, driverLabel.intrinsicContentSize.height, driverLabel.frame.size.width, driverLabel.frame.size.height);
+//    }
     //    NSLog(vFormat);
 }
 
