@@ -26,14 +26,16 @@
     
     TripService *tripService = [[TripService alloc] init];
     NSArray *drivingDrivers = [tripService buildTrip:self.tripSpec];
+    drivingDrivers = [drivingDrivers sortedArrayUsingSelector:@selector(sortByName:)];
     [self displayDrivers:drivingDrivers];
+    
+    [self.driverNamesContainer flashScrollIndicators];
 }
 
 -(void) viewDidLayoutSubviews
 {
     CGFloat scrollViewHeight = 0.0f;
-    for (UIView* view in self.driverNamesContainer.subviews)
-    {
+    for (UIView* view in self.driverNamesContainer.subviews) {
         scrollViewHeight += view.frame.size.height;
     }
     [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, scrollViewHeight))];
@@ -41,7 +43,11 @@
 
 -(void)displayDrivers:(NSArray*)drivingDrivers
 {
-    [[self.driverNamesContainer subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    for (NSObject * subview in [[self.driverNamesContainer subviews] copy]) {
+        if ([subview isKindOfClass:[UILabel class]]) {
+            [(UILabel*)subview removeFromSuperview];
+        }
+    }
     
     int i = 0;
     
@@ -131,7 +137,7 @@
                                                                             options:0
                                                                             metrics:nil
                                                                               views:viewsDictionary]];
-        [self.driverNamesContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-0-[%@]-0-|", viewName]
+        [self.driverNamesContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-32-[%@]-32-|", viewName]
                                                                                           options:0
                                                                                           metrics:nil
                                                                                             views:viewsDictionary]];

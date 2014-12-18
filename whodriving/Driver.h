@@ -20,5 +20,6 @@
 - (void)setPassengerCount:(double)numPassengers;
 - (void)enable;
 - (void)disable;
+- (NSComparisonResult)sortByName:(Driver*)aDriver;
 
 @end

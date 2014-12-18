@@ -30,4 +30,9 @@
     self.isEnabled = false;
 }
 
+- (NSComparisonResult)sortByName:(Driver*)aDriver
+{
+    return [self.driverName localizedCaseInsensitiveCompare:aDriver.driverName];
+}
+
 @end
