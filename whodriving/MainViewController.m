@@ -30,23 +30,32 @@
     self.searchView = [[[NSBundle mainBundle] loadNibNamed:@"SearchView" owner:self options:nil] objectAtIndex:0];
     self.welcomeView = [[[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil] objectAtIndex:0];
     self.resultsView = [[[NSBundle mainBundle] loadNibNamed:@"ResultsView" owner:self options:nil] objectAtIndex:0];
-    self.currentView = self.searchView;
+
+    [self.searchView setHidden:NO];
+    [self.welcomeView setHidden:YES];
+    [self.resultsView setHidden:YES];
+    
+    [self.view addSubview:self.searchView];
+    [self.view addSubview:self.welcomeView];
+    [self.view addSubview:self.resultsView];
 
     self.searchView.delegate = self;
     self.welcomeView.delegate = self;
     self.resultsView.delegate = self;
+    
+    self.currentView = self.searchView;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self refreshDriversArray];
-
+ 
+    [self.searchView viewWillAppear];
+    [self.welcomeView viewWillAppear];
+    [self.resultsView viewWillAppear];
+    
 //    if (self.searchView.drivers.count == 0) {
-//        [self.searchView removeFromSuperview];
-//        [self.view addSubview:self.welcomeView];
-//        [self.welcomeView viewWillAppear];
 //    } else {
-    [self switchView:self.searchView];
 //    }
 }
 
@@ -64,13 +73,14 @@
 
 - (void) switchView:(JoshView*)newView
 {
-    if (self.currentView != nil) {
-        [self.currentView removeFromSuperview];
-    }
-    
-    [self.view addSubview:newView];
-    [newView viewWillAppear];
-    self.currentView = newView;
+    [self.currentView runExitAnimation:^{
+        [self.currentView setHidden:YES];
+        [newView setHidden:NO];
+        self.currentView = newView;
+        [self.currentView runEntranceAnimation:^{
+
+        }];
+    }];
 }
 
 - (void)refreshDriversArray

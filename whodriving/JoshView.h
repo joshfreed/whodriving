@@ -12,5 +12,7 @@
 
 -(void)viewWillAppear;
 -(void)viewDidLayoutSubviews;
+-(void)runEntranceAnimation:(void (^)(void))completion;
+-(void)runExitAnimation:(void (^)(void))completion;
 
 @end

@@ -14,6 +14,8 @@
 @interface ResultsView ()
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *driverNamesContainer;
+@property CGFloat fadeInTime;
+@property CGFloat fadeOutTime;
 @end
 
 @implementation ResultsView
@@ -22,11 +24,27 @@
 {
     [super viewWillAppear];
     
+    self.fadeInTime = 0.25;
+    self.fadeOutTime = 0.25;
+    self.alpha = 0;
+    
     self.doneButton.layer.cornerRadius = self.doneButton.frame.size.width / 12;
     self.doneButton.clipsToBounds = YES;
     
     [ViewHelper setCustomFont:self.doneButton.titleLabel fontName:@"Lato-Regular"];
-    
+}
+
+-(void) viewDidLayoutSubviews
+{
+    CGFloat scrollViewHeight = 0.0f;
+    for (UIView* view in self.driverNamesContainer.subviews) {
+        scrollViewHeight += view.frame.size.height;
+    }
+    [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, scrollViewHeight))];
+}
+
+-(void)runEntranceAnimation:(void (^)(void))completion
+{
     [self clearDriverNamesContainer];
     
     TripService *tripService = [[TripService alloc] init];
@@ -38,15 +56,21 @@
     } else {
         // trip spec failed to find adequate drivers
     }
+
+    [UIView animateWithDuration:self.fadeInTime animations:^{
+        self.alpha = 1;
+    } completion:^(BOOL finished) {
+        completion();
+    }];
 }
 
--(void) viewDidLayoutSubviews
+-(void) runExitAnimation:(void (^)(void))completion
 {
-    CGFloat scrollViewHeight = 0.0f;
-    for (UIView* view in self.driverNamesContainer.subviews) {
-        scrollViewHeight += view.frame.size.height;
-    }
-    [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, scrollViewHeight))];
+    [UIView animateWithDuration:self.fadeOutTime animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        completion();
+    }];
 }
 
 - (void)clearDriverNamesContainer

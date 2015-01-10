@@ -56,4 +56,14 @@
     
 }
 
+-(void)runEntranceAnimation:(void (^)(void))completion
+{
+    completion();
+}
+
+-(void)runExitAnimation:(void (^)(void))completion
+{
+    completion();
+}
+
 @end

@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *needDriversLabel;
 @property (weak, nonatomic) IBOutlet UILabel *needDriversPeopleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
-@property (weak, nonatomic) IBOutlet UIView *resultsView;
+
+@property CGFloat fadeInTime;
+@property CGFloat fadeOutTime;
 
 @end
 
@@ -29,6 +31,9 @@
 - (void)viewWillAppear
 {
     [super viewWillAppear];
+    
+    self.fadeInTime = 0.25;
+    self.fadeOutTime = 0.25;
     
     [ViewHelper makeRoundedView:self.numPeopleBg];
 
@@ -67,145 +72,28 @@
 
 - (IBAction)findMeDrivers:(UIButton *)sender
 {
-//    [self showAnimatedSearchResults];
     NSNumber *personCount = [NSNumber numberWithInteger:[self.personCountLabel.text integerValue]];
     [self.delegate findDrivers:personCount];
 }
 
--(void)showAnimatedSearchResults
+-(void)runExitAnimation:(void (^)(void))completion
 {
-    UIView *view = self;
-    [view layoutIfNeeded];
-    
-    [view.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop){
-        if (constraint.firstItem == self.searchButton && constraint.firstAttribute == NSLayoutAttributeTop && constraint.secondItem == self.searchForm) {
-            [constraint setActive:NO];
-        }
-        if (constraint.secondItem == self.searchForm && constraint.secondAttribute == NSLayoutAttributeBottom && constraint.firstItem == self) {
-            [constraint setActive:NO];
-        }
-    }];
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        [view layoutIfNeeded];
+    [UIView animateWithDuration:self.fadeOutTime animations:^{
+        self.alpha = 0;
     } completion:^(BOOL finished) {
+        completion();
     }];
-    
-    NSNumber *personCount = [NSNumber numberWithInteger:[self.personCountLabel.text integerValue]];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:personCount possibleDrivers:self.drivers];
-    TripService *tripService = [[TripService alloc] init];
-    NSArray *drivingDrivers = [tripService buildTrip:tripSpec];
-    [self updateDriverResults:drivingDrivers];
+
 }
 
-- (void)updateDriverResults:(NSArray *)drivingDrivers
+-(void)runEntranceAnimation:(void (^)(void))completion
 {
-    [[self.resultsView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    int i = 0;
-    
-    UIView *spacer1 = [UIView new];
-    spacer1.translatesAutoresizingMaskIntoConstraints = NO;
-    //    spacer1.backgroundColor = [UIColor grayColor];
-    [self.resultsView addSubview:spacer1];
-    
-    UIView *spacer2 = [UIView new];
-    spacer2.translatesAutoresizingMaskIntoConstraints = NO;
-    //    spacer2.backgroundColor = [UIColor brownColor];
-    [self.resultsView addSubview:spacer2];
-    
-    [self.resultsView addConstraint:[NSLayoutConstraint constraintWithItem:spacer1
-                                                                 attribute:NSLayoutAttributeCenterX
-                                                                 relatedBy:NSLayoutRelationEqual
-                                                                    toItem:self.resultsView
-                                                                 attribute:NSLayoutAttributeCenterX
-                                                                multiplier:1
-                                                                  constant:0]];
-    [self.resultsView addConstraint:[NSLayoutConstraint constraintWithItem:spacer2
-                                                                 attribute:NSLayoutAttributeCenterX
-                                                                 relatedBy:NSLayoutRelationEqual
-                                                                    toItem:self.resultsView
-                                                                 attribute:NSLayoutAttributeCenterX
-                                                                multiplier:1
-                                                                  constant:0]];
-    [spacer1 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[spacer1(10)]"
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:@{@"spacer1": spacer1}]];
-    [spacer2 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[spacer2(10)]"
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:@{@"spacer2": spacer2}]];
-    
-    NSMutableArray *labels = [NSMutableArray array];
-    for (Driver *driver in drivingDrivers) {
-        UILabel *driverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 35)];
-        driverLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [driverLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:45]];
-        [driverLabel setTextColor:UIColorFromRGB(0x444444)];
-        [driverLabel setText:driver.driverName];
-        [driverLabel setTextAlignment:NSTextAlignmentCenter];
-        [driverLabel setMinimumScaleFactor:0.1];
-        [driverLabel setAdjustsFontSizeToFitWidth:YES];
-        [driverLabel setBaselineAdjustment:UIBaselineAdjustmentAlignCenters];
-        [self.resultsView addSubview:driverLabel];
-        [labels addObject:driverLabel];
-    }
-    
-    i = 0;
-    NSMutableDictionary *viewsDictionary = [NSMutableDictionary dictionary];
-    [viewsDictionary setValue:spacer1 forKey:@"spacer1"];
-    [viewsDictionary setValue:spacer2 forKey:@"spacer2"];
-    for (UILabel *driverLabel in labels) {
-        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
-        [viewsDictionary setValue:driverLabel forKey:viewName];
-        i++;
-    }
-    
-    i = 0;
-    NSMutableString *vFormat = [NSMutableString stringWithString:@"V:|[spacer1]"];
-    for (UILabel *driverLabel in labels) {
-        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
-        
-        if (i == 0) {
-            [vFormat appendFormat:@"[%@]", viewName];
-        } else {
-            [vFormat appendFormat:@"-15-[%@]", viewName];
-        }
-        
-        i++;
-    }
-    [vFormat appendString:@"[spacer2(==spacer1)]|"];
-    [self.resultsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vFormat
-                                                                             options:0
-                                                                             metrics:nil
-                                                                               views:viewsDictionary]];
-    
-    i = 0;
-    for (UILabel *driverLabel in labels) {
-        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
-        
-        [driverLabel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[%@(60)]", viewName]
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:viewsDictionary]];
-        [self.resultsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-[%@]-|", viewName]
-                                                                                 options:0
-                                                                                 metrics:nil
-                                                                                   views:viewsDictionary] ];
-        [self.resultsView addConstraint:[NSLayoutConstraint constraintWithItem:driverLabel
-                                                                     attribute:NSLayoutAttributeCenterX
-                                                                     relatedBy:NSLayoutRelationEqual
-                                                                        toItem:self.resultsView
-                                                                     attribute:NSLayoutAttributeCenterX
-                                                                    multiplier:1
-                                                                      constant:0]];
-        i++;
-    }
-    
-//    for (UILabel *driverLabel in labels) {
-//        NSLog(@"Intrinsic: %f, %f  Size: %f, %f", driverLabel.intrinsicContentSize.width, driverLabel.intrinsicContentSize.height, driverLabel.frame.size.width, driverLabel.frame.size.height);
-//    }
-    //    NSLog(vFormat);
+    [UIView animateWithDuration:self.fadeInTime animations:^{
+        self.alpha = 1;
+    } completion:^(BOOL finished) {
+        completion();
+    }];
 }
+
 
 @end
