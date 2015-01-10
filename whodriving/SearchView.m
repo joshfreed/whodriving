@@ -31,6 +31,9 @@
     [super viewWillAppear];
     
     [ViewHelper makeRoundedView:self.numPeopleBg];
+
+    self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width / 12;
+    self.searchButton.clipsToBounds = YES;
     
     [ViewHelper setCustomFont:self.personCountLabel fontName:@"Lato-Black"];
     [ViewHelper setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];

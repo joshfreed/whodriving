@@ -22,6 +22,9 @@
 {
     [super viewWillAppear];
     
+    self.doneButton.layer.cornerRadius = self.doneButton.frame.size.width / 12;
+    self.doneButton.clipsToBounds = YES;
+    
     [ViewHelper setCustomFont:self.doneButton.titleLabel fontName:@"Lato-Regular"];
     
     [self clearDriverNamesContainer];
