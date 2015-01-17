@@ -1,50 +1,33 @@
 //
-//  ResultsView.m
+//  ResultsViewController.m
 //  Who's Driving?!
 //
-//  Created by Josh Freed on 12/13/14.
-//  Copyright (c) 2014 Josh Freed. All rights reserved.
+//  Created by Josh Freed on 1/15/15.
+//  Copyright (c) 2015 Josh Freed. All rights reserved.
 //
 
-#import "ResultsView.h"
+#import "ResultsViewController.h"
 #import "ViewHelper.h"
-#import "TripService.h"
 #import "Driver.h"
+#import "TripService.h"
 
-@interface ResultsView ()
+@interface ResultsViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *driverNamesContainer;
-@property CGFloat fadeInTime;
-@property CGFloat fadeOutTime;
 @end
 
-@implementation ResultsView
+@implementation ResultsViewController
 
--(void)viewWillAppear
+- (void)viewDidLoad
 {
-    [super viewWillAppear];
-    
-    self.fadeInTime = 0.25;
-    self.fadeOutTime = 0.25;
-    self.alpha = 0;
-    
+    [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     self.doneButton.layer.cornerRadius = self.doneButton.frame.size.width / 12;
     self.doneButton.clipsToBounds = YES;
     
-    [ViewHelper setCustomFont:self.doneButton.titleLabel fontName:@"Lato-Regular"];
-}
-
--(void) viewDidLayoutSubviews
-{
-    CGFloat scrollViewHeight = 0.0f;
-    for (UIView* view in self.driverNamesContainer.subviews) {
-        scrollViewHeight += view.frame.size.height;
-    }
-    [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, scrollViewHeight))];
-}
-
--(void)runEntranceAnimation:(void (^)(void))completion
-{
     [self clearDriverNamesContainer];
     
     TripService *tripService = [[TripService alloc] init];
@@ -56,21 +39,32 @@
     } else {
         // trip spec failed to find adequate drivers
     }
-
-    [UIView animateWithDuration:self.fadeInTime animations:^{
-        self.alpha = 1;
-    } completion:^(BOOL finished) {
-        completion();
-    }];
 }
 
--(void) runExitAnimation:(void (^)(void))completion
+- (void)viewDidAppear:(BOOL)animated
 {
-    [UIView animateWithDuration:self.fadeOutTime animations:^{
-        self.alpha = 0;
-    } completion:^(BOOL finished) {
-        completion();
-    }];
+    [ViewHelper setCustomFont:self.doneButton.titleLabel fontName:@"Lato-Regular"];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)dismissModal:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    CGFloat scrollViewHeight = 0.0f;
+    for (UIView* view in self.driverNamesContainer.subviews) {
+        scrollViewHeight += view.frame.size.height;
+    }
+    [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, scrollViewHeight))];
 }
 
 - (void)clearDriverNamesContainer
@@ -88,22 +82,22 @@
     
     UIView *spacer1 = [UIView new];
     spacer1.translatesAutoresizingMaskIntoConstraints = NO;
-//    spacer1.backgroundColor = [UIColor grayColor];
+    //    spacer1.backgroundColor = [UIColor grayColor];
     [self.driverNamesContainer addSubview:spacer1];
     
     UIView *spacer2 = [UIView new];
     spacer2.translatesAutoresizingMaskIntoConstraints = NO;
-//    spacer2.backgroundColor = [UIColor brownColor];
+    //    spacer2.backgroundColor = [UIColor brownColor];
     [self.driverNamesContainer addSubview:spacer2];
     
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:spacer1
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:spacer1
                                                      attribute:NSLayoutAttributeCenterX
                                                      relatedBy:NSLayoutRelationEqual
                                                         toItem:self.driverNamesContainer
                                                      attribute:NSLayoutAttributeCenterX
                                                     multiplier:1
                                                       constant:0]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:spacer2
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:spacer2
                                                      attribute:NSLayoutAttributeCenterX
                                                      relatedBy:NSLayoutRelationEqual
                                                         toItem:self.driverNamesContainer
@@ -124,7 +118,7 @@
     for (Driver *driver in drivingDrivers) {
         UILabel *driverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 35)];
         driverLabel.translatesAutoresizingMaskIntoConstraints = NO;
-//        [driverLabel setBackgroundColor:[UIColor greenColor]];
+        //        [driverLabel setBackgroundColor:[UIColor greenColor]];
         [driverLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:24]];
         [driverLabel setTextColor:UIColorFromRGB(0x444444)];
         [driverLabel setText:driver.driverName];
@@ -177,12 +171,12 @@
         labelHeight += view.frame.size.height;
     }
     labelHeight += (labels.count - 1) * 16;
-//    NSLog(@"Labels Height: %f", labelHeight);
+    //    NSLog(@"Labels Height: %f", labelHeight);
     if (labelHeight < self.driverNamesContainer.frame.size.height) {
         CGFloat extraHeight = self.driverNamesContainer.frame.size.height - labelHeight;
         spacerHeight = extraHeight / 2;
     }
-//    NSLog(@"Spacer Height: %f", spacerHeight);
+    //    NSLog(@"Spacer Height: %f", spacerHeight);
     [spacer1 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[spacer1(%f)]", spacerHeight]
                                                                     options:0
                                                                     metrics:nil
@@ -211,11 +205,6 @@
                                                                                       options:0
                                                                                       metrics:nil
                                                                                         views:viewsDictionary]];
-}
-
-- (IBAction)doneButton:(UIButton *)sender
-{
-    [self.delegate done];
 }
 
 @end
