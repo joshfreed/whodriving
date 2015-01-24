@@ -43,7 +43,7 @@
     [ViewHelper setCustomFont:self.searchButton.titleLabel fontName:@"Lato-Regular"];
     
     [ViewHelper makeRoundedView:self.numPeopleBg];
-    self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width / 12;
+    self.searchButton.layer.cornerRadius = 5;
     self.searchButton.clipsToBounds = YES;
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];

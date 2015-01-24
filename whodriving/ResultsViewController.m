@@ -12,7 +12,6 @@
 #import "TripService.h"
 
 @interface ResultsViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *driverNamesContainer;
 @end
 
@@ -25,8 +24,12 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.doneButton.layer.cornerRadius = self.doneButton.frame.size.width / 12;
-    self.doneButton.clipsToBounds = YES;
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // animate names in
     
     [self clearDriverNamesContainer];
     
@@ -39,11 +42,6 @@
     } else {
         // trip spec failed to find adequate drivers
     }
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [ViewHelper setCustomFont:self.doneButton.titleLabel fontName:@"Lato-Regular"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -171,12 +169,10 @@
         labelHeight += view.frame.size.height;
     }
     labelHeight += (labels.count - 1) * 16;
-    //    NSLog(@"Labels Height: %f", labelHeight);
     if (labelHeight < self.driverNamesContainer.frame.size.height) {
         CGFloat extraHeight = self.driverNamesContainer.frame.size.height - labelHeight;
         spacerHeight = extraHeight / 2;
     }
-    //    NSLog(@"Spacer Height: %f", spacerHeight);
     [spacer1 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[spacer1(%f)]", spacerHeight]
                                                                     options:0
                                                                     metrics:nil
