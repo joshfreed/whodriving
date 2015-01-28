@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "WelcomeView.h"
 
-@interface MainViewController : UIViewController <WelcomeViewDelegate, UINavigationControllerDelegate>
+@interface MainViewController : UIViewController <UINavigationControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
