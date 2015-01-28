@@ -10,9 +10,13 @@
 #import "ViewHelper.h"
 #import "Driver.h"
 #import "TripService.h"
+#import "Masonry.h"
 
 @interface ResultsViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *driverNamesContainer;
+@property CGFloat driverNameHeight;
+@property CGFloat scrollViewContentHeight;
+@property CGFloat spacerHeight;
 @end
 
 @implementation ResultsViewController
@@ -20,6 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.driverNameHeight = 30;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -36,11 +42,24 @@
     TripService *tripService = [[TripService alloc] init];
     NSArray *drivingDrivers = [tripService buildTrip:self.tripSpec];
     if (drivingDrivers.count > 0) {
+        self.scrollViewContentHeight = (drivingDrivers.count * self.driverNameHeight) + ((drivingDrivers.count - 1) * 16);
+        // Determine spacer heights
+        // Because of scroll view quirks I can't just pin the spacers to the top and bottom of the super view, and to the driver labels
+        if (self.scrollViewContentHeight < self.driverNamesContainer.frame.size.height) {
+            CGFloat extraHeight = self.driverNamesContainer.frame.size.height - self.scrollViewContentHeight;
+            self.spacerHeight = extraHeight / 2;
+        }
+        
         drivingDrivers = [drivingDrivers sortedArrayUsingSelector:@selector(sortByName:)];
+        
         [self displayDrivers:drivingDrivers];
+        
+        [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, self.scrollViewContentHeight))];
         [self.driverNamesContainer flashScrollIndicators];
     } else {
         // trip spec failed to find adequate drivers
+        
+        self.scrollViewContentHeight = 0;
     }
 }
 
@@ -54,17 +73,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    
-    CGFloat scrollViewHeight = 0.0f;
-    for (UIView* view in self.driverNamesContainer.subviews) {
-        scrollViewHeight += view.frame.size.height;
-    }
-    [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, scrollViewHeight))];
-}
-
 - (void)clearDriverNamesContainer
 {
     for (NSObject * subview in [[self.driverNamesContainer subviews] copy]) {
@@ -76,47 +84,18 @@
 
 -(void)displayDrivers:(NSArray*)drivingDrivers
 {
-    int i = 0;
-    
     UIView *spacer1 = [UIView new];
-    spacer1.translatesAutoresizingMaskIntoConstraints = NO;
-    //    spacer1.backgroundColor = [UIColor grayColor];
+//    spacer1.backgroundColor = [UIColor grayColor];
     [self.driverNamesContainer addSubview:spacer1];
     
     UIView *spacer2 = [UIView new];
-    spacer2.translatesAutoresizingMaskIntoConstraints = NO;
-    //    spacer2.backgroundColor = [UIColor brownColor];
+//    spacer2.backgroundColor = [UIColor brownColor];
     [self.driverNamesContainer addSubview:spacer2];
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:spacer1
-                                                     attribute:NSLayoutAttributeCenterX
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:self.driverNamesContainer
-                                                     attribute:NSLayoutAttributeCenterX
-                                                    multiplier:1
-                                                      constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:spacer2
-                                                     attribute:NSLayoutAttributeCenterX
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:self.driverNamesContainer
-                                                     attribute:NSLayoutAttributeCenterX
-                                                    multiplier:1
-                                                      constant:0]];
-    [spacer1 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[spacer1(10)]"
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:@{@"spacer1": spacer1}]];
-    [spacer2 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[spacer2(10)]"
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:@{@"spacer2": spacer2}]];
-    
-    // Build the text labels and add them to the view
     NSMutableArray *labels = [NSMutableArray array];
     for (Driver *driver in drivingDrivers) {
-        UILabel *driverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 35)];
-        driverLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        //        [driverLabel setBackgroundColor:[UIColor greenColor]];
+        UILabel *driverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+//        [driverLabel setBackgroundColor:[UIColor greenColor]];
         [driverLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:24]];
         [driverLabel setTextColor:UIColorFromRGB(0x444444)];
         [driverLabel setText:driver.driverName];
@@ -128,79 +107,41 @@
         [labels addObject:driverLabel];
     }
     
-    // Build the dictionary of labels for constraints
-    i = 0;
-    NSMutableDictionary *viewsDictionary = [NSMutableDictionary dictionary];
-    [viewsDictionary setValue:spacer1 forKey:@"spacer1"];
-    [viewsDictionary setValue:spacer2 forKey:@"spacer2"];
-    for (UILabel *driverLabel in labels) {
-        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
-        [viewsDictionary setValue:driverLabel forKey:viewName];
-        i++;
-    }
+    UILabel *lastDriver = [labels lastObject];
+    UILabel *firstDriver = [labels firstObject];
     
-    // Set label height and width constraints
-    i = 0;
-    for (UILabel *driverLabel in labels) {
-        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
-        
-        [driverLabel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[%@(30)]", viewName]
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:viewsDictionary]];
-        [self.driverNamesContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-32-[%@]-32-|", viewName]
-                                                                                          options:0
-                                                                                          metrics:nil
-                                                                                            views:viewsDictionary]];
-        [self.driverNamesContainer addConstraint:[NSLayoutConstraint constraintWithItem:driverLabel
-                                                                              attribute:NSLayoutAttributeCenterX
-                                                                              relatedBy:NSLayoutRelationEqual
-                                                                                 toItem:self.driverNamesContainer
-                                                                              attribute:NSLayoutAttributeCenterX
-                                                                             multiplier:1
-                                                                               constant:0]];
-        i++;
-    }
+    [spacer1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@10);
+        make.height.equalTo([NSNumber numberWithFloat:self.spacerHeight]);
+        make.centerX.equalTo(self.driverNamesContainer.mas_centerX);
+        make.top.equalTo(self.driverNamesContainer.mas_top);
+        make.bottom.equalTo(firstDriver.mas_top);
+    }];
     
-    // Determine spacer heights
-    CGFloat spacerHeight = 0;
-    CGFloat labelHeight = 0.0f;
-    for (UIView* view in labels) {
-        labelHeight += view.frame.size.height;
-    }
-    labelHeight += (labels.count - 1) * 16;
-    if (labelHeight < self.driverNamesContainer.frame.size.height) {
-        CGFloat extraHeight = self.driverNamesContainer.frame.size.height - labelHeight;
-        spacerHeight = extraHeight / 2;
-    }
-    [spacer1 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[spacer1(%f)]", spacerHeight]
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:@{@"spacer1": spacer1}]];
-    [spacer2 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[spacer2(%f)]", spacerHeight]
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:@{@"spacer2": spacer2}]];
+    [spacer2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@10);
+        make.height.equalTo([NSNumber numberWithFloat:self.spacerHeight]);
+        make.centerX.equalTo(self.driverNamesContainer.mas_centerX);
+        make.top.equalTo(lastDriver.mas_bottom);
+        make.bottom.equalTo(self.driverNamesContainer.mas_bottom);
+    }];
     
-    // Build the vertical constraint between the spacers and each text label
-    i = 0;
-    NSMutableString *vFormat = [NSMutableString stringWithString:@"V:|[spacer1]"];
+    UIView *prevLabel;
     for (UILabel *driverLabel in labels) {
-        NSString *viewName = [NSString stringWithFormat:@"driverLabel%i", i];
+        [driverLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo([NSNumber numberWithFloat:self.driverNameHeight]);
+            make.leading.equalTo(@32);
+            make.trailing.equalTo(@32);
+            make.centerX.equalTo(self.driverNamesContainer.mas_centerX);
+            
+            if (prevLabel) {
+                make.top.equalTo(prevLabel.mas_bottom).with.offset(16);
+            }
+        }];
         
-        if (i == 0) {
-            [vFormat appendFormat:@"[%@]", viewName];
-        } else {
-            [vFormat appendFormat:@"-16-[%@]", viewName];
-        }
-        
-        i++;
+        prevLabel = driverLabel;
     }
-    [vFormat appendString:@"[spacer2]|"];
-    [self.driverNamesContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vFormat
-                                                                                      options:0
-                                                                                      metrics:nil
-                                                                                        views:viewsDictionary]];
 }
+
 
 @end
