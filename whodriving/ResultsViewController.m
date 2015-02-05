@@ -17,6 +17,7 @@
 @property CGFloat driverNameHeight;
 @property CGFloat scrollViewContentHeight;
 @property CGFloat spacerHeight;
+@property TripService *tripService;
 @end
 
 @implementation ResultsViewController
@@ -25,6 +26,7 @@
 {
     [super viewDidLoad];
     
+    self.tripService = [[TripService alloc] init];
     self.driverNameHeight = 30;
 }
 
@@ -39,8 +41,7 @@
     
     [self clearDriverNamesContainer];
     
-    TripService *tripService = [[TripService alloc] init];
-    NSArray *drivingDrivers = [tripService buildTrip:self.tripSpec];
+    NSArray *drivingDrivers = [self.tripService buildTrip:self.tripSpec];
     if (drivingDrivers.count > 0) {
         self.scrollViewContentHeight = (drivingDrivers.count * self.driverNameHeight) + ((drivingDrivers.count - 1) * 16);
         // Determine spacer heights
@@ -49,7 +50,7 @@
             CGFloat extraHeight = self.driverNamesContainer.frame.size.height - self.scrollViewContentHeight;
             self.spacerHeight = extraHeight / 2;
         }
-        
+
         drivingDrivers = [drivingDrivers sortedArrayUsingSelector:@selector(sortByName:)];
         
         [self displayDrivers:drivingDrivers];
