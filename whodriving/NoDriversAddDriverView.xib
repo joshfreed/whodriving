@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManageDriversTableViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MV-Ou-ORk">
+                    <rect key="frame" x="192" y="210" width="216" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="You Have No Drivers">
+                        <color key="titleColor" red="0.58431372549019611" green="0.6470588235294118" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openAddDriverModal:" destination="-1" eventType="touchUpInside" id="vjo-yd-fl0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf4-ve-7eZ">
+                    <rect key="frame" x="260" y="259" width="81" height="81"/>
+                    <state key="normal" image="Add">
+                        <color key="titleColor" red="0.58431372550000005" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="openAddDriverModal:" destination="-1" eventType="touchUpInside" id="lDb-eH-Rbd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Y-hB-m1u">
+                    <rect key="frame" x="235" y="348" width="130" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="Add a Driver">
+                        <color key="titleColor" red="0.58431372550000005" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openAddDriverModal:" destination="-1" eventType="touchUpInside" id="s7h-Ln-6d5"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0C-GZ-EYX" userLabel="Spacer 1">
+                    <rect key="frame" x="282" y="8" width="35" height="195"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="FcW-hN-0f4"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhE-r1-PCh" userLabel="Spacer 4">
+                    <rect key="frame" x="283" y="398" width="35" height="195"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="uOI-HU-w6M"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="c8Y-hB-m1u" secondAttribute="centerX" constant="-0.5" id="8Cy-Ii-6cM"/>
+                <constraint firstAttribute="centerX" secondItem="yf4-ve-7eZ" secondAttribute="centerX" id="96u-tQ-yQb"/>
+                <constraint firstItem="nhE-r1-PCh" firstAttribute="top" secondItem="c8Y-hB-m1u" secondAttribute="bottom" constant="8" id="B15-Pp-BBu"/>
+                <constraint firstItem="nhE-r1-PCh" firstAttribute="height" secondItem="K0C-GZ-EYX" secondAttribute="height" id="FO7-PV-1oV"/>
+                <constraint firstAttribute="centerX" secondItem="3MV-Ou-ORk" secondAttribute="centerX" id="FPy-KI-DKu"/>
+                <constraint firstAttribute="centerX" secondItem="K0C-GZ-EYX" secondAttribute="centerX" id="VjM-xi-Ohs"/>
+                <constraint firstAttribute="bottom" secondItem="nhE-r1-PCh" secondAttribute="bottom" constant="8" id="YSG-hX-Iic"/>
+                <constraint firstItem="K0C-GZ-EYX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="YlC-wS-gKi"/>
+                <constraint firstItem="yf4-ve-7eZ" firstAttribute="top" secondItem="3MV-Ou-ORk" secondAttribute="bottom" constant="8" id="bOk-la-K8Z"/>
+                <constraint firstItem="c8Y-hB-m1u" firstAttribute="top" secondItem="yf4-ve-7eZ" secondAttribute="bottom" constant="8" id="fqy-xp-vY7"/>
+                <constraint firstItem="3MV-Ou-ORk" firstAttribute="top" secondItem="K0C-GZ-EYX" secondAttribute="bottom" constant="8" id="p4D-EU-qKo"/>
+                <constraint firstAttribute="centerX" secondItem="nhE-r1-PCh" secondAttribute="centerX" id="qwr-fH-LHF"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="Add" width="81" height="81"/>
+    </resources>
+</document>

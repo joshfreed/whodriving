@@ -222,7 +222,7 @@
                                         <rect key="frame" x="322" y="32" width="150" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="cBs-3m-9HK">
-                                                <rect key="frame" x="51" y="21" width="49" height="107.5"/>
+                                                <rect key="frame" x="51" y="21" width="49" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>

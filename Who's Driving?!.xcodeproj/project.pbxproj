@@ -18,6 +18,7 @@
 		53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9719CBF57200274FEE /* AddDriverViewController.m */; };
 		53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */; };
 		53346E9E19EDB4FD00EA7ABB /* TripResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */; };
+		5337FC0B1A82A54E00229341 /* NoDriversAddDriverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5337FC0A1A82A54E00229341 /* NoDriversAddDriverView.xib */; };
 		5344218119E07CC0001A179E /* TripService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218019E07CC0001A179E /* TripService.m */; };
 		5344218519E07D52001A179E /* TripSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218419E07D52001A179E /* TripSpecification.m */; };
 		5344219019E1C9D6001A179E /* DriverResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218F19E1C9D6001A179E /* DriverResultCollectionViewCell.m */; };
@@ -80,6 +81,7 @@
 		53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDriversTableViewController.m; sourceTree = "<group>"; };
 		53346E9C19EDB4FD00EA7ABB /* TripResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripResultsViewController.h; sourceTree = "<group>"; };
 		53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripResultsViewController.m; sourceTree = "<group>"; };
+		5337FC0A1A82A54E00229341 /* NoDriversAddDriverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDriversAddDriverView.xib; sourceTree = "<group>"; };
 		5344217F19E07CC0001A179E /* TripService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripService.h; sourceTree = "<group>"; };
 		5344218019E07CC0001A179E /* TripService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripService.m; sourceTree = "<group>"; };
 		5344218319E07D52001A179E /* TripSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripSpecification.h; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				535484A51A68481400A77FB0 /* FadeTransitionAnimator.m */,
 				535484A71A68977300A77FB0 /* ResultsViewController.h */,
 				535484A81A68977300A77FB0 /* ResultsViewController.m */,
+				5337FC0A1A82A54E00229341 /* NoDriversAddDriverView.xib */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				53D3BB7819F8296A00BF17A2 /* Lato-BoldItalic.ttf in Resources */,
 				53D3BB8319F8296A00BF17A2 /* Lato-Semibold.ttf in Resources */,
 				53D3BB8019F8296A00BF17A2 /* Lato-Medium.ttf in Resources */,
+				5337FC0B1A82A54E00229341 /* NoDriversAddDriverView.xib in Resources */,
 				53D3BB7919F8296A00BF17A2 /* Lato-Hairline.ttf in Resources */,
 				53D3BB7D19F8296A00BF17A2 /* Lato-Italic.ttf in Resources */,
 				53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */,

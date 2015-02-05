@@ -14,9 +14,8 @@
 #import "ViewHelper.h"
 
 @interface ManageDriversTableViewController () <NSFetchedResultsControllerDelegate>
-
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-
+@property (strong, nonatomic) UIView *backgroundView;
 @end
 
 @implementation ManageDriversTableViewController
@@ -59,6 +58,10 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+    self.backgroundView = [[[NSBundle mainBundle] loadNibNamed:@"NoDriversAddDriverView" owner:self options:nil] objectAtIndex:0];
+    
+    [self toggleBackgroundView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -132,6 +135,20 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.tableView.contentInset = contentInsets;
     self.tableView.scrollIndicatorInsets = contentInsets;
+}
+
+- (void)toggleBackgroundView
+{
+    if (self.fetchedResultsController.fetchedObjects.count == 0) {
+        self.tableView.backgroundView = self.backgroundView;
+    } else {
+        self.tableView.backgroundView = nil;
+    }
+}
+
+- (IBAction)openAddDriverModal:(id)sender
+{
+    [self performSegueWithIdentifier:@"addDriverViewController" sender:sender];
 }
 
 #pragma mark - Table view data source
@@ -236,10 +253,12 @@
     switch (type) {
         case NSFetchedResultsChangeInsert: {
             [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self toggleBackgroundView];
             break;
         }
         case NSFetchedResultsChangeDelete: {
             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self toggleBackgroundView];
             break;
         }
         case NSFetchedResultsChangeUpdate: {
