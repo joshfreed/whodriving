@@ -344,6 +344,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="search:" destination="g6C-VJ-uip" eventType="touchUpInside" id="tUD-uo-RYo"/>
                                     <segue destination="Ck8-Oz-lUU" kind="presentation" identifier="ShowResults" id="F49-iN-emF"/>
                                 </connections>
                             </button>
@@ -401,6 +402,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Pi1-7u-hw7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.90196078430000004" green="0.4941176471" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -486,6 +488,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.90196078430000004" green="0.4941176471" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
