@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface MainViewController : UIViewController <UINavigationControllerDelegate>
-
+@interface MainViewController : UIViewController <UIViewControllerTransitioningDelegate>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
+-(void)unDimScreen;
 @end
 

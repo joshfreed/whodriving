@@ -14,17 +14,6 @@
 
 @implementation FadeTransitionAnimator
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        self.duration = 0.5;
-        self.appearing = NO;
-    }
-    return self;
-}
-
-
 #pragma mark - UIViewControllerAnimatedTransitioning
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -34,44 +23,67 @@
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
+    self.duration = 0.3;
+    
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView *fromView = fromVC.view;
-    UIView *toView = toVC.view;
-    UIView *containerView = [transitionContext containerView];
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
     
     if (self.appearing) {
-        toView.alpha = 0.0;
-        [containerView addSubview:toView];
+        [transitionContext.containerView addSubview:toVC.view];
+
+        CGRect frame = CGRectMake((toVC.view.frame.size.width / 2) - 8, (toVC.view.frame.size.height / 2) - 8, 16, 16);
+        NSLog(@"%f, %f, %f, %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+        NSLog(@"%f, %f, %f, %f", toVC.view.frame.origin.x, toVC.view.frame.origin.y, toVC.view.frame.size.width, toVC.view.frame.size.height);
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithOvalInRect:frame];
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        maskLayer.frame = toVC.view.frame;
+        maskLayer.path = maskPath.CGPath;
+        toVC.view.layer.mask = maskLayer;
         
-        [UIView animateWithDuration:duration animations: ^{
-            toView.alpha = 1.0;
-        } completion: ^(BOOL finished) {
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-        }];
+        CGRect newRect = CGRectMake(
+            -toVC.view.frame.size.width / 2,
+            -toVC.view.frame.size.height / 3,
+             toVC.view.frame.size.width * 2,
+             toVC.view.frame.size.height + (toVC.view.frame.size.height * 0.667)
+        );
+        
+        NSLog(@"%f, %f, %f, %f", newRect.origin.x, newRect.origin.y, newRect.size.width, newRect.size.height);
+
+        UIBezierPath *newPath = [UIBezierPath bezierPathWithOvalInRect:newRect];
+        CABasicAnimation* pathAnim = [CABasicAnimation animationWithKeyPath: @"path"];
+        pathAnim.fromValue = (id)maskPath.CGPath;
+        pathAnim.toValue = (id)newPath.CGPath;
+        pathAnim.duration = self.duration;
+        maskLayer.path = newPath.CGPath;
+        [maskLayer addAnimation:pathAnim forKey:@"path"];
     } else {
-        [UIView animateWithDuration:duration animations: ^{
-            fromView.alpha = 0.0;
-        } completion: ^(BOOL finished) {
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-        }];
+        CGRect startRect = CGRectMake(
+            -toVC.view.frame.size.width / 2,
+            -toVC.view.frame.size.height / 3,
+            toVC.view.frame.size.width * 2,
+            toVC.view.frame.size.height + (toVC.view.frame.size.height * 0.667)
+        );
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithOvalInRect:startRect];
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        maskLayer.frame = fromVC.view.frame;
+        maskLayer.path = maskPath.CGPath;
+        fromVC.view.layer.mask = maskLayer;
+        
+        CGRect newRect = CGRectMake((toVC.view.frame.size.width / 2) - 8, (toVC.view.frame.size.height / 2) - 8, 16, 16);
+        UIBezierPath *newPath = [UIBezierPath bezierPathWithOvalInRect:newRect];
+        CABasicAnimation* pathAnim = [CABasicAnimation animationWithKeyPath: @"path"];
+        pathAnim.fromValue = (id)maskPath.CGPath;
+        pathAnim.toValue = (id)newPath.CGPath;
+        pathAnim.duration = self.duration;
+        maskLayer.path = newPath.CGPath;
+        [maskLayer addAnimation:pathAnim forKey:@"path"];
     }
+    
+    [self performSelector:@selector(finishTransition:) withObject:transitionContext afterDelay:self.duration];
 }
 
-#pragma mark - UIViewControllerTransitioningDelegate
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
-{
-    self.appearing = YES;
-    return self;
+-(void)finishTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+    [transitionContext completeTransition:YES];
 }
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    self.appearing = NO;
-    return self;
-}
-
 
 @end

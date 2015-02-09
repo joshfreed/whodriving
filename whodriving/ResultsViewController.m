@@ -17,7 +17,6 @@
 @property CGFloat driverNameHeight;
 @property CGFloat scrollViewContentHeight;
 @property CGFloat spacerHeight;
-@property TripService *tripService;
 @end
 
 @implementation ResultsViewController
@@ -26,31 +25,27 @@
 {
     [super viewDidLoad];
     
-    self.tripService = [[TripService alloc] init];
     self.driverNameHeight = 30;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
     // animate names in
+    // they will start animating while the transition is still happening
     
     [self clearDriverNamesContainer];
     
-    NSArray *drivingDrivers = [self.tripService buildTrip:self.tripSpec];
+    NSArray *drivingDrivers = self.searchResults;
     if (drivingDrivers.count > 0) {
         self.scrollViewContentHeight = (drivingDrivers.count * self.driverNameHeight) + ((drivingDrivers.count - 1) * 16);
+        
         // Determine spacer heights
-        // Because of scroll view quirks I can't just pin the spacers to the top and bottom of the super view, and to the driver labels
+        // Because it's a UIScollView I can't just pin the spacers to the top and bottom of the super view, and to the driver labels
         if (self.scrollViewContentHeight < self.driverNamesContainer.frame.size.height) {
             CGFloat extraHeight = self.driverNamesContainer.frame.size.height - self.scrollViewContentHeight;
             self.spacerHeight = extraHeight / 2;
         }
-
+        
         drivingDrivers = [drivingDrivers sortedArrayUsingSelector:@selector(sortByName:)];
         
         [self displayDrivers:drivingDrivers];
@@ -58,10 +53,13 @@
         [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, self.scrollViewContentHeight))];
         [self.driverNamesContainer flashScrollIndicators];
     } else {
-        // trip spec failed to find adequate drivers
-        
         self.scrollViewContentHeight = 0;
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,5 +10,5 @@
 #import "TripSpecification.h"
 
 @interface ResultsViewController : UIViewController
-@property TripSpecification *tripSpec;
+@property NSArray *searchResults;
 @end

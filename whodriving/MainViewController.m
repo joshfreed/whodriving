@@ -11,6 +11,9 @@
 #import "FadeTransitionAnimator.h"
 #import "ViewHelper.h"
 #import "ResultsViewController.h"
+#import "SearchPresentationController.h"
+#import "Masonry.h"
+#import "TripService.h"
 
 @interface MainViewController ()
 
@@ -23,6 +26,14 @@
 
 @property NSArray *drivers;
 @property FadeTransitionAnimator *transitionManager;
+@property TripService *tripService;
+@property UIView *loadingView;
+@property UIView *dimmerView;
+@property NSArray *searchResults;
+@property UIImageView *questionBang;
+@property BOOL driversLoaded;
+@property int minAnims;
+@property int animCount;
 @end
 
 @implementation MainViewController
@@ -31,6 +42,24 @@
     [super viewDidLoad];
     
     self.transitionManager = [[FadeTransitionAnimator alloc] init];
+    self.tripService = [[TripService alloc] init];
+    self.driversLoaded = NO;
+    self.minAnims = 1;
+    self.animCount = 0;
+    
+    self.dimmerView = [[UIView alloc] initWithFrame:self.navigationController.view.frame];
+    self.dimmerView.backgroundColor = [UIColor blackColor];
+    
+    self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 250)];
+    self.loadingView.backgroundColor = UIColorFromRGB(0xE67E22);
+    [ViewHelper makeRoundedView:self.loadingView];
+    
+    self.questionBang = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"QuestionBang"]];
+    [self.loadingView addSubview:self.questionBang];
+    [self.questionBang mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.loadingView.mas_centerX);
+        make.centerY.equalTo(self.loadingView.mas_centerY);
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -74,14 +103,14 @@
         ManageDriversTableViewController *viewController = (ManageDriversTableViewController*)segue.destinationViewController;
         viewController.managedObjectContext = self.managedObjectContext;
     } else if ([[segue identifier] isEqualToString:@"ShowResults"]) {
+        [self.loadingView removeFromSuperview];
+        
         UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
         navigationController.modalPresentationStyle = UIModalPresentationCustom;
-        navigationController.transitioningDelegate = self.transitionManager;
-        
-        NSNumber *personCount = [NSNumber numberWithInteger:[self.personCountLabel.text integerValue]];
-        TripSpecification *tripSpec = [[TripSpecification alloc] init:personCount possibleDrivers:self.drivers];
+        navigationController.transitioningDelegate = self;
+
         ResultsViewController *vc = (ResultsViewController*)[navigationController topViewController];
-        vc.tripSpec = tripSpec;
+        vc.searchResults = self.searchResults;
     }
 }
 
@@ -112,6 +141,100 @@
 - (IBAction)unwindToSearchScreen:(UIStoryboardSegue *)segue
 {
     
+}
+
+- (NSNumber *)personCount
+{
+    return [NSNumber numberWithInteger:[self.personCountLabel.text integerValue]];
+}
+
+- (void)doSearch
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        TripSpecification *tripSpec = [[TripSpecification alloc] init:[self personCount] possibleDrivers:self.drivers];
+        self.searchResults = [self.tripService buildTrip:tripSpec];
+        self.driversLoaded = YES;
+        NSLog(@"Drivers loaded: %i", self.searchResults.count);
+    });
+}
+
+- (IBAction)search:(UIButton *)sender
+{
+    [self.navigationController.view addSubview:self.dimmerView];
+    [self.navigationController.view addSubview:self.loadingView];
+    
+    [self.loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@250);
+        make.height.equalTo(@250);
+        make.centerX.equalTo(self.navigationController.view.mas_centerX);
+        make.centerY.equalTo(self.navigationController.view.mas_centerY);
+    }];
+    
+    self.dimmerView.alpha = 0;
+    self.loadingView.transform = CGAffineTransformMakeScale(0, 0);
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.dimmerView.alpha = 0.6;
+        self.loadingView.transform = CGAffineTransformMakeScale(1, 1);
+    }];
+
+    self.driversLoaded = NO;
+    self.animCount = 0;
+    [self animateQuestionBang:sender];
+    
+    [self doSearch];
+}
+
+-(void) animateQuestionBang:(UIButton *)sender
+{
+    self.questionBang.transform = CGAffineTransformMakeScale(1, 1);
+    
+    [UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionAutoreverse animations:^{
+        self.questionBang.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    } completion:^(BOOL finished) {
+        self.animCount++;
+        
+        NSLog(@"Completed %i animation", self.animCount);
+        
+        if (self.animCount < self.minAnims || !self.driversLoaded) {
+            NSLog(@"Restarting animation");
+            [self animateQuestionBang:sender];
+            return;
+        }
+        if (self.animCount >= self.minAnims && self.driversLoaded) {
+            NSLog(@"Seguing to results");
+            [self performSegueWithIdentifier:@"ShowResults" sender:sender];
+            return;
+        }
+        NSLog(@"Min anims complete, waiting for drivers");
+    }];
+}
+
+- (void)unDimScreen
+{
+    [self.dimmerView removeFromSuperview];
+}
+
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+-(UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source
+{
+    return [[SearchPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    FadeTransitionAnimator *animator = [[FadeTransitionAnimator alloc] init];
+    animator.appearing = YES;
+    return animator;
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    FadeTransitionAnimator *animator = [[FadeTransitionAnimator alloc] init];
+    animator.appearing = NO;
+    return animator;
 }
 
 @end

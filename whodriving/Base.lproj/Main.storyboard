@@ -345,7 +345,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="search:" destination="g6C-VJ-uip" eventType="touchUpInside" id="tUD-uo-RYo"/>
-                                    <segue destination="Ck8-Oz-lUU" kind="presentation" identifier="ShowResults" id="F49-iN-emF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -388,6 +387,7 @@
                         <outlet property="personCountLabel" destination="cBs-3m-9HK" id="GGO-b5-2nJ"/>
                         <outlet property="searchButton" destination="OCx-ky-sHt" id="JiU-UU-cwI"/>
                         <outlet property="searchForm" destination="5JX-kT-OCy" id="r79-bN-FLe"/>
+                        <segue destination="Ck8-Oz-lUU" kind="presentation" identifier="ShowResults" id="TFg-rr-taL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORc-1z-Kya" userLabel="First Responder" sceneMemberID="firstResponder"/>

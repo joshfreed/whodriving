@@ -17,6 +17,7 @@
 		53098A8D19CBE60E00274FEE /* TripServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A8C19CBE60E00274FEE /* TripServiceTests.m */; };
 		53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9719CBF57200274FEE /* AddDriverViewController.m */; };
 		53098A9D19CC56E000274FEE /* ManageDriversTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */; };
+		530EF5711A86817100F4E5FB /* SearchPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530EF5701A86817100F4E5FB /* SearchPresentationController.m */; };
 		53346E9E19EDB4FD00EA7ABB /* TripResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */; };
 		5337FC0B1A82A54E00229341 /* NoDriversAddDriverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5337FC0A1A82A54E00229341 /* NoDriversAddDriverView.xib */; };
 		5344218119E07CC0001A179E /* TripService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5344218019E07CC0001A179E /* TripService.m */; };
@@ -79,6 +80,8 @@
 		53098A9719CBF57200274FEE /* AddDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDriverViewController.m; sourceTree = "<group>"; };
 		53098A9B19CC56E000274FEE /* ManageDriversTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDriversTableViewController.h; sourceTree = "<group>"; };
 		53098A9C19CC56E000274FEE /* ManageDriversTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDriversTableViewController.m; sourceTree = "<group>"; };
+		530EF56F1A86817100F4E5FB /* SearchPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPresentationController.h; sourceTree = "<group>"; };
+		530EF5701A86817100F4E5FB /* SearchPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPresentationController.m; sourceTree = "<group>"; };
 		53346E9C19EDB4FD00EA7ABB /* TripResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripResultsViewController.h; sourceTree = "<group>"; };
 		53346E9D19EDB4FD00EA7ABB /* TripResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripResultsViewController.m; sourceTree = "<group>"; };
 		5337FC0A1A82A54E00229341 /* NoDriversAddDriverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDriversAddDriverView.xib; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 		53098A6F19CBE60E00274FEE /* whodriving */ = {
 			isa = PBXGroup;
 			children = (
+				530EF56F1A86817100F4E5FB /* SearchPresentationController.h */,
+				530EF5701A86817100F4E5FB /* SearchPresentationController.m */,
 				53098A9619CBF57200274FEE /* AddDriverViewController.h */,
 				53098A9719CBF57200274FEE /* AddDriverViewController.m */,
 				53098A7419CBE60E00274FEE /* AppDelegate.h */,
@@ -466,6 +471,7 @@
 				5344219019E1C9D6001A179E /* DriverResultCollectionViewCell.m in Sources */,
 				5344219319E1CAD3001A179E /* DriverResult.m in Sources */,
 				5344218119E07CC0001A179E /* TripService.m in Sources */,
+				530EF5711A86817100F4E5FB /* SearchPresentationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FadeTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate>
+@interface FadeTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 @property BOOL appearing;
 @end
