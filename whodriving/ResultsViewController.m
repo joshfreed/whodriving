@@ -11,12 +11,15 @@
 #import "Driver.h"
 #import "TripService.h"
 #import "Masonry.h"
+#import "DriverResultCollectionViewCell.h"
 
 @interface ResultsViewController ()
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIScrollView *driverNamesContainer;
 @property CGFloat driverNameHeight;
 @property CGFloat scrollViewContentHeight;
 @property CGFloat spacerHeight;
+@property NSMutableArray *searchResults2;
 @end
 
 @implementation ResultsViewController
@@ -25,14 +28,17 @@
 {
     [super viewDidLoad];
     
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    
     self.driverNameHeight = 30;
+    
+    self.searchResults2 = [NSMutableArray array];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    // animate names in
-    // they will start animating while the transition is still happening
-    
+/*
     [self clearDriverNamesContainer];
     
     NSArray *drivingDrivers = self.searchResults;
@@ -55,11 +61,17 @@
     } else {
         self.scrollViewContentHeight = 0;
     }
+ */
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
+//    [self.collectionView performBatchUpdates:^{
+        for (int i = 0; i < self.searchResults.count; i++) {
+            [self.searchResults2 addObject:[self.searchResults objectAtIndex:i]];
+            [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:i inSection:0]]];
+        }
+//    } completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -140,6 +152,36 @@
         
         prevLabel = driverLabel;
     }
+}
+
+#pragma mark - UICollectionViewDataSource
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.searchResults2.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DriverResultCollectionViewCell* newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"DriverResultCell" forIndexPath:indexPath];
+    newCell.driverNameLabel.text = ((Driver*)[self.searchResults2 objectAtIndex:indexPath.row]).driverName;
+    return newCell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)collectionView.collectionViewLayout;
+    
+    CGSize size = flowLayout.itemSize;
+    
+//    size.height = size.height * 2;
+    
+    return size;
 }
 
 

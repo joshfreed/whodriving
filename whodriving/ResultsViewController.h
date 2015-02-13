@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TripSpecification.h"
 
-@interface ResultsViewController : UIViewController
+@interface ResultsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property NSArray *searchResults;
 @end

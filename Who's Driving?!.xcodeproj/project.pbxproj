@@ -28,6 +28,7 @@
 		535484A91A68977300A77FB0 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535484A81A68977300A77FB0 /* ResultsViewController.m */; };
 		536B740419CE082B000F86D5 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 536B740319CE082B000F86D5 /* Driver.m */; };
 		5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */; };
+		539C265D1A8AD45200958609 /* VerticalFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 539C265C1A8AD45200958609 /* VerticalFlowLayout.m */; };
 		53B52E391A00713200C7D35B /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B52E381A00713200C7D35B /* ViewHelper.m */; };
 		53D3BB7519F8296A00BF17A2 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */; };
 		53D3BB7619F8296A00BF17A2 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */; };
@@ -100,6 +101,8 @@
 		536B740219CE082B000F86D5 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
 		536B740319CE082B000F86D5 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
 		5391628719D24BA2005DB91F /* DriverModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriverModel.xcdatamodel; sourceTree = "<group>"; };
+		539C265B1A8AD45200958609 /* VerticalFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalFlowLayout.h; sourceTree = "<group>"; };
+		539C265C1A8AD45200958609 /* VerticalFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalFlowLayout.m; sourceTree = "<group>"; };
 		53B52E371A00713200C7D35B /* ViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHelper.h; sourceTree = "<group>"; };
 		53B52E381A00713200C7D35B /* ViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHelper.m; sourceTree = "<group>"; };
 		53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				535484A71A68977300A77FB0 /* ResultsViewController.h */,
 				535484A81A68977300A77FB0 /* ResultsViewController.m */,
 				5337FC0A1A82A54E00229341 /* NoDriversAddDriverView.xib */,
+				539C265B1A8AD45200958609 /* VerticalFlowLayout.h */,
+				539C265C1A8AD45200958609 /* VerticalFlowLayout.m */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E43C6C19D0F61700EE28D0 /* DriverCell.m in Sources */,
+				539C265D1A8AD45200958609 /* VerticalFlowLayout.m in Sources */,
 				53098A9919CBF57200274FEE /* AddDriverViewController.m in Sources */,
 				5344218519E07D52001A179E /* TripSpecification.m in Sources */,
 				535484A91A68977300A77FB0 /* ResultsViewController.m in Sources */,
