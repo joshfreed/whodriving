@@ -22,6 +22,7 @@
 @property UIImageView *questionBang;
 @property NSTimer *nsTimer;
 @property BOOL alreadySearched;
+@property UIView *notEnoughDriversView;
 @end
 
 @implementation ResultsViewController
@@ -39,6 +40,8 @@
     
 //    [self.collectionView.viewForBaselineLayout.layer setSpeed:0.8f];
     
+    self.notEnoughDriversView = [[[NSBundle mainBundle] loadNibNamed:@"NotEnoughDriversView" owner:self options:nil] objectAtIndex:0];
+
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 250)];
     self.loadingView.backgroundColor = UIColorFromRGB(0xE67E22);
     [ViewHelper makeRoundedView:self.loadingView];
@@ -106,6 +109,7 @@
         
     } else {
         // No drivers found! Show a error message
+        self.collectionView.backgroundView = self.notEnoughDriversView;
     }
     
     self.alreadySearched = YES;

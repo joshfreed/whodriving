@@ -28,6 +28,7 @@
 		5391628819D24BA2005DB91F /* DriverModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5391628619D24BA2005DB91F /* DriverModel.xcdatamodeld */; };
 		539C265D1A8AD45200958609 /* VerticalFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 539C265C1A8AD45200958609 /* VerticalFlowLayout.m */; };
 		53B52E391A00713200C7D35B /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B52E381A00713200C7D35B /* ViewHelper.m */; };
+		53B5CA4E1A8FE80B00E12EBE /* NotEnoughDriversView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B5CA4D1A8FE80B00E12EBE /* NotEnoughDriversView.xib */; };
 		53D3BB7519F8296A00BF17A2 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */; };
 		53D3BB7619F8296A00BF17A2 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */; };
 		53D3BB7719F8296A00BF17A2 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53D3BB6519F8296A00BF17A2 /* Lato-Bold.ttf */; };
@@ -99,6 +100,7 @@
 		539C265C1A8AD45200958609 /* VerticalFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalFlowLayout.m; sourceTree = "<group>"; };
 		53B52E371A00713200C7D35B /* ViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHelper.h; sourceTree = "<group>"; };
 		53B52E381A00713200C7D35B /* ViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHelper.m; sourceTree = "<group>"; };
+		53B5CA4D1A8FE80B00E12EBE /* NotEnoughDriversView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotEnoughDriversView.xib; sourceTree = "<group>"; };
 		53D3BB6319F8296A00BF17A2 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		53D3BB6419F8296A00BF17A2 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		53D3BB6519F8296A00BF17A2 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				5337FC0A1A82A54E00229341 /* NoDriversAddDriverView.xib */,
 				539C265B1A8AD45200958609 /* VerticalFlowLayout.h */,
 				539C265C1A8AD45200958609 /* VerticalFlowLayout.m */,
+				53B5CA4D1A8FE80B00E12EBE /* NotEnoughDriversView.xib */,
 			);
 			path = whodriving;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				53D3BB8019F8296A00BF17A2 /* Lato-Medium.ttf in Resources */,
 				5337FC0B1A82A54E00229341 /* NoDriversAddDriverView.xib in Resources */,
 				53D3BB7919F8296A00BF17A2 /* Lato-Hairline.ttf in Resources */,
+				53B5CA4E1A8FE80B00E12EBE /* NotEnoughDriversView.xib in Resources */,
 				53D3BB7D19F8296A00BF17A2 /* Lato-Italic.ttf in Resources */,
 				53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */,
 				53D3BB8519F8296A00BF17A2 /* Lato-Thin.ttf in Resources */,
