@@ -28,15 +28,12 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"viewDidLoad");
-    
     [super viewDidLoad];
-    
-    self.tripService = [[TripService alloc] init];
-    
+
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
+ 
+    self.tripService = [[TripService alloc] init];
     self.searchResults = [NSMutableArray array];
     self.alreadySearched = NO;
     
