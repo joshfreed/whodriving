@@ -151,6 +151,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Manage Drivers" id="5L6-DU-MXA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Jau-Vk-Hnb">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Dq9-Nm-tbs" kind="unwind" unwindAction="unwindToSearchScreen:" id="2qh-4P-U6a"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oc8-21-fv4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -160,8 +166,9 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-Iv-FBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Dq9-Nm-tbs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1685" y="136"/>
+            <point key="canvasLocation" x="2497" y="136"/>
         </scene>
         <!--Here are Your Drivers!-->
         <scene sceneID="TnP-TW-UgW">
@@ -179,34 +186,42 @@
                                 <rect key="frame" x="16" y="0.0" width="568" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BOL-vw-a0v" customClass="VerticalFlowLayout">
-                                    <size key="itemSize" width="567.5" height="50"/>
+                                    <size key="itemSize" width="567.5" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DriverResultCell" id="bt7-Oh-6fZ" customClass="DriverResultCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="567.5" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567.5" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-cH-EOm">
-                                                    <rect key="frame" x="8" y="8" width="551.5" height="34"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-cH-EOm">
+                                                    <rect key="frame" x="8" y="3" width="551.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="centerX" secondItem="6j4-cH-EOm" secondAttribute="centerX" id="B8P-lD-y3S"/>
                                             <constraint firstItem="6j4-cH-EOm" firstAttribute="top" secondItem="bt7-Oh-6fZ" secondAttribute="topMargin" id="QTE-Cd-JYl"/>
                                             <constraint firstItem="6j4-cH-EOm" firstAttribute="leading" secondItem="bt7-Oh-6fZ" secondAttribute="leadingMargin" id="Tay-kw-aN3"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="6j4-cH-EOm" secondAttribute="trailing" id="TzF-VA-lqt"/>
+                                            <constraint firstAttribute="centerY" secondItem="6j4-cH-EOm" secondAttribute="centerY" id="eXp-SJ-Lgj"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="6j4-cH-EOm" secondAttribute="bottom" id="wZV-Tm-FDC"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="QTE-Cd-JYl"/>
+                                                <exclude reference="wZV-Tm-FDC"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="driverNameLabel" destination="6j4-cH-EOm" id="hI6-Kr-2yy"/>
                                         </connections>
@@ -222,21 +237,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="6pZ-yZ-qtE" secondAttribute="trailing" id="evr-h7-GHK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Here are Your Drivers!" id="0Bk-8P-s4e">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="DNO-6b-dcL">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="dismissModal:" destination="cT3-dK-Up4" id="Dli-L0-40m"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Here are Your Drivers!" id="0Bk-8P-s4e"/>
                     <connections>
                         <outlet property="collectionView" destination="6pZ-yZ-qtE" id="HXt-zR-xZZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cB-Q2-TwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.5" y="-541"/>
+            <point key="canvasLocation" x="1685" y="-585"/>
         </scene>
         <!--Who's Driving?!-->
         <scene sceneID="eqR-Ty-dyS">
@@ -379,7 +387,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="search:" destination="g6C-VJ-uip" eventType="touchUpInside" id="tUD-uo-RYo"/>
+                                    <segue destination="cT3-dK-Up4" kind="show" identifier="ShowResults" id="tRc-Oj-kyt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -411,7 +419,7 @@
                         <barButtonItem key="rightBarButtonItem" image="ManageDriversBarButton" id="VMc-Eo-CYM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Wga-Xw-Hn1" kind="show" identifier="ManageDrivers" id="JKn-18-G6m"/>
+                                <segue destination="TvX-VP-NJD" kind="presentation" identifier="ManageDrivers" modalTransitionStyle="flipHorizontal" id="JKn-18-G6m"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -422,7 +430,6 @@
                         <outlet property="personCountLabel" destination="cBs-3m-9HK" id="GGO-b5-2nJ"/>
                         <outlet property="searchButton" destination="OCx-ky-sHt" id="JiU-UU-cwI"/>
                         <outlet property="searchForm" destination="5JX-kT-OCy" id="r79-bN-FLe"/>
-                        <segue destination="Ck8-Oz-lUU" kind="presentation" identifier="ShowResults" id="TFg-rr-taL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORc-1z-Kya" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -512,7 +519,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05b-ym-1md" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pjl-LQ-sqa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3108" y="136"/>
+            <point key="canvasLocation" x="3920" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rR7-SJ-Xl1">
@@ -534,14 +541,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Uz-B1-QrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="136"/>
+            <point key="canvasLocation" x="3234" y="136"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="yVL-6Q-Ogr">
+        <scene sceneID="geq-KW-4vU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ck8-Oz-lUU" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TvX-VP-NJD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mZf-8r-VI0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="R11-gE-NUs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.90196078430000004" green="0.4941176471" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -551,12 +558,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="cT3-dK-Up4" kind="relationship" relationship="rootViewController" id="PD4-K2-miM"/>
+                        <segue destination="Wga-Xw-Hn1" kind="relationship" relationship="rootViewController" id="TSM-ZF-cja"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QvK-Vz-HWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xDk-B7-PGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1685" y="-541"/>
+            <point key="canvasLocation" x="1685" y="136"/>
         </scene>
     </scenes>
     <resources>

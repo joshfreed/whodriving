@@ -10,5 +10,5 @@
 #import "TripSpecification.h"
 
 @interface ResultsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-@property NSArray *searchResults;
+@property TripSpecification *tripSpec;
 @end

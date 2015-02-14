@@ -15,143 +15,120 @@
 
 @interface ResultsViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIScrollView *driverNamesContainer;
+@property TripService *tripService;
 @property CGFloat driverNameHeight;
-@property CGFloat scrollViewContentHeight;
-@property CGFloat spacerHeight;
-@property NSMutableArray *searchResults2;
+@property NSMutableArray *searchResults;
+@property UIView *loadingView;
+@property UIImageView *questionBang;
+@property NSTimer *nsTimer;
+@property BOOL alreadySearched;
 @end
 
 @implementation ResultsViewController
 
 - (void)viewDidLoad
 {
+    NSLog(@"viewDidLoad");
+    
     [super viewDidLoad];
+    
+    self.tripService = [[TripService alloc] init];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.driverNameHeight = 30;
+    self.searchResults = [NSMutableArray array];
+    self.alreadySearched = NO;
     
-    self.searchResults2 = [NSMutableArray array];
+//    [self.collectionView.viewForBaselineLayout.layer setSpeed:0.8f];
+    
+    self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 250)];
+    self.loadingView.backgroundColor = UIColorFromRGB(0xE67E22);
+    [ViewHelper makeRoundedView:self.loadingView];
+    
+    self.questionBang = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"QuestionBang"]];
+    [self.loadingView addSubview:self.questionBang];
+    [self.questionBang mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.loadingView.mas_centerX);
+        make.centerY.equalTo(self.loadingView.mas_centerY);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-/*
-    [self clearDriverNamesContainer];
-    
-    NSArray *drivingDrivers = self.searchResults;
-    if (drivingDrivers.count > 0) {
-        self.scrollViewContentHeight = (drivingDrivers.count * self.driverNameHeight) + ((drivingDrivers.count - 1) * 16);
-        
-        // Determine spacer heights
-        // Because it's a UIScollView I can't just pin the spacers to the top and bottom of the super view, and to the driver labels
-        if (self.scrollViewContentHeight < self.driverNamesContainer.frame.size.height) {
-            CGFloat extraHeight = self.driverNamesContainer.frame.size.height - self.scrollViewContentHeight;
-            self.spacerHeight = extraHeight / 2;
-        }
-        
-        drivingDrivers = [drivingDrivers sortedArrayUsingSelector:@selector(sortByName:)];
-        
-        [self displayDrivers:drivingDrivers];
-        
-        [self.driverNamesContainer setContentSize:(CGSizeMake(self.driverNamesContainer.frame.size.width, self.scrollViewContentHeight))];
-        [self.driverNamesContainer flashScrollIndicators];
-    } else {
-        self.scrollViewContentHeight = 0;
+    // Prevents a bug where the search results would get added to the list twice.
+    // Happened if the user swiped right to go back to the search screen but let go before swiping all the way.
+    if (self.alreadySearched) {
+        return;
     }
- */
+    
+    [self.view addSubview:self.loadingView];
+    
+    [self.loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@250);
+        make.height.equalTo(@250);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY);
+    }];
+    
+    self.questionBang.transform = CGAffineTransformMakeScale(1, 1);
+    [UIView animateWithDuration:0.6
+                          delay:0.0
+                        options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.questionBang.transform = CGAffineTransformMakeScale(1.3, 1.3);
+                     }
+                     completion:NULL];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-//    [self.collectionView performBatchUpdates:^{
-        for (int i = 0; i < self.searchResults.count; i++) {
-            [self.searchResults2 addObject:[self.searchResults objectAtIndex:i]];
-            [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:i inSection:0]]];
-        }
-//    } completion:nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)dismissModal:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)clearDriverNamesContainer
-{
-    for (NSObject * subview in [[self.driverNamesContainer subviews] copy]) {
-        if ([subview isKindOfClass:[UILabel class]]) {
-            [(UILabel*)subview removeFromSuperview];
-        }
-    }
-}
-
--(void)displayDrivers:(NSArray*)drivingDrivers
-{
-    UIView *spacer1 = [UIView new];
-//    spacer1.backgroundColor = [UIColor grayColor];
-    [self.driverNamesContainer addSubview:spacer1];
-    
-    UIView *spacer2 = [UIView new];
-//    spacer2.backgroundColor = [UIColor brownColor];
-    [self.driverNamesContainer addSubview:spacer2];
-    
-    NSMutableArray *labels = [NSMutableArray array];
-    for (Driver *driver in drivingDrivers) {
-        UILabel *driverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
-//        [driverLabel setBackgroundColor:[UIColor greenColor]];
-        [driverLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:24]];
-        [driverLabel setTextColor:UIColorFromRGB(0x444444)];
-        [driverLabel setText:driver.driverName];
-        [driverLabel setTextAlignment:NSTextAlignmentCenter];
-        [driverLabel setMinimumScaleFactor:0.1];
-        [driverLabel setAdjustsFontSizeToFitWidth:YES];
-        [driverLabel setBaselineAdjustment:UIBaselineAdjustmentAlignCenters];
-        [self.driverNamesContainer addSubview:driverLabel];
-        [labels addObject:driverLabel];
+    // Prevents a bug where the search results would get added to the list twice.
+    // Happened if the user swiped right to go back to the search screen but let go before swiping all the way.
+    if (self.alreadySearched) {
+        return;
     }
     
-    UILabel *lastDriver = [labels lastObject];
-    UILabel *firstDriver = [labels firstObject];
+    NSArray *searchResults = [self.tripService buildTrip:self.tripSpec];
     
-    [spacer1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@10);
-        make.height.equalTo([NSNumber numberWithFloat:self.spacerHeight]);
-        make.centerX.equalTo(self.driverNamesContainer.mas_centerX);
-        make.top.equalTo(self.driverNamesContainer.mas_top);
-        make.bottom.equalTo(firstDriver.mas_top);
-    }];
+    [self.loadingView removeFromSuperview];
     
-    [spacer2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@10);
-        make.height.equalTo([NSNumber numberWithFloat:self.spacerHeight]);
-        make.centerX.equalTo(self.driverNamesContainer.mas_centerX);
-        make.top.equalTo(lastDriver.mas_bottom);
-        make.bottom.equalTo(self.driverNamesContainer.mas_bottom);
-    }];
-    
-    UIView *prevLabel;
-    for (UILabel *driverLabel in labels) {
-        [driverLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo([NSNumber numberWithFloat:self.driverNameHeight]);
-            make.leading.equalTo(@32);
-            make.trailing.equalTo(@32);
-            make.centerX.equalTo(self.driverNamesContainer.mas_centerX);
-            
-            if (prevLabel) {
-                make.top.equalTo(prevLabel.mas_bottom).with.offset(16);
+    if (searchResults.count > 0) {
+//        [self.collectionView.collectionViewLayout invalidateLayout];
+        
+//        self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(addResult:) userInfo:searchResults repeats:YES];
+        
+        [self.collectionView performBatchUpdates:^{
+            for (int i = 0; i < searchResults.count; i++) {
+                [self.searchResults addObject:[searchResults objectAtIndex:i]];
+                [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:i inSection:0]]];
             }
+        } completion:^(BOOL finished){
+            [self.collectionView flashScrollIndicators];
         }];
         
-        prevLabel = driverLabel;
+    } else {
+        // No drivers found! Show a error message
     }
+    
+    self.alreadySearched = YES;
+}
+
+- (void)addResult:(NSTimer*)timer
+{
+    NSArray *searchResults = timer.userInfo;
+    NSUInteger index = self.searchResults.count;
+    [self.searchResults addObject:[searchResults objectAtIndex:index]];
+    [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:index inSection:0]]];
+    if (self.searchResults.count == searchResults.count) {
+        [self.nsTimer invalidate];
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -163,13 +140,14 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.searchResults2.count;
+    return self.searchResults.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DriverResultCollectionViewCell* newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"DriverResultCell" forIndexPath:indexPath];
-    newCell.driverNameLabel.text = ((Driver*)[self.searchResults2 objectAtIndex:indexPath.row]).driverName;
+    [ViewHelper setCustomFont:newCell.driverNameLabel fontName:@"Lato-Regular"];
+    newCell.driverNameLabel.text = ((Driver*)[self.searchResults objectAtIndex:indexPath.row]).driverName;
     return newCell;
 }
 
@@ -178,11 +156,8 @@
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)collectionView.collectionViewLayout;
     
     CGSize size = flowLayout.itemSize;
-    
-//    size.height = size.height * 2;
-    
+    size.width = self.collectionView.frame.size.width;
     return size;
 }
-
 
 @end

@@ -9,26 +9,12 @@
 #import "VerticalFlowLayout.h"
 
 @implementation VerticalFlowLayout
-
+/*
 -(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
     UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
-    
-//    attr.transform3D = CATransform3DMakeScale(0.1, 0.1, 1.0);
-//    attr.transform = CGAffineTransformMakeScale(0.1, 0.1);
-    attr.center = CGPointMake(CGRectGetMidX(self.collectionView.bounds), self.collectionView.bounds.size.height);
-    
+//    attr.center = CGPointMake(CGRectGetMidX(self.collectionView.bounds), self.collectionView.bounds.size.height);
     return attr;
 }
-//
-//-(UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
-//{
-//    UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
-//    
-//    attr.transform = CGAffineTransformIdentity;
-//    attr.center = CGPointMake(CGRectGetMidX(self.collectionView.bounds), CGRectGetMaxY(self.collectionView.bounds));
-//    
-//    return attr;
-//}
-
+*/
 @end
