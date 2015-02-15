@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *needDriversLabel;
 @property (weak, nonatomic) IBOutlet UILabel *needDriversPeopleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIButton *addSomeDriversButton;
 @property NSArray *drivers;
+@property UIImageView *addSomeDriversImg;
 @end
 
 @implementation MainViewController
@@ -28,22 +30,61 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.addSomeDriversImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AddSomeDrivers"]];
+    [self.view addSubview:self.addSomeDriversImg];
+    [self.addSomeDriversImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.lessThanOrEqualTo(self.view.mas_width).multipliedBy(0.6667);
+        make.height.equalTo(self.addSomeDriversImg.mas_width);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.bottom.lessThanOrEqualTo(self.addSomeDriversButton.mas_top).with.offset(-32);
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self refreshDriversArray];
+    
+    // This is where I'd prefer to set cusotm fonts; before they are displayed on the screen.
+    // Only some elements seem to accept the font up here, though. Others ignore it.
+    [ViewHelper setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.needDriversPeopleLabel fontName:@"Lato-Regular"];
+    
+    self.searchButton.layer.cornerRadius = 5;
+    self.searchButton.clipsToBounds = YES;
+    self.addSomeDriversButton.layer.cornerRadius = 5;
+    self.addSomeDriversButton.clipsToBounds = YES;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    if (self.drivers.count == 0) {
+        [self.addSomeDriversImg setHidden:NO];
+        [self.addSomeDriversButton setHidden:NO];
+        [self.searchButton setHidden:YES];
+        [self.searchForm setHidden:YES];
+    } else {
+        [self.addSomeDriversImg setHidden:YES];
+        [self.addSomeDriversButton setHidden:YES];
+        [self.searchButton setHidden:NO];
+        [self.searchForm setHidden:NO];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self refreshDriversArray];
-    
+    // For some reason, these particular views will only accept a custom font if I specify here in viewDidAppear
     [ViewHelper setCustomFont:self.personCountLabel fontName:@"Lato-Black"];
-    [ViewHelper setCustomFont:self.needDriversLabel fontName:@"Lato-Regular"];
-    [ViewHelper setCustomFont:self.needDriversPeopleLabel fontName:@"Lato-Regular"];
     [ViewHelper setCustomFont:self.searchButton.titleLabel fontName:@"Lato-Regular"];
+    [ViewHelper setCustomFont:self.addSomeDriversButton.titleLabel fontName:@"Lato-Regular"];
     
     [ViewHelper makeRoundedView:self.numPeopleBg];
-    self.searchButton.layer.cornerRadius = 5;
-    self.searchButton.clipsToBounds = YES;
-    
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+
+    NSLog(@"personCountLabel: %@", self.personCountLabel.font.fontName);
+    NSLog(@"needDriversLabel: %@", self.needDriversLabel.font.fontName);
+    NSLog(@"needDriversPeopleLabel: %@", self.needDriversPeopleLabel.font.fontName);
+    NSLog(@"searchButton: %@", self.searchButton.titleLabel.font.fontName);
+    NSLog(@"addSomeDriversButton: %@", self.addSomeDriversButton.titleLabel.font.fontName);
 }
 
 - (void)refreshDriversArray
@@ -110,6 +151,11 @@
 - (NSNumber *)personCount
 {
     return [NSNumber numberWithInteger:[self.personCountLabel.text integerValue]];
+}
+
+- (IBAction)addSomeDriversClicked:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"ManageDrivers" sender:sender];
 }
 
 @end
