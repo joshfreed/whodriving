@@ -83,7 +83,15 @@
 
 - (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return textField.text.length + (string.length - range.length) <= 30;
+    // Prevent crashing undo bug – see http://stackoverflow.com/a/1773257
+    if(range.length + range.location > textField.text.length)
+    {
+        return NO;
+    }
+    
+    BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
+    NSUInteger newLength = textField.text.length + string.length - range.length;
+    return newLength <= 30 || returnKey;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
