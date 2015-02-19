@@ -200,7 +200,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-cH-EOm">
-                                                    <rect key="frame" x="8" y="3" width="551.5" height="24"/>
+                                                    <rect key="frame" x="8" y="3" width="552" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -265,7 +265,7 @@
                                         <rect key="frame" x="322" y="32" width="150" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="cBs-3m-9HK">
-                                                <rect key="frame" x="51" y="21" width="49" height="107.5"/>
+                                                <rect key="frame" x="51" y="21" width="49" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -391,7 +391,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVM-Mh-Fcu" userLabel="Add Some Drivers">
-                                <rect key="frame" x="147.5" y="414" width="305" height="90"/>
+                                <rect key="frame" x="148" y="414" width="305" height="90"/>
                                 <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="lyL-SB-sTb">
@@ -449,7 +449,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Who's Driving?!" id="BKh-Ja-rti">
-                        <barButtonItem key="rightBarButtonItem" image="ManageDriversBarButton" id="VMc-Eo-CYM">
+                        <barButtonItem key="leftBarButtonItem" image="ManageDriversBarButtonSvg" id="VMc-Eo-CYM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="TvX-VP-NJD" kind="presentation" identifier="ManageDrivers" modalTransitionStyle="flipHorizontal" id="JKn-18-G6m"/>
@@ -469,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORc-1z-Kya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878" y="151"/>
+            <point key="canvasLocation" x="861" y="209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mw7-g9-DsN">
@@ -602,7 +602,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ManageDriversBarButton" width="22" height="16"/>
+        <image name="ManageDriversBarButtonSvg" width="22" height="22"/>
         <image name="Minus" width="128" height="128"/>
         <image name="Plus" width="128" height="128"/>
         <image name="PurpleMinus_by_device" width="30" height="30"/>
