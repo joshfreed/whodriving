@@ -62,6 +62,7 @@
         return;
     }
     
+    self.loadingView.alpha = 1;
     [self.view addSubview:self.loadingView];
     
     [self.loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,7 +92,11 @@
     
     NSArray *searchResults = [self.tripService buildTrip:self.tripSpec];
     
-    [self.loadingView removeFromSuperview];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.loadingView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.loadingView removeFromSuperview];
+    }];
     
     if (searchResults.count > 0) {
 //        [self.collectionView.collectionViewLayout invalidateLayout];
@@ -109,7 +114,11 @@
         
     } else {
         // No drivers found! Show a error message
+        self.notEnoughDriversView.alpha = 0;
         self.collectionView.backgroundView = self.notEnoughDriversView;
+        [UIView animateWithDuration:0.2 animations:^{
+            self.notEnoughDriversView.alpha = 1;
+        }];
     }
     
     self.alreadySearched = YES;

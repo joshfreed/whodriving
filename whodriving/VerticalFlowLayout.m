@@ -17,4 +17,23 @@
     return attr;
 }
 */
+/*
+-(NSArray*)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    NSArray* array = [super layoutAttributesForElementsInRect:rect];
+    
+    UICollectionViewLayoutAttributes* att = [array lastObject];
+    if (att) {
+        CGFloat lastY = att.frame.origin.y + att.frame.size.height;
+        CGFloat diff = self.collectionView.frame.size.height - lastY;
+        
+        if (diff > 0) {
+            UIEdgeInsets contentInsets = UIEdgeInsetsMake(diff/2, 0.0, 0.0, 0.0);
+            self.collectionView.contentInset = contentInsets;
+        }
+    }
+    
+    return array;
+}
+*/
 @end
