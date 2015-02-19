@@ -464,7 +464,6 @@
                         <outlet property="personCountLabel" destination="cBs-3m-9HK" id="GGO-b5-2nJ"/>
                         <outlet property="searchButton" destination="OCx-ky-sHt" id="JiU-UU-cwI"/>
                         <outlet property="searchForm" destination="5JX-kT-OCy" id="r79-bN-FLe"/>
-                        <segue destination="cT3-dK-Up4" kind="show" identifier="ShowResults" id="ONv-dV-FYv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORc-1z-Kya" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -608,7 +607,4 @@
         <image name="PurpleMinus_by_device" width="30" height="30"/>
         <image name="PurplePlus_by_device" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="lHo-gU-mdn"/>
-    </inferredMetricsTieBreakers>
 </document>
