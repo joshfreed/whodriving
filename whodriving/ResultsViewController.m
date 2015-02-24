@@ -23,6 +23,7 @@
 @property NSTimer *nsTimer;
 @property BOOL alreadySearched;
 @property UIView *notEnoughDriversView;
+@property double numDrivers;
 @end
 
 @implementation ResultsViewController
@@ -82,6 +83,11 @@
                      completion:NULL];
 }
 
+- (UICollectionViewFlowLayout*)flowLayout
+{
+    return (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     // Prevents a bug where the search results would get added to the list twice.
@@ -91,6 +97,7 @@
     }
     
     NSArray *searchResults = [self.tripService buildTrip:self.tripSpec];
+    self.numDrivers = searchResults.count;
     
     [UIView animateWithDuration:0.2 animations:^{
         self.loadingView.alpha = 0;
@@ -99,10 +106,17 @@
     }];
     
     if (searchResults.count > 0) {
+        [self flowLayout].sectionInset = UIEdgeInsetsMake(16, 16, 16, 16);
+        if (self.numDrivers == 1) {
+            CGFloat width = self.collectionView.frame.size.width - [self flowLayout].sectionInset.left - [self flowLayout].sectionInset.right;
+            CGFloat height = width; // height and width are the same to make a perfect circle
+            CGFloat insetSize = (self.collectionView.frame.size.height - height) / 2;
+            [self flowLayout].sectionInset = UIEdgeInsetsMake(insetSize, 16, insetSize, 16);
+        }
 //        [self.collectionView.collectionViewLayout invalidateLayout];
         
-//        self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(addResult:) userInfo:searchResults repeats:YES];
-        
+        self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(addResult:) userInfo:searchResults repeats:YES];
+/*
         [self.collectionView performBatchUpdates:^{
             for (int i = 0; i < searchResults.count; i++) {
                 [self.searchResults addObject:[searchResults objectAtIndex:i]];
@@ -111,7 +125,7 @@
         } completion:^(BOOL finished){
             [self.collectionView flashScrollIndicators];
         }];
-        
+*/
     } else {
         // No drivers found! Show a error message
         self.notEnoughDriversView.alpha = 0;
@@ -158,6 +172,15 @@
     DriverResultCollectionViewCell* newCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"DriverResultCell" forIndexPath:indexPath];
     [ViewHelper setCustomFont:newCell.driverNameLabel fontName:@"Lato-Regular"];
     newCell.driverNameLabel.text = ((Driver*)[self.searchResults objectAtIndex:indexPath.row]).driverName;
+
+    if (self.numDrivers == 1) {
+        newCell.layer.cornerRadius = newCell.frame.size.width / 2;
+    } else if (self.numDrivers == 2) {
+        newCell.layer.cornerRadius = newCell.frame.size.height / 2;
+    } else {
+        newCell.layer.cornerRadius = 5;
+    }
+
     return newCell;
 }
 
@@ -165,8 +188,26 @@
 {
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)collectionView.collectionViewLayout;
     
+    double desiredHeight = self.collectionView.frame.size.height;
+    desiredHeight -= flowLayout.sectionInset.top;
+    desiredHeight -= flowLayout.sectionInset.bottom;
+    desiredHeight -= (self.numDrivers - 1) * flowLayout.minimumLineSpacing;
+    desiredHeight /= self.numDrivers;
+
+    UIEdgeInsets inset = flowLayout.sectionInset;
     CGSize size = flowLayout.itemSize;
-    size.width = self.collectionView.frame.size.width;
+    
+    if (self.numDrivers == 1) {
+        size.width = self.collectionView.frame.size.width - inset.left - inset.right;
+        size.height = size.width;
+    } else if (self.numDrivers == 2) {
+        size.height = MAX(desiredHeight, size.height);
+        size.width = MIN(self.collectionView.frame.size.width - inset.left - inset.right, size.height);
+    } else {
+        size.width = self.collectionView.frame.size.width - inset.left - inset.right;
+        size.height = MAX(desiredHeight, size.height);
+    }
+//    NSLog(@"%f, %f", size.width, size.height);
     return size;
 }
 

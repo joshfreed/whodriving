@@ -80,11 +80,11 @@
     
     [ViewHelper makeRoundedView:self.numPeopleBg];
 
-    NSLog(@"personCountLabel: %@", self.personCountLabel.font.fontName);
-    NSLog(@"needDriversLabel: %@", self.needDriversLabel.font.fontName);
-    NSLog(@"needDriversPeopleLabel: %@", self.needDriversPeopleLabel.font.fontName);
-    NSLog(@"searchButton: %@", self.searchButton.titleLabel.font.fontName);
-    NSLog(@"addSomeDriversButton: %@", self.addSomeDriversButton.titleLabel.font.fontName);
+//    NSLog(@"personCountLabel: %@", self.personCountLabel.font.fontName);
+//    NSLog(@"needDriversLabel: %@", self.needDriversLabel.font.fontName);
+//    NSLog(@"needDriversPeopleLabel: %@", self.needDriversPeopleLabel.font.fontName);
+//    NSLog(@"searchButton: %@", self.searchButton.titleLabel.font.fontName);
+//    NSLog(@"addSomeDriversButton: %@", self.addSomeDriversButton.titleLabel.font.fontName);
 }
 
 - (void)refreshDriversArray

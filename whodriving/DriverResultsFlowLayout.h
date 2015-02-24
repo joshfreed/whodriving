@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VerticalFlowLayout : UICollectionViewFlowLayout
+@interface DriverResultsFlowLayout : UICollectionViewFlowLayout
 
 @end
