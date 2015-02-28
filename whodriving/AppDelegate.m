@@ -7,9 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
-//
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#import "NumPeopleViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,14 +21,9 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     
     // Instantiate Root Navigation Controller
-    UINavigationController *rootNavigationController = (UINavigationController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"rootNavigationController"];
-    
-    // Configure View Controller
-    MainViewController *viewController = (MainViewController *)[rootNavigationController topViewController];
-    
-    if ([viewController isKindOfClass:[MainViewController class]]) {
-        [viewController setManagedObjectContext:self.managedObjectContext];
-    }
+    UINavigationController *rootNavigationController = (UINavigationController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"rootNavigationController2"];
+    NumPeopleViewController *vc = [rootNavigationController topViewController];
+    [vc setManagedObjectContext:self.managedObjectContext];
 
     [self.window setRootViewController:rootNavigationController];
 

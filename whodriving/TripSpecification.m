@@ -11,6 +11,13 @@
 
 @implementation TripSpecification
 
+-(id)init:(NSNumber*)passengerCount
+{
+    self = [super init];
+    self.passengerCount = passengerCount;
+    return self;
+}
+
 -(id)init:(NSNumber*)passengerCount possibleDrivers:(NSArray*)possibleDrivers
 {
     self = [super init];

@@ -13,7 +13,8 @@
 @property NSNumber *passengerCount;
 @property NSArray *possibleDrivers;
 
--(id)init:(NSNumber*)passengerCount possibleDrivers:(NSArray*)possibleDrivers;
--(bool)isSatisfiedBy:(NSArray*)driverSet;
+- (id)init:(NSNumber*)passengerCount;
+- (id)init:(NSNumber*)passengerCount possibleDrivers:(NSArray*)possibleDrivers;
+- (bool)isSatisfiedBy:(NSArray*)driverSet;
 
 @end

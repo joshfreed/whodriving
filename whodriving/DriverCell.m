@@ -17,11 +17,13 @@
 
 @implementation DriverCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     self.driverName.delegate = self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
@@ -103,6 +105,5 @@
 {
     self.parentTableView.activeTextField = nil;
 }
-
 
 @end

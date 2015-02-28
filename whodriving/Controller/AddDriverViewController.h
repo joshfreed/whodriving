@@ -1,5 +1,5 @@
 //
-//  DriversTableViewController.h
+//  AddDriverViewController.h
 //  whodriving
 //
 //  Created by Josh Freed on 9/19/14.
@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface ManageDriversTableViewController : UITableViewController
-
+@interface AddDriverViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (weak) UITextField *activeTextField;
-
 @end

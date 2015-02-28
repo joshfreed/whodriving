@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Driver.h"
-#import "ManageDriversTableViewController.h"
+#import "PotentialDriversViewController.h"
 
 @interface DriverCell : UITableViewCell <UITextFieldDelegate>
 
 @property Driver *driver;
-@property (weak) ManageDriversTableViewController *parentTableView;
+@property (weak) PotentialDriversViewController *parentTableView;
 
 -(void)configure:(Driver*)driver;
 -(void)willDisplayCell;

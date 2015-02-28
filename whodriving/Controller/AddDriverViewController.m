@@ -17,9 +17,9 @@
 
 @implementation AddDriverViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     self.driverName.delegate = self;
     [self.driverName becomeFirstResponder];
@@ -27,13 +27,14 @@
     [ViewHelper setCustomFontForTextField:self.driverName fontName:@"Lato-Heavy"];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 // change to save button
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [self.driverName resignFirstResponder];
     if (sender != self.doneButton) {
@@ -74,15 +75,5 @@
 {
     return textField.text.length + (string.length - range.length) <= 30;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
