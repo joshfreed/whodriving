@@ -67,7 +67,7 @@
     self.bgView.layer.cornerRadius = 5;
     self.bgView.clipsToBounds = YES;
     
-    self.bgView.layer.borderWidth = 0;
+//    self.bgView.layer.borderWidth = 0;
     self.tableView.alpha = 0;
     self.noDriversBgColor.alpha = 1;
     self.nextButton.alpha = 0;
@@ -169,13 +169,13 @@
 {
     if (self.fetchedResultsController.fetchedObjects.count == 0) {
         [UIView animateWithDuration:0.2 animations:^{
-            self.bgView.layer.borderWidth = 0;
+//            self.bgView.layer.borderWidth = 0;
             self.tableView.alpha = 0;
             self.noDriversBgColor.alpha = 1;
             self.nextButton.alpha = 0;
         }];
     } else {
-        self.bgView.layer.borderWidth = 1;
+//        self.bgView.layer.borderWidth = 1;
         self.tableView.alpha = 1;
         self.noDriversBgColor.alpha = 0;
         self.nextButton.alpha = 1;
