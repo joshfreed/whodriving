@@ -67,11 +67,11 @@
     self.bgView.layer.cornerRadius = 5;
     self.bgView.clipsToBounds = YES;
     
-//    self.bgView.layer.borderWidth = 0;
     self.tableView.alpha = 0;
     self.noDriversBgColor.alpha = 1;
     self.nextButton.alpha = 0;
     [self toggleNoDriversDisplay];
+    [self checkForEnabledDrivers];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -169,16 +169,31 @@
 {
     if (self.fetchedResultsController.fetchedObjects.count == 0) {
         [UIView animateWithDuration:0.2 animations:^{
-//            self.bgView.layer.borderWidth = 0;
             self.tableView.alpha = 0;
             self.noDriversBgColor.alpha = 1;
             self.nextButton.alpha = 0;
         }];
     } else {
-//        self.bgView.layer.borderWidth = 1;
         self.tableView.alpha = 1;
         self.noDriversBgColor.alpha = 0;
         self.nextButton.alpha = 1;
+    }
+}
+
+- (void)checkForEnabledDrivers
+{
+    bool hasAtLeastOneEnabledDriver = NO;
+    for (Driver *driver in self.fetchedResultsController.fetchedObjects) {
+        if (driver.isEnabled) {
+            hasAtLeastOneEnabledDriver = YES;
+            break;
+        }
+    }
+    
+    if (hasAtLeastOneEnabledDriver) {
+        [UIView animateWithDuration:0.2 animations:^{ self.nextButton.alpha = 1; }];
+    } else {
+        [UIView animateWithDuration:0.2 animations:^{ self.nextButton.alpha = 0; }];
     }
 }
 
@@ -291,7 +306,7 @@
             break;
         }
         case NSFetchedResultsChangeUpdate: {
-            //            [self configureCell:(DriverCell *)[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self checkForEnabledDrivers];
             break;
         }
         case NSFetchedResultsChangeMove: {
