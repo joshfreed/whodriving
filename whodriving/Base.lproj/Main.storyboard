@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="819" y="123"/>
         </scene>
-        <!--Your Potential Drivers-->
+        <!--Possible Drivers-->
         <scene sceneID="jcO-0X-Blb">
             <objects>
                 <viewController id="G6R-Pg-EGh" customClass="PotentialDriversViewController" sceneMemberID="viewController">
@@ -366,7 +366,7 @@
                             <constraint firstItem="cw5-LV-f8e" firstAttribute="leading" secondItem="bNJ-oB-wDJ" secondAttribute="leadingMargin" id="yst-Ht-Z7n"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Your Potential Drivers" id="WSK-Dg-qNr">
+                    <navigationItem key="navigationItem" title="Possible Drivers" id="WSK-Dg-qNr">
                         <barButtonItem key="backBarButtonItem" title="Back" id="qeT-7k-Y79"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OeC-zI-uHf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -474,7 +474,7 @@
             </objects>
             <point key="canvasLocation" x="2324" y="-640"/>
         </scene>
-        <!--Here are your drivers!-->
+        <!--This is who is driving!-->
         <scene sceneID="SnV-j9-dXp">
             <objects>
                 <viewController id="65V-Sj-sdc" customClass="ResultsViewController" sceneMemberID="viewController">
@@ -629,7 +629,7 @@
                             <constraint firstItem="QVb-UQ-vXI" firstAttribute="leading" secondItem="AFW-LP-hFH" secondAttribute="leadingMargin" id="yRG-ra-fBs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Here are your drivers!" id="2B3-sp-ARL">
+                    <navigationItem key="navigationItem" title="This is who is driving!" id="2B3-sp-ARL">
                         <barButtonItem key="backBarButtonItem" title="Back" id="ZoL-OF-dzB"/>
                     </navigationItem>
                     <connections>

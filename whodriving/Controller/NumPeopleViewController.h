@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WelcomeView.h"
 
-@interface NumPeopleViewController : UIViewController
+@interface NumPeopleViewController : UIViewController<WelcomeViewDelegate>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end

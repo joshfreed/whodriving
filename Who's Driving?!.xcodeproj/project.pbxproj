@@ -14,6 +14,8 @@
 		53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53098A7D19CBE60E00274FEE /* Images.xcassets */; };
 		53098A8119CBE60E00274FEE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53098A7F19CBE60E00274FEE /* LaunchScreen.xib */; };
 		53098A8D19CBE60E00274FEE /* TripServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53098A8C19CBE60E00274FEE /* TripServiceTests.m */; };
+		530B380F1AA2480D0073AE89 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 530B380E1AA2480D0073AE89 /* WelcomeView.xib */; };
+		530B38121AA278450073AE89 /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530B38111AA278450073AE89 /* WelcomeView.m */; };
 		532D7F301AA0A3A300BDBB81 /* NumPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532D7F2F1AA0A3A300BDBB81 /* NumPeopleViewController.m */; };
 		532D7F331AA17CD200BDBB81 /* PotentialDriversViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532D7F321AA17CD200BDBB81 /* PotentialDriversViewController.m */; };
 		532E86CF1AA18D7000968912 /* AddDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532E86CE1AA18D7000968912 /* AddDriverViewController.m */; };
@@ -71,6 +73,9 @@
 		53098A8619CBE60E00274FEE /* whodrivingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whodrivingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53098A8B19CBE60E00274FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53098A8C19CBE60E00274FEE /* TripServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripServiceTests.m; sourceTree = "<group>"; };
+		530B380E1AA2480D0073AE89 /* WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
+		530B38101AA278450073AE89 /* WelcomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeView.h; path = View/WelcomeView.h; sourceTree = "<group>"; };
+		530B38111AA278450073AE89 /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeView.m; path = View/WelcomeView.m; sourceTree = "<group>"; };
 		532D7F2E1AA0A3A300BDBB81 /* NumPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumPeopleViewController.h; path = Controller/NumPeopleViewController.h; sourceTree = "<group>"; };
 		532D7F2F1AA0A3A300BDBB81 /* NumPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NumPeopleViewController.m; path = Controller/NumPeopleViewController.m; sourceTree = "<group>"; };
 		532D7F311AA17CD200BDBB81 /* PotentialDriversViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PotentialDriversViewController.h; path = Controller/PotentialDriversViewController.h; sourceTree = "<group>"; };
@@ -218,6 +223,9 @@
 				5344218F19E1C9D6001A179E /* DriverResultCollectionViewCell.m */,
 				539C265B1A8AD45200958609 /* DriverResultsFlowLayout.h */,
 				539C265C1A8AD45200958609 /* DriverResultsFlowLayout.m */,
+				530B380E1AA2480D0073AE89 /* WelcomeView.xib */,
+				530B38101AA278450073AE89 /* WelcomeView.h */,
+				530B38111AA278450073AE89 /* WelcomeView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -404,6 +412,7 @@
 				53D3BB7D19F8296A00BF17A2 /* Lato-Italic.ttf in Resources */,
 				53098A7E19CBE60E00274FEE /* Images.xcassets in Resources */,
 				53D3BB8519F8296A00BF17A2 /* Lato-Thin.ttf in Resources */,
+				530B380F1AA2480D0073AE89 /* WelcomeView.xib in Resources */,
 				53D3BB7F19F8296A00BF17A2 /* Lato-LightItalic.ttf in Resources */,
 				53D3BB8219F8296A00BF17A2 /* Lato-Regular.ttf in Resources */,
 			);
@@ -462,6 +471,7 @@
 				532D7F301AA0A3A300BDBB81 /* NumPeopleViewController.m in Sources */,
 				532D7F331AA17CD200BDBB81 /* PotentialDriversViewController.m in Sources */,
 				536B740419CE082B000F86D5 /* Driver.m in Sources */,
+				530B38121AA278450073AE89 /* WelcomeView.m in Sources */,
 				532E86CF1AA18D7000968912 /* AddDriverViewController.m in Sources */,
 				53B52E391A00713200C7D35B /* ViewHelper.m in Sources */,
 				53098A7619CBE60E00274FEE /* AppDelegate.m in Sources */,

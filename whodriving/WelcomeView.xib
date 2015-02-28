@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WelcomeView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cad-lH-zkO">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Going Somewhere?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="61D-MQ-xoB">
+                            <rect key="frame" x="8" y="8" width="584" height="45.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ConfusedJugglingGuy" translatesAutoresizingMaskIntoConstraints="NO" id="g9K-de-slp">
+                            <rect key="frame" x="150" y="77" width="300" height="300"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="g9K-de-slp" secondAttribute="height" multiplier="1:1" id="ay8-Da-CIh"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="When you have people traveling together" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkZ-cQ-MOQ">
+                            <rect key="frame" x="16" y="401" width="576" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="And more cars than you need to get everyone where you're going" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOw-m2-rr5">
+                            <rect key="frame" x="8" y="445" width="584" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="Anybody could drive. So..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5F-Q4-teR">
+                            <rect key="frame" x="203.5" y="488" width="192" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocm-qZ-b1C">
+                            <rect key="frame" x="8" y="532" width="584" height="60"/>
+                            <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="JfH-6Q-Agz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <state key="normal" title="Who's Driving?!">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="closeWindow:" destination="iN0-l3-epB" eventType="touchUpInside" id="J3e-CP-mMJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Ocm-qZ-b1C" firstAttribute="leading" secondItem="cad-lH-zkO" secondAttribute="leadingMargin" id="4Gy-Yd-mVX"/>
+                        <constraint firstItem="61D-MQ-xoB" firstAttribute="top" secondItem="cad-lH-zkO" secondAttribute="topMargin" id="CZ0-kQ-r8M"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="61D-MQ-xoB" secondAttribute="trailing" id="Fyc-CY-Ouy"/>
+                        <constraint firstItem="X5F-Q4-teR" firstAttribute="top" secondItem="tOw-m2-rr5" secondAttribute="bottom" constant="24" id="JAH-Wi-HDB"/>
+                        <constraint firstItem="tOw-m2-rr5" firstAttribute="top" secondItem="IkZ-cQ-MOQ" secondAttribute="bottom" constant="24" id="QEy-iC-ZV2"/>
+                        <constraint firstAttribute="centerX" secondItem="X5F-Q4-teR" secondAttribute="centerX" id="TeJ-rj-6v9"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="tOw-m2-rr5" secondAttribute="trailing" id="W0k-pj-la3"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="IkZ-cQ-MOQ" secondAttribute="trailing" id="Yw8-ZK-v6R"/>
+                        <constraint firstAttribute="centerX" secondItem="g9K-de-slp" secondAttribute="centerX" id="bHc-dc-eFv"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="Ocm-qZ-b1C" secondAttribute="trailing" id="ca5-fP-NdT"/>
+                        <constraint firstItem="Ocm-qZ-b1C" firstAttribute="top" secondItem="X5F-Q4-teR" secondAttribute="bottom" constant="24" id="dey-WW-QBW"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="Ocm-qZ-b1C" secondAttribute="bottom" id="e3E-5V-lmL"/>
+                        <constraint firstItem="IkZ-cQ-MOQ" firstAttribute="top" secondItem="g9K-de-slp" secondAttribute="bottom" constant="24" id="f6w-0U-4ZT"/>
+                        <constraint firstItem="g9K-de-slp" firstAttribute="top" secondItem="61D-MQ-xoB" secondAttribute="bottom" constant="24" id="i1u-0B-OZp"/>
+                        <constraint firstItem="61D-MQ-xoB" firstAttribute="leading" secondItem="cad-lH-zkO" secondAttribute="leadingMargin" id="mgT-bf-bQG"/>
+                        <constraint firstItem="tOw-m2-rr5" firstAttribute="leading" secondItem="cad-lH-zkO" secondAttribute="leadingMargin" id="nMW-0M-gBt"/>
+                        <constraint firstItem="g9K-de-slp" firstAttribute="width" relation="lessThanOrEqual" secondItem="cad-lH-zkO" secondAttribute="width" multiplier="0.55" id="ozq-XH-LGf"/>
+                        <constraint firstItem="IkZ-cQ-MOQ" firstAttribute="leading" secondItem="cad-lH-zkO" secondAttribute="leadingMargin" constant="8" id="r8f-Fp-uJw"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ozq-XH-LGf"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cad-lH-zkO" secondAttribute="bottom" id="655-e8-6g0"/>
+                <constraint firstItem="cad-lH-zkO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UZP-Tv-SxX"/>
+                <constraint firstItem="cad-lH-zkO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wk2-1t-c49"/>
+                <constraint firstAttribute="trailing" secondItem="cad-lH-zkO" secondAttribute="trailing" id="ewd-jQ-FPm"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="g9K-de-slp" id="Df3-1V-mJs"/>
+                <outlet property="label1" destination="61D-MQ-xoB" id="MYA-wC-sXE"/>
+                <outlet property="label2" destination="IkZ-cQ-MOQ" id="bX1-gC-OwH"/>
+                <outlet property="label3" destination="tOw-m2-rr5" id="gSE-dA-Hq0"/>
+                <outlet property="label4" destination="X5F-Q4-teR" id="ELv-Do-hn7"/>
+                <outlet property="theButton" destination="Ocm-qZ-b1C" id="oMA-pX-82x"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="ConfusedJugglingGuy" width="700" height="700"/>
+    </resources>
+</document>
