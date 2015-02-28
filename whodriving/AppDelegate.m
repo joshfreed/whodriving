@@ -27,12 +27,6 @@
 
     [self.window setRootViewController:rootNavigationController];
 
-//    rootNavigationController.navigationBar.tintColor = [UIColor whiteColor];
-
-//    [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Lato-Regular" size:18]}];
-    
-//    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Lato-Regular" size:20]} forState:UIControlStateNormal];
-    
     return YES;
 }
 
