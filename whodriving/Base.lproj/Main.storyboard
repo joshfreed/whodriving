@@ -234,7 +234,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="passengers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ffA-Rg-NvT">
-                                                    <rect key="frame" x="499" y="53" width="68" height="14.5"/>
+                                                    <rect key="frame" x="499" y="53" width="68" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="68" id="jE4-e2-7t8"/>
                                                     </constraints>
@@ -296,7 +296,7 @@
                                                     </connections>
                                                 </button>
                                                 <view alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vcl-Zo-e0J" userLabel="Vertical Line">
-                                                    <rect key="frame" x="466" y="8" width="1" height="59.5"/>
+                                                    <rect key="frame" x="466" y="8" width="1" height="60"/>
                                                     <color key="backgroundColor" red="0.58431372550000005" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="NgW-1B-EHV"/>
@@ -533,7 +533,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="567.5" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="568" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-9H-Gjt">
@@ -567,10 +567,10 @@
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dc-Xe-4WQ" userLabel="Not Enough Drivers View">
-                                        <rect key="frame" x="0.0" y="155" width="568" height="108.5"/>
+                                        <rect key="frame" x="0.0" y="155" width="568" height="109"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have enough cars to carry everyone!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Ca-Bh-9AS">
-                                                <rect key="frame" x="0.0" y="20" width="568" height="31.5"/>
+                                                <rect key="frame" x="0.0" y="20" width="568" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
