@@ -49,6 +49,26 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.tableView.alpha = 0;
+    self.noDriversBgColor.alpha = 1;
+    self.nextButton.alpha = 0;
+    [self toggleNoDriversDisplay];
+    [self checkForEnabledDrivers];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        if (error) {
+            NSLog(@"Unable to save record.");
+            NSLog(@"%@, %@", error, error.localizedDescription);
+        }
+    }
+}
+
+- (void)viewDidLayoutSubviews
+{
     [ViewHelper setCustomFont:self.backButton.titleLabel fontName:@"Lato"];
     self.backButton.layer.cornerRadius = 5;
     self.backButton.clipsToBounds = YES;
@@ -66,23 +86,7 @@
     self.bgView.layer.borderColor = UIColorFromRGB(0x979797).CGColor;
     self.bgView.layer.cornerRadius = 5;
     self.bgView.clipsToBounds = YES;
-    
-    self.tableView.alpha = 0;
-    self.noDriversBgColor.alpha = 1;
-    self.nextButton.alpha = 0;
-    [self toggleNoDriversDisplay];
-    [self checkForEnabledDrivers];
-}
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
-        if (error) {
-            NSLog(@"Unable to save record.");
-            NSLog(@"%@, %@", error, error.localizedDescription);
-        }
-    }
 }
 
 - (void)didReceiveMemoryWarning

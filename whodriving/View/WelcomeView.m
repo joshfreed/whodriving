@@ -22,6 +22,11 @@
 
 - (void)awakeFromNib
 {
+
+}
+
+- (void)layoutSubviews
+{
     [ViewHelper setCustomFont:self.label1 fontName:@"Lato-Light"];
     [ViewHelper setCustomFont:self.label2 fontName:@"Lato-Light"];
     [ViewHelper setCustomFont:self.label3 fontName:@"Lato-Light"];

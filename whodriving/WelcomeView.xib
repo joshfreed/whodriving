@@ -21,6 +21,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="38"/>
                             <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            </variation>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ConfusedJugglingGuy" translatesAutoresizingMaskIntoConstraints="NO" id="g9K-de-slp">
                             <rect key="frame" x="150" y="77" width="300" height="300"/>
@@ -28,35 +31,49 @@
                                 <constraint firstAttribute="width" secondItem="g9K-de-slp" secondAttribute="height" multiplier="1:1" id="ay8-Da-CIh"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="When you have people traveling together" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkZ-cQ-MOQ">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="When you have people traveling together" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IkZ-cQ-MOQ">
                             <rect key="frame" x="16" y="401" width="576" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="And more cars than you need to get everyone where you're going" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOw-m2-rr5">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="And more cars than you need to get everyone where you're going" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tOw-m2-rr5">
                             <rect key="frame" x="8" y="445" width="584" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="Anybody could drive. So..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5F-Q4-teR">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="Anybody could drive. So..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="X5F-Q4-teR">
                             <rect key="frame" x="203.5" y="488" width="192" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            </variation>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocm-qZ-b1C">
                             <rect key="frame" x="8" y="532" width="584" height="60"/>
                             <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="60" id="JfH-6Q-Agz"/>
+                                <constraint firstAttribute="height" constant="60" id="JfH-6Q-Agz">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="80"/>
+                                </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <state key="normal" title="Who's Driving?!">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            </variation>
                             <connections>
                                 <action selector="closeWindow:" destination="iN0-l3-epB" eventType="touchUpInside" id="J3e-CP-mMJ"/>
                             </connections>
@@ -73,11 +90,15 @@
                         <constraint firstAttribute="trailingMargin" secondItem="tOw-m2-rr5" secondAttribute="trailing" id="W0k-pj-la3"/>
                         <constraint firstAttribute="trailingMargin" secondItem="IkZ-cQ-MOQ" secondAttribute="trailing" id="Yw8-ZK-v6R"/>
                         <constraint firstAttribute="centerX" secondItem="g9K-de-slp" secondAttribute="centerX" id="bHc-dc-eFv"/>
+                        <constraint firstItem="Ocm-qZ-b1C" firstAttribute="width" secondItem="cad-lH-zkO" secondAttribute="width" multiplier="0.666" id="cK4-aC-UcH"/>
                         <constraint firstAttribute="trailingMargin" secondItem="Ocm-qZ-b1C" secondAttribute="trailing" id="ca5-fP-NdT"/>
                         <constraint firstItem="Ocm-qZ-b1C" firstAttribute="top" secondItem="X5F-Q4-teR" secondAttribute="bottom" constant="24" id="dey-WW-QBW"/>
-                        <constraint firstAttribute="bottomMargin" secondItem="Ocm-qZ-b1C" secondAttribute="bottom" id="e3E-5V-lmL"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="Ocm-qZ-b1C" secondAttribute="bottom" id="e3E-5V-lmL">
+                            <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                        </constraint>
                         <constraint firstItem="IkZ-cQ-MOQ" firstAttribute="top" secondItem="g9K-de-slp" secondAttribute="bottom" constant="24" id="f6w-0U-4ZT"/>
                         <constraint firstItem="g9K-de-slp" firstAttribute="top" secondItem="61D-MQ-xoB" secondAttribute="bottom" constant="24" id="i1u-0B-OZp"/>
+                        <constraint firstAttribute="centerX" secondItem="Ocm-qZ-b1C" secondAttribute="centerX" id="mgM-gu-iSi"/>
                         <constraint firstItem="61D-MQ-xoB" firstAttribute="leading" secondItem="cad-lH-zkO" secondAttribute="leadingMargin" id="mgT-bf-bQG"/>
                         <constraint firstItem="tOw-m2-rr5" firstAttribute="leading" secondItem="cad-lH-zkO" secondAttribute="leadingMargin" id="nMW-0M-gBt"/>
                         <constraint firstItem="g9K-de-slp" firstAttribute="width" relation="lessThanOrEqual" secondItem="cad-lH-zkO" secondAttribute="width" multiplier="0.55" id="ozq-XH-LGf"/>
@@ -86,6 +107,16 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="ozq-XH-LGf"/>
+                            <exclude reference="cK4-aC-UcH"/>
+                            <exclude reference="mgM-gu-iSi"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <mask key="constraints">
+                            <exclude reference="4Gy-Yd-mVX"/>
+                            <include reference="cK4-aC-UcH"/>
+                            <exclude reference="ca5-fP-NdT"/>
+                            <include reference="mgM-gu-iSi"/>
                         </mask>
                     </variation>
                 </view>

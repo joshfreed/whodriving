@@ -43,6 +43,16 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self showLoadingScreen];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self doSearch];
+}
+
+- (void)viewDidLayoutSubviews
+{
     [ViewHelper setCustomFont:self.backButton.titleLabel fontName:@"Lato"];
     self.backButton.layer.cornerRadius = 5;
     self.backButton.clipsToBounds = YES;
@@ -50,13 +60,6 @@
     [ViewHelper setCustomFont:self.startOverButton.titleLabel fontName:@"Lato"];
     self.startOverButton.layer.cornerRadius = 5;
     self.startOverButton.clipsToBounds = YES;
-    
-    [self showLoadingScreen];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self doSearch];
 }
 
 - (void)didReceiveMemoryWarning

@@ -41,10 +41,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [ViewHelper setCustomFont:self.numPeopleLabel fontName:@"Lato"];
-    [ViewHelper setCustomFont:self.nextButton.titleLabel fontName:@"Lato"];
-    self.nextButton.layer.cornerRadius = 5;
-    self.nextButton.clipsToBounds = YES;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -70,7 +67,14 @@
             self.welcomeView.alpha = 1;
         }];
     }
-    
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [ViewHelper setCustomFont:self.numPeopleLabel fontName:@"Lato"];
+    [ViewHelper setCustomFont:self.nextButton.titleLabel fontName:@"Lato"];
+    self.nextButton.layer.cornerRadius = 5;
+    self.nextButton.clipsToBounds = YES;
     [ViewHelper makeRoundedView:self.numPeopleBgCircle];
     [ViewHelper setCustomFont:self.numPeopleCounter fontName:@"Lato-Black"];
 }
