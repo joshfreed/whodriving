@@ -52,8 +52,7 @@
     self.tableView.alpha = 0;
     self.noDriversBgColor.alpha = 1;
     self.nextButton.alpha = 0;
-    [self toggleNoDriversDisplay];
-    [self checkForEnabledDrivers];
+    [self displayAppropriateContentView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -169,7 +168,9 @@
     self.tableView.scrollIndicatorInsets = contentInsets;
 }
 
-- (void)toggleNoDriversDisplay
+// Looks at the state of the driver list and displays either the list or a "no drivers" message. Hides the "Next" button if the
+// list is not valid to allow continuing
+- (void)displayAppropriateContentView
 {
     if (self.fetchedResultsController.fetchedObjects.count == 0) {
         [UIView animateWithDuration:0.2 animations:^{
@@ -182,9 +183,15 @@
         self.noDriversBgColor.alpha = 0;
         self.nextButton.alpha = 1;
     }
+    
+    if ([self hasAtLeastOneEnabledDriver]) {
+        [UIView animateWithDuration:0.2 animations:^{ self.nextButton.alpha = 1; }];
+    } else {
+        [UIView animateWithDuration:0.2 animations:^{ self.nextButton.alpha = 0; }];
+    }
 }
 
-- (void)checkForEnabledDrivers
+- (bool)hasAtLeastOneEnabledDriver
 {
     bool hasAtLeastOneEnabledDriver = NO;
     for (Driver *driver in self.fetchedResultsController.fetchedObjects) {
@@ -195,10 +202,10 @@
     }
     
     if (hasAtLeastOneEnabledDriver) {
-        [UIView animateWithDuration:0.2 animations:^{ self.nextButton.alpha = 1; }];
-    } else {
-        [UIView animateWithDuration:0.2 animations:^{ self.nextButton.alpha = 0; }];
+        return YES;
     }
+    
+    return NO;
 }
 
 
@@ -301,16 +308,16 @@
     switch (type) {
         case NSFetchedResultsChangeInsert: {
             [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [self toggleNoDriversDisplay];
+            [self displayAppropriateContentView];
             break;
         }
         case NSFetchedResultsChangeDelete: {
             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [self toggleNoDriversDisplay];
+            [self displayAppropriateContentView];
             break;
         }
         case NSFetchedResultsChangeUpdate: {
-            [self checkForEnabledDrivers];
+            [self displayAppropriateContentView];
             break;
         }
         case NSFetchedResultsChangeMove: {
