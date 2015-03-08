@@ -46,6 +46,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [ViewHelper setCustomFont:self.numPeopleLabel fontName:@"Lato"];
+    [ViewHelper setCustomFont:self.nextButton.titleLabel fontName:@"Lato"];
+    self.nextButton.layer.cornerRadius = 5;
+    self.nextButton.clipsToBounds = YES;
+    [ViewHelper makeRoundedView:self.numPeopleBgCircle];
+    [ViewHelper setCustomFont:self.numPeopleCounter fontName:@"Lato-Black"];
+
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
     {
         UIView *parentView = [[UIApplication sharedApplication] keyWindow];
@@ -69,14 +76,8 @@
     }
 }
 
-- (void)viewDidLayoutSubviews
+- (void)viewWillLayoutSubviews
 {
-    [ViewHelper setCustomFont:self.numPeopleLabel fontName:@"Lato"];
-    [ViewHelper setCustomFont:self.nextButton.titleLabel fontName:@"Lato"];
-    self.nextButton.layer.cornerRadius = 5;
-    self.nextButton.clipsToBounds = YES;
-    [ViewHelper makeRoundedView:self.numPeopleBgCircle];
-    [ViewHelper setCustomFont:self.numPeopleCounter fontName:@"Lato-Black"];
 }
 
 - (void)didReceiveMemoryWarning
