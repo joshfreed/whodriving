@@ -11,28 +11,35 @@
 
 @implementation TripSpecification
 
--(id)init:(NSNumber*)passengerCount
-{
-    self = [super init];
-    self.passengerCount = passengerCount;
+- (id)init {
+    if (self = [super init]) {
+        self.passengerCount = 6;
+        self.possibleDrivers = [NSArray array];
+    }
     return self;
 }
 
--(id)init:(NSNumber*)passengerCount possibleDrivers:(NSArray*)possibleDrivers
-{
-    self = [super init];
-    self.passengerCount = passengerCount;
-    self.possibleDrivers = possibleDrivers;
-    return self;
+- (void)increasePersonCount {
+    self.passengerCount++;
+    if (self.passengerCount > 99) {
+        self.passengerCount = 99;
+    }
 }
 
--(bool)isSatisfiedBy:(NSArray*)driverSet
+- (void)decreasePersonCount {
+    self.passengerCount--;
+    if (self.passengerCount < 1) {
+        self.passengerCount = 1;
+    }
+}
+
+- (bool)isSatisfiedBy:(NSArray*)driverSet
 {
     int satisfiedPeople = 0;
     
     for (Driver *driver in driverSet) {
         satisfiedPeople += [driver.numPassengers intValue] + 1;
-        if (satisfiedPeople >= [self.passengerCount intValue]) {
+        if (satisfiedPeople >= self.passengerCount) {
             return YES;
         }
     }

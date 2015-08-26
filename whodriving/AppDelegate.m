@@ -17,6 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSArray* arguments = [[NSProcessInfo processInfo] arguments];
+    if ([arguments containsObject:@"RESET"]) {
+        [self reset];
+    }
+    if ([arguments containsObject:@"SKIP_WELCOME"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+    }
+    
     // Fetch Main Storyboard
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     
@@ -52,6 +60,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [self saveContext];
+}
+
+- (void)reset {
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"WhoDriving.sqlite"];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error: nil];
 }
 
 #pragma mark - Core Data stack
@@ -138,13 +152,12 @@
 }
 
 -(void) flushDatabase {
-//    [_managedObjectContext lock];
     NSArray *stores = [_persistentStoreCoordinator persistentStores];
-    for(NSPersistentStore *store in stores) {
+    for (NSPersistentStore *store in stores) {
         [_persistentStoreCoordinator removePersistentStore:store error:nil];
         [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
     }
-  //  [_managedObjectContext unlock];
+
     _managedObjectModel = nil;
     _managedObjectContext = nil;
     _persistentStoreCoordinator = nil;

@@ -54,6 +54,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s4K-Ax-Fg6">
                                         <rect key="frame" x="45" y="45" width="210" height="210"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="PersonCount"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="190"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>

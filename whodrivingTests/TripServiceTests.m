@@ -73,7 +73,9 @@
     [drivers addObject:driver1];
     [drivers addObject:driver2];
     [drivers addObject:driver3];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:@7 possibleDrivers:drivers];
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 7;
+    tripSpec.possibleDrivers = drivers;
     
     NSArray *allResultSets = [self.tripService getAllPossibleResults:tripSpec];
     
@@ -91,7 +93,9 @@
     [drivers addObject:driver1];
     [drivers addObject:driver2];
     [drivers addObject:driver3];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:@6 possibleDrivers:drivers];
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 6;
+    tripSpec.possibleDrivers = drivers;
     
     NSArray *allResultSets = [self.tripService getAllPossibleResults:tripSpec];
     
@@ -109,7 +113,10 @@
     [drivers addObject:driver1];
     [drivers addObject:driver2];
     [drivers addObject:driver3];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:@6 possibleDrivers:drivers];
+    
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 6;
+    tripSpec.possibleDrivers = drivers;
     
     // SUT
     NSArray *allResultSets = [self.tripService getAllPossibleResults:tripSpec];
@@ -135,7 +142,9 @@
     [drivers addObject:driver3];
     [drivers addObject:driver4];
     [drivers addObject:driver5];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:@7 possibleDrivers:drivers];
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 7;
+    tripSpec.possibleDrivers = drivers;
     
     // SUT
     NSArray *allResultSets = [self.tripService getAllPossibleResults:tripSpec];

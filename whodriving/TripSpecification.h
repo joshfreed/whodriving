@@ -10,11 +10,12 @@
 
 @interface TripSpecification : NSObject
 
-@property NSNumber *passengerCount;
+@property NSInteger passengerCount;
 @property NSArray *possibleDrivers;
 
-- (id)init:(NSNumber*)passengerCount;
-- (id)init:(NSNumber*)passengerCount possibleDrivers:(NSArray*)possibleDrivers;
+- (id)init;
+- (void)increasePersonCount;
+- (void)decreasePersonCount;
 - (bool)isSatisfiedBy:(NSArray*)driverSet;
 
 @end

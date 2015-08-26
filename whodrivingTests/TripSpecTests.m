@@ -45,7 +45,9 @@
 - (void)testIsNotSatisfiedBySetWithOneDriverWhoCanNotCarryEveryone
 {
     Driver *driver1 = [self buildDriver:@"Fred" withPassengerCount:@2];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:@6 possibleDrivers:[NSArray array]];
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 6;
+    tripSpec.possibleDrivers = [NSArray array];
     NSArray *driverSet = [NSArray arrayWithObjects:driver1, nil];
     
     XCTAssertFalse([tripSpec isSatisfiedBy:driverSet]);
@@ -56,7 +58,9 @@
     Driver *driver1 = [self buildDriver:@"Fred" withPassengerCount:@8];
     [self buildDriver:@"Larry" withPassengerCount:@2];
     [self buildDriver:@"Barry" withPassengerCount:@2];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:@6 possibleDrivers:[NSArray array]];
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 6;
+    tripSpec.possibleDrivers = [NSArray array];
     NSArray *driverSet = [NSArray arrayWithObjects:driver1, nil];
 
     XCTAssertTrue([tripSpec isSatisfiedBy:driverSet]);
@@ -66,7 +70,9 @@
 {
     Driver *driver1 = [self buildDriver:@"Fred" withPassengerCount:@2];
     Driver *driver2 = [self buildDriver:@"Larry" withPassengerCount:@2];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:@4 possibleDrivers:[NSArray array]];
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 4;
+    tripSpec.possibleDrivers = [NSArray array];
     NSArray *driverSet = [NSArray arrayWithObjects:driver1, driver2, nil];
     
     XCTAssertTrue([tripSpec isSatisfiedBy:driverSet]);
@@ -76,11 +82,52 @@
 {
     Driver *driver1 = [self buildDriver:@"Fred" withPassengerCount:@2];
     Driver *driver2 = [self buildDriver:@"Larry" withPassengerCount:@2];
-    TripSpecification *tripSpec = [[TripSpecification alloc] init:@8 possibleDrivers:[NSArray array]];
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 8;
+    tripSpec.possibleDrivers = [NSArray array];
     NSArray *driverSet = [NSArray arrayWithObjects:driver1, driver2, nil];
     
     XCTAssertFalse([tripSpec isSatisfiedBy:driverSet]);
 }
 
+- (void)testConstructNewTripSpec {
+    TripSpecification *tripSpec = [TripSpecification new];
+    XCTAssertEqual(6, tripSpec.passengerCount);
+    XCTAssertEqual([NSArray array], tripSpec.possibleDrivers);
+}
+
+- (void)testIncreasePersonCountByOne {
+    TripSpecification *tripSpec = [TripSpecification new];
+    
+    [tripSpec increasePersonCount];
+    
+    XCTAssertEqual(7, tripSpec.passengerCount);
+}
+
+- (void)testDoesNotIncreaseAbove99 {
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 99;
+    
+    [tripSpec increasePersonCount];
+    
+    XCTAssertEqual(99, tripSpec.passengerCount);
+}
+
+- (void)testDecreasePersonCountByOne {
+    TripSpecification *tripSpec = [TripSpecification new];
+    
+    [tripSpec decreasePersonCount];
+    
+    XCTAssertEqual(5, tripSpec.passengerCount);
+}
+
+- (void)testDoesNotGoBelowOne {
+    TripSpecification *tripSpec = [TripSpecification new];
+    tripSpec.passengerCount = 1;
+    
+    [tripSpec decreasePersonCount];
+    
+    XCTAssertEqual(1, tripSpec.passengerCount);
+}
 
 @end

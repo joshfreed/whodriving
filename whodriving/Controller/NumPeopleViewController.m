@@ -21,6 +21,7 @@
 
 @property WelcomeView *welcomeView;
 @property UIView *fadeView;
+@property TripSpecification *tripSpec;
 
 @end
 
@@ -30,6 +31,8 @@
 {
     [super viewDidLoad];
 
+    self.tripSpec = [TripSpecification new];
+    
     self.welcomeView = [[[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil] objectAtIndex:0];
     self.welcomeView.delegate = self;
     self.welcomeView.layer.cornerRadius = 5;
@@ -37,11 +40,6 @@
     
     self.fadeView = [[UIView alloc] initWithFrame:self.view.frame];
     self.fadeView.backgroundColor = [UIColor blackColor];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -76,10 +74,6 @@
     }
 }
 
-- (void)viewWillLayoutSubviews
-{
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -91,37 +85,20 @@
     if ([[segue identifier] isEqualToString:@"showPotentialDrivers"]) {
         PotentialDriversViewController *vc = [segue destinationViewController];
         vc.managedObjectContext = self.managedObjectContext;
-        vc.tripSpec = [[TripSpecification alloc] init:[self personCount]];
+        vc.tripSpec = self.tripSpec;
     }
-}
-
-- (NSNumber *)personCount
-{
-    return [NSNumber numberWithInteger:[self.numPeopleCounter.text integerValue]];
 }
 
 - (IBAction)increaseNumPeople:(UIButton *)sender
 {
-    NSInteger numPeople = [self.numPeopleCounter.text integerValue];
-    
-    numPeople++;
-    if (numPeople > 99) {
-        numPeople = 99;
-    }
-    
-    [self.numPeopleCounter setText:[NSString stringWithFormat:@"%ld", (long)numPeople]];
+    [self.tripSpec increasePersonCount];
+    [self.numPeopleCounter setText:[NSString stringWithFormat:@"%ld", (long)self.tripSpec.passengerCount]];
 }
 
 - (IBAction)decreaseNumPeople:(UIButton *)sender
 {
-    NSInteger numPeople = [self.numPeopleCounter.text integerValue];
-    
-    numPeople--;
-    if (numPeople < 1) {
-        numPeople = 1;
-    }
-    
-    [self.numPeopleCounter setText:[NSString stringWithFormat:@"%ld", (long)numPeople]];
+    [self.tripSpec decreasePersonCount];
+    [self.numPeopleCounter setText:[NSString stringWithFormat:@"%ld", (long)self.tripSpec.passengerCount]];
 }
 
 - (void)closeWelcomeView
