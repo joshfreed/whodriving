@@ -53,7 +53,7 @@
     if (passengerCount > 99) {
         passengerCount = 99;
     }
-    [self.numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
+    [self.numPassengers setText:[NSString stringWithFormat:@"%ld", (long)passengerCount]];
     [self.driver setPassengerCount:passengerCount];
 }
 
@@ -64,7 +64,7 @@
     if (passengerCount < 0) {
         passengerCount = 0;
     }
-    [self.numPassengers setText:[NSString stringWithFormat:@"%d", passengerCount]];
+    [self.numPassengers setText:[NSString stringWithFormat:@"%ld", (long)passengerCount]];
     [self.driver setPassengerCount:passengerCount];
 }
 

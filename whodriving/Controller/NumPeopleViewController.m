@@ -109,7 +109,7 @@
         numPeople = 99;
     }
     
-    [self.numPeopleCounter setText:[NSString stringWithFormat:@"%d", numPeople]];
+    [self.numPeopleCounter setText:[NSString stringWithFormat:@"%ld", (long)numPeople]];
 }
 
 - (IBAction)decreaseNumPeople:(UIButton *)sender
@@ -121,7 +121,7 @@
         numPeople = 1;
     }
     
-    [self.numPeopleCounter setText:[NSString stringWithFormat:@"%d", numPeople]];
+    [self.numPeopleCounter setText:[NSString stringWithFormat:@"%ld", (long)numPeople]];
 }
 
 - (void)closeWelcomeView

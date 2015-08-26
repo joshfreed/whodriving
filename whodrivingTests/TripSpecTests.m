@@ -54,8 +54,8 @@
 - (void)testIsSatisfiedBySetWithOneDriverWhoCanCarryEveryone
 {
     Driver *driver1 = [self buildDriver:@"Fred" withPassengerCount:@8];
-    Driver *driver2 = [self buildDriver:@"Larry" withPassengerCount:@2];
-    Driver *driver3 = [self buildDriver:@"Barry" withPassengerCount:@2];
+    [self buildDriver:@"Larry" withPassengerCount:@2];
+    [self buildDriver:@"Barry" withPassengerCount:@2];
     TripSpecification *tripSpec = [[TripSpecification alloc] init:@6 possibleDrivers:[NSArray array]];
     NSArray *driverSet = [NSArray arrayWithObjects:driver1, nil];
 

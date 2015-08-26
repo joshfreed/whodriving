@@ -22,7 +22,7 @@
     
     // Instantiate Root Navigation Controller
     UINavigationController *rootNavigationController = (UINavigationController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"rootNavigationController2"];
-    NumPeopleViewController *vc = [rootNavigationController topViewController];
+    NumPeopleViewController *vc = (NumPeopleViewController *)[rootNavigationController topViewController];
     [vc setManagedObjectContext:self.managedObjectContext];
 
     [self.window setRootViewController:rootNavigationController];

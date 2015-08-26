@@ -126,7 +126,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showAddDriver"]) {
         UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
-        AddDriverViewController *vc = [navigationController topViewController];
+        AddDriverViewController *vc = (AddDriverViewController *)[navigationController topViewController];
         vc.managedObjectContext = self.managedObjectContext;
     } else if ([[segue identifier] isEqualToString:@"showResults"]) {
         ResultsViewController *vc = segue.destinationViewController;
